@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Flashcard Kanji N4</title>
   <style>
     body {
@@ -88,7 +88,6 @@
       height: 100%;
     }
 
-
     .buttons {
       display: flex;
       justify-content: center;
@@ -105,15 +104,62 @@
       border-radius: 8px;
       cursor: pointer;
     }
-     h1, h5 {
+
+    h1, h5 {
       margin: 12px;
+    }
+
+    table {
+      margin: auto;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f2f2f2;
+    }
+
+    select {
+      font-size: 16px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin: 0 5px;
+    }
+
+    #range-selectors {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
   </style>
 </head>
 <body>
-  <h1 style="color: #B76E33;","margin-bottom: 0px;">Flashcard Kanji JLPT N4</h1>
-  <h5 "margin-top: 0px;">Follow Tiktok dan Instagram @benkyoushiyo.id</h5>
-  <div class="container">
+  <h1 style="color: #B76E33;">Flashcard Kanji JLPT N4</h1>
+  <h5 style="color: #‹E44F73;">Follow Tiktok dan Instagram @benkyoushiyo.id</h5>
+
+  <div class="container" id="flashcard-container">
+
+    <button onclick="showDaftarKanji()" style="margin-bottom: 10px;">📖 Lihat Daftar Kanji</button>
+<br /><br />
+    <div id="range-selectors">
+      <label for="start-kanji">Mulai Kanji ke:</label>
+      <select id="start-kanji"></select>
+
+      <label for="end-kanji">Sampai Kanji ke:</label>
+      <select id="end-kanji"></select>
+    </div>
+
     <div class="card" id="card">
       <div class="card-inner" id="card-inner">
         <div class="card-front">
@@ -125,51 +171,1821 @@
         </div>
       </div>
     </div>
-    <br>
-    <br>
+
+    <br /><br />
     <div class="buttons">
-      <button onclick="prevCard()">Sebelumnya</button>
-      <button onclick="flipCard()">Balik Kartu</button>
-      <button onclick="nextCard()">Selanjutnya</button>
+      <button onclick="prevCard()">⬅️Sebelumnya</button>
+      <button onclick="flipCard()">✨Balik Kartu✨</button>
+      <button onclick="nextCard()">Selanjutnya➡️</button>
     </div>
   </div>
-  <script>
-    const flashcards = [
-      {
-        kanji: "親",
-        contohDepan: ["1. 親", "2. 親しい", "3. 親切"],
-        contohBelakang: [
-          "1. 親：おや — orang tua",
-          "2. 親しい：したしい — akrab",
-          "3. 親切：しんせつ — baik hati"
-        ]
-      },
-      {
-        kanji: "兄",
-        contohDepan: ["1. 兄", "2. お兄さん", "3. 兄弟"],
-        contohBelakang: [
-          "1. 兄：あに — kakak laki-laki",
-          "2. お兄さん：おにいさん — kakak laki-laki (sopan)",
-          "3. 兄弟：きょうだい — saudara kandung"
-        ]
-      },
-      {
-        kanji: "姉",
-        contohDepan: ["1. 姉", "2. お姉さん"],
-        contohBelakang: [
-          "1. 姉：あね — kakak perempuan",
-          "2. お姉さん：おねえさん — kakak perempuan (sopan)"
-        ]
-      }
-    ];
 
+  <div id="kanji-page" style="display: none; padding-top: 10px;">
+    <button onclick="backToFlashcards()" style="margin-top: 0px;">⬅️ Kembali ke Flashcard</button>
+    <h2>Daftar Kanji</h2>
+    <div id="kanji-table"></div>
+  </div>
+
+  <script>
+    // Contoh data, nanti ganti ke 185 kanji sesuai kebutuhan
+    const flashcards = [
+  {
+    "kanji": "親",
+    "contohDepan": ["1. 親", "2. 親しい", "3. 親切"],
+    "contohBelakang": [
+      "1. 親：おや — orang tua",
+      "2. 親しい：したしい — akrab",
+      "3. 親切：しんせつ — baik hati"
+    ]
+  },
+  {
+    "kanji": "兄",
+    "contohDepan": ["1. 兄", "2. お兄さん", "3. 兄弟"],
+    "contohBelakang": [
+      "1. 兄：あに — kakak laki-laki",
+      "2. お兄さん：おにいさん — kakak laki-laki (sopan)",
+      "3. 兄弟：きょうだい — saudara kandung"
+    ]
+  },
+  {
+    "kanji": "姉",
+    "contohDepan": ["1. 姉", "2. お姉さん"],
+    "contohBelakang": [
+      "1. 姉：あね — kakak perempuan",
+      "2. お姉さん：おねえさん — kakak perempuan (sopan)"
+    ]
+  },
+  {
+    "kanji": "弟",
+    "contohDepan": ["1. 弟", "2. 兄弟"],
+    "contohBelakang": [
+      "1. 弟：おとうと — adik laki-laki",
+      "2. 兄弟：きょうだい — saudara kandung"
+    ]
+  },
+  {
+    "kanji": "妹",
+    "contohDepan": ["1. 妹", "2. 妹さん"],
+    "contohBelakang": [
+      "1. 妹：いもうと — adik perempuan",
+      "2. 妹さん：いもうとさん — adik perempuan (sopan)"
+    ]
+  },
+  {
+    "kanji": "夕",
+    "contohDepan": ["1. 夕べ", "2. 夕方", "3. 夕食"],
+    "contohBelakang": [
+      "1. 夕べ：ゆうべ — semalam",
+      "2. 夕方：ゆうがた — sore hari",
+      "3. 夕食：ゆうしょく — makan malam"
+    ]
+  },
+  {
+    "kanji": "夜",
+    "contohDepan": ["1. 夜", "2. 今夜", "3. 夜中"],
+    "contohBelakang": [
+      "1. 夜：よる — malam",
+      "2. 今夜：こんや — malam ini",
+      "3. 夜中：よなか — tengah malam"
+    ]
+  },
+  {
+    "kanji": "朝",
+    "contohDepan": ["1. 朝", "2. 毎朝", "3. 朝食/朝ご飯"],
+    "contohBelakang": [
+      "1. 朝：あさ — pagi",
+      "2. 毎朝：まいあさ — setiap pagi",
+      "3. 朝食/朝ご飯：ちょうしょく／あさごはん — sarapan"
+    ]
+  },
+  {
+    "kanji": "昼",
+    "contohDepan": ["1. 昼", "2. 昼間", "3. 昼食/昼ご飯"],
+    "contohBelakang": [
+      "1. 昼：ひる — siang",
+      "2. 昼間：ひるま — waktu siang",
+      "3. 昼食/昼ご飯：ちゅうしょく/ひるごはん — makan siang"
+    ]
+  },
+  {
+    "kanji": "冬",
+    "contohDepan": ["1. 冬"],
+    "contohBelakang": [
+      "1. 冬：ふゆ — musim dingin"
+    ]
+  },
+  {
+    "kanji": "春",
+    "contohDepan": ["1. 春"],
+    "contohBelakang": [
+      "1. 春：はる — musim semi"
+    ]
+  },
+  {
+    "kanji": "夏",
+    "contohDepan": ["1. 夏"],
+    "contohBelakang": [
+      "1. 夏：なつ — musim panas"
+    ]
+  },
+  {
+    "kanji": "秋",
+    "contohDepan": ["1. 秋"],
+    "contohBelakang": [
+      "1. 秋：あき — musim gugur"
+    ]
+  },
+  {
+    "kanji": "色",
+    "contohDepan": ["1. 色", "2. 景色", "3. 色々"],
+    "contohBelakang": [
+      "1. 色：いろ — warna",
+      "2. 景色：けしき — pemandangan",
+      "3. 色々：いろいろ — berbagai macam"
+    ]
+  },
+  {
+    "kanji": "赤",
+    "contohDepan": ["1. 赤い", "2. 赤ちゃん"],
+    "contohBelakang": [
+      "1. 赤い：あかい — merah",
+      "2. 赤ちゃん：あかちゃん — bayi"
+    ]
+  },
+  {
+    "kanji": "黒",
+    "contohDepan": ["1. 黒", "2. 白黒"],
+    "contohBelakang": [
+      "1. 黒：くろ — hitam",
+      "2. 白黒：しろくろ — hitam putih"
+    ]
+  },
+  {
+    "kanji": "青",
+    "contohDepan": ["1. 青", "2. 青空"],
+    "contohBelakang": [
+      "1. 青：あお — biru",
+      "2. 青空：あおぞら — langit biru"
+    ]
+  },
+  {
+    "kanji": "茶",
+    "contohDepan": ["1. お茶", "2. 茶色"],
+    "contohBelakang": [
+      "1. お茶：おちゃ — teh",
+      "2. 茶色：ちゃいろ — cokelat"
+    ]
+  },
+  {
+    "kanji": "明",
+    "contohDepan": ["1. 明るい", "2. 説明", "3. 明日"],
+    "contohBelakang": [
+      "1. 明るい：あかるい — cerah",
+      "2. 説明：せつめい — penjelasan",
+      "3. 明日：あした — besok"
+    ]
+  },
+  {
+    "kanji": "曜",
+    "contohDepan": ["1. 曜日", "2. 木曜日", "3. 火曜日"],
+    "contohBelakang": [
+      "1. 曜日：ようび — hari dalam minggu",
+      "2. 木曜日：もくようび — Kamis",
+      "3. 火曜日：かようび — Selasa"
+    ]
+  },
+  {
+    "kanji": "去",
+    "contohDepan": ["1. 去年", "2. 過去", "3. 去る"],
+    "contohBelakang": [
+      "1. 去年：きょねん — tahun lalu",
+      "2. 過去：かこ — masa lalu",
+      "3. 去る：さる — meninggalkan"
+    ]
+  },
+  {
+    "kanji": "度",
+    "contohDepan": ["1. 一度", "2. 温度", "3. 今度"],
+    "contohBelakang": [
+      "1. 一度：いちど — satu kali",
+      "2. 温度：おんど — suhu",
+      "3. 今度：こんど — saat ini"
+    ]
+  },
+  {
+    "kanji": "家",
+    "contohDepan": ["1. 家", "2. 家族", "3. 家事"],
+    "contohBelakang": [
+      "1. 家：いえ — rumah",
+      "2. 家族：かぞく — keluarga",
+      "3. 家事：かじ — pekerjaan rumah"
+    ]
+  },
+  {
+    "kanji": "族",
+    "contohDepan": ["1. 家族", "2. 水族館"],
+    "contohBelakang": [
+      "1. 家族：かぞく — keluarga",
+      "2. 水族館：すいぞくかん — aquarium"
+    ]
+  },
+  {
+    "kanji": "元",
+    "contohDepan": ["1. 元気", "2. 元", "3. 元々"],
+    "contohBelakang": [
+      "1. 元気：げんき — sehat",
+      "2. 元：もと — asal/orisinal/eks-",
+      "3. 元々：もともと — sejak awal"
+    ]
+  },
+  {
+    "kanji": "不",
+    "contohDepan": ["1. 不足", "2. 不便", "3. 不安"],
+    "contohBelakang": [
+      "1. 不足：ふそく — tidak cukup",
+      "2. 不便：ふべん — tidak praktis",
+      "3. 不安：ふあん — rasa gelisah"
+    ]
+  },
+  {
+    "kanji": "以",
+    "contohDepan": ["1. 以上", "2. 以下", "3. 以外"],
+    "contohBelakang": [
+      "1. 以上：いじょう — lebih dari",
+      "2. 以下：いか — kurang dari",
+      "3. 以外：いがい — selain"
+    ]
+  },
+  {
+    "kanji": "世",
+    "contohDepan": ["1. 世の中", "2. 世界", "3. 世話"],
+    "contohBelakang": [
+      "1. 世の中：よのなか — masyarakat",
+      "2. 世界：せかい — dunia",
+      "3. 世話：せわ — bantuan/perawatan"
+    ]
+  },
+  {
+    "kanji": "主",
+    "contohDepan": ["1. 主に", "2. 主人", "3. 飼い主"],
+    "contohBelakang": [
+      "1. 主に：おもに — terutama",
+      "2. 主人：しゅじん — suami/tuan rumah",
+      "3. 飼い主：かいぬし — pemilik hewan"
+    ]
+  },
+  {
+    "kanji": "体",
+    "contohDepan": ["1. 体", "2. 体力", "3. 体重"],
+    "contohBelakang": [
+      "1. 体：からだ — tubuh",
+      "2. 体力：たいりょく — stamina",
+      "3. 体重：たいじゅう — berat badan"
+    ]
+  },
+  {
+    "kanji": "心",
+    "contohDepan": ["1. 心", "2. 熱心", "3. 安心"],
+    "contohBelakang": [
+      "1. 心：こころ — hati/perasaan",
+      "2. 熱心：ねっしん — semangat/antusias",
+      "3. 安心：あんしん — tenang"
+    ]
+  },
+  {
+    "kanji": "風",
+    "contohDepan": ["1. 風", "2. 台風", "3. 洋風"],
+    "contohBelakang": [
+      "1. 風：かぜ — angin",
+      "2. 台風：たいふう — topan",
+      "3. 洋風：ようふう — gaya barat"
+    ]
+  },
+  {
+    "kanji": "銀",
+    "contohDepan": ["1. 銀行", "2. 銀行員", "3. 銀色"],
+    "contohBelakang": [
+      "1. 銀行：ぎんこう — bank",
+      "2. 銀行員：ぎんこういん — pegawai bank",
+      "3. 銀色：ぎんいろ — warna perak"
+    ]
+  },
+  {
+    "kanji": "牛",
+    "contohDepan": ["1. 牛", "2. 牛肉"],
+    "contohBelakang": [
+      "1. 牛：うし — sapi",
+      "2. 牛肉：ぎゅうにく — daging sapi"
+    ]
+  },
+  {
+    "kanji": "肉",
+    "contohDepan": ["1. 肉", "2. 牛肉", "3. 肉屋"],
+    "contohBelakang": [
+      "1. 肉：にく — daging",
+      "2. 牛肉：ぎゅうにく — daging sapi",
+      "3. 肉屋：にくや — tukang daging"
+    ]
+  },
+  {
+    "kanji": "鳥",
+    "contohDepan": ["1. 鳥", "2. 鶏肉"],
+    "contohBelakang": [
+      "1. 鳥：とり — burung",
+      "2. 鶏肉：とりにく — ayam"
+    ]
+  },
+  {
+    "kanji": "味",
+    "contohDepan": ["1. 味", "2. 意味"],
+    "contohBelakang": [
+      "1. 味：あじ — rasa",
+      "2. 意味：いみ — arti"
+    ]
+  },
+  {
+    "kanji": "飯",
+    "contohDepan": ["1. 夕飯", "2. ご飯", "3. 朝ご飯"],
+    "contohBelakang": [
+      "1. 夕飯：ゆうはん — makan malam",
+      "2. ご飯：ごはん — nasi/makanan",
+      "3. 朝ご飯：あさごはん — sarapan"
+    ]
+  },
+  {
+    "kanji": "室",
+    "contohDepan": ["1. 教室", "2. 会議室"],
+    "contohBelakang": [
+      "1. 教室：きょうしつ — ruang kelas",
+      "2. 会議室：かいぎしつ — ruang rapat"
+    ]
+  },
+  {
+    "kanji": "通",
+    "contohDepan": ["1. 通う", "2. 通る", "3. 通り"],
+    "contohBelakang": [
+      "1. 通う：かよう — pergi secara rutin",
+      "2. 通る：とおる — melewati",
+      "3. 通り：とおり — jalan"
+    ]
+  },
+  {
+    "kanji": "員",
+    "contohDepan": ["1. 店員", "2. 工員"],
+    "contohBelakang": [
+      "1. 店員：てんいん — pegawai toko",
+      "2. 工員：こういん — buruh pabrik"
+    ]
+  },
+  {
+    "kanji": "犬",
+    "contohDepan": ["1. 犬"],
+    "contohBelakang": [
+      "1. 犬：いぬ — anjing"
+    ]
+  },
+  {
+    "kanji": "歌",
+    "contohDepan": ["1. 歌", "2. 歌う", "3. 歌手"],
+    "contohBelakang": [
+      "1. 歌：うた — lagu",
+      "2. 歌う：うたう — menyanyi",
+      "3. 歌手：かしゅ — penyanyi"
+    ]
+  },
+  {
+    "kanji": "音",
+    "contohDepan": ["1. 音楽", "2. 音", "3. 足音"],
+    "contohBelakang": [
+      "1. 音楽：おんがく — musik",
+      "2. 音：おと — suara",
+      "3. 足音：あしおと — suara langkah"
+    ]
+  },
+  {
+    "kanji": "声",
+    "contohDepan": ["1. 声", "2. 小声"],
+    "contohBelakang": [
+      "1. 声：こえ — suara (makhluk hidup)",
+      "2. 小声：こごえ — suara pelan"
+    ]
+  },
+  {
+    "kanji": "文",
+    "contohDepan": ["1. 文化", "2. 注文"],
+    "contohBelakang": [
+      "1. 文化：ぶんか — budaya",
+      "2. 注文：ちゅうもん — pesan"
+    ]
+  },
+  {
+    "kanji": "服",
+    "contohDepan": ["1. 服", "2. 洋服"],
+    "contohBelakang": [
+      "1. 服：ふく — pakaian",
+      "2. 洋服：ようふく — pakaian barat"
+    ]
+  },
+  {
+    "kanji": "医",
+    "contohDepan": ["1. 医者", "2. 医学"],
+    "contohBelakang": [
+      "1. 医者：いしゃ — dokter",
+      "2. 医学：いがく — ilmu kedokteran"
+    ]
+  },
+  {
+    "kanji": "旅",
+    "contohDepan": ["1. 旅", "2. 旅行", "3. 旅館"],
+    "contohBelakang": [
+      "1. 旅：たび — perjalanan",
+      "2. 旅行：りょこう — wisata",
+      "3. 旅館：りょかん — penginapan tradisional"
+    ]
+  },
+  {
+    "kanji": "屋",
+    "contohDepan": ["1. 部屋", "2. 屋", "3. 本屋"],
+    "contohBelakang": [
+      "1. 部屋：へや — kamar/ruangan",
+      "2. 屋：おく — bangunan",
+      "3. 本屋：ほんや — toko buku"
+    ]
+  },
+  {
+    "kanji": "英",
+    "contohDepan": ["1. 英語", "2. 英文"],
+    "contohBelakang": [
+      "1. 英語：えいご — bahasa Inggris",
+      "2. 英文：えいぶん — kalimat Inggris"
+    ]
+  },
+  {
+    "kanji": "字",
+    "contohDepan": ["1. 漢字", "2. 名字", "3. ローマ字"],
+    "contohBelakang": [
+      "1. 漢字：かんじ — kanji",
+      "2. 名字：みょうじ — nama keluarga",
+      "3. ローマ字：ローマじ — huruf Romaji (alfabet Latin)"
+    ]
+  },
+  {
+    "kanji": "漢",
+    "contohDepan": ["1. 漢字"],
+    "contohBelakang": [
+      "1. 漢字：かんじ — kanji"
+    ]
+  },
+  {
+    "kanji": "用",
+    "contohDepan": ["1. 用", "2. 用意", "3. 用事"],
+    "contohBelakang": [
+      "1. 用：よう — penggunaan",
+      "2. 用意：ようい — mempersiapkan",
+      "3. 用事：ようじ — urusan"
+    ]
+  },
+  {
+    "kanji": "院",
+    "contohDepan": ["1. 病院", "2. 入院", "3. 大学院"],
+    "contohBelakang": [
+      "1. 病院：びょういん — rumah sakit",
+      "2. 入院：にゅういん — opname/masuk rumah sakit",
+      "3. 大学院：だいがくいん — pasca sarjana"
+    ]
+  },
+  {
+    "kanji": "仕",
+    "contohDepan": ["1. 仕える", "2. 仕事", "3. 仕方"],
+    "contohBelakang": [
+      "1. 仕える：つかえる — mengabdi",
+      "2. 仕事：しごと — pekerjaan",
+      "3. 仕方：しかた — cara"
+    ]
+  },
+  {
+    "kanji": "事",
+    "contohDepan": ["1. 仕事", "2. 火事", "3. 食事"],
+    "contohBelakang": [
+      "1. 仕事：しごと — pekerjaan",
+      "2. 火事：かじ — kebakaran",
+      "3. 食事：しょくじ — makan"
+    ]
+  },
+  {
+    "kanji": "便",
+    "contohDepan": ["1. 便り", "2. 便利", "3. 郵便局"],
+    "contohBelakang": [
+      "1. 便り：たより — kabar",
+      "2. 便利：べんり — praktis",
+      "3. 郵便局：ゆうびんきょく — kantor pos"
+    ]
+  },
+  {
+    "kanji": "使",
+    "contohDepan": ["1. 使う", "2. 使い方"],
+    "contohBelakang": [
+      "1. 使う：つかう — menggunakan",
+      "2. 使い方：つかいかた — cara pakai"
+    ]
+  },
+  {
+    "kanji": "作",
+    "contohDepan": ["1. 作る", "2. 作家"],
+    "contohBelakang": [
+      "1. 作る：つくる — membuat",
+      "2. 作家：さっか — penulis"
+    ]
+  },
+  {
+    "kanji": "建",
+    "contohDepan": ["1. 建てる", "2. 建つ", "3. 建物"],
+    "contohBelakang": [
+      "1. 建てる：たてる — membangun",
+      "2. 建つ：たつ — terbangun",
+      "3. 建物：たてもの — bangunan"
+    ]
+  },
+  {
+    "kanji": "物",
+    "contohDepan": ["1. 本物", "2. 建物", "3. 動物"],
+    "contohBelakang": [
+      "1. 本物：ほんもの — benda asli",
+      "2. 建物：たてもの — bangunan",
+      "3. 動物：どうぶつ — binatang"
+    ]
+  },
+  {
+    "kanji": "海",
+    "contohDepan": ["1. 海", "2. 海外", "3. 北海道"],
+    "contohBelakang": [
+      "1. 海：うみ — laut",
+      "2. 海外：かいがい — luar negeri",
+      "3. 北海道：ほっかいどう — Hokkaido"
+    ]
+  },
+  {
+    "kanji": "堂",
+    "contohDepan": ["1. 堂", "2. 食堂"],
+    "contohBelakang": [
+      "1. 堂：どう — aula",
+      "2. 食堂：しょくどう — kantin"
+    ]
+  },
+  {
+    "kanji": "所",
+    "contohDepan": ["1. 所", "2. 住所", "3. 台所"],
+    "contohBelakang": [
+      "1. 所：ところ — tempat",
+      "2. 住所：じゅうしょ — alamat",
+      "3. 台所：だいどころ — dapur"
+    ]
+  },
+  {
+    "kanji": "場",
+    "contohDepan": ["1. 場所", "2. 工場", "3. 広場"],
+    "contohBelakang": [
+      "1. 場所：ばしょ — tempat",
+      "2. 工場：こうじょう — pabrik",
+      "3. 広場：ひろば — alun-alun"
+    ]
+  },
+  {
+    "kanji": "県",
+    "contohDepan": ["1. 県", "2. 県内", "3. 県外"],
+    "contohBelakang": [
+      "1. 県：けん — prefektur",
+      "2. 県内：けんない — dalam prefektur",
+      "3. 県外：けんがい — luar prefektur"
+    ]
+  },
+  {
+    "kanji": "町",
+    "contohDepan": ["1. 町"],
+    "contohBelakang": [
+      "1. 町：まち — kota kecil"
+    ]
+  },
+  {
+    "kanji": "市",
+    "contohDepan": ["1. 市", "2. 市場", "3. 市民"],
+    "contohBelakang": [
+      "1. 市：し — kota besar",
+      "2. 市場：いちば／しじょう — pasar",
+      "3. 市民：しみん — warga kota"
+    ]
+  },
+  {
+    "kanji": "都",
+    "contohDepan": ["1. 都", "2. 京都", "3. 都会"],
+    "contohBelakang": [
+      "1. 都：みやこ — ibu kota",
+      "2. 京都：きょうと — Kyoto",
+      "3. 都会：とかい — kota besar"
+    ]
+  },
+  {
+    "kanji": "区",
+    "contohDepan": ["1. 区", "2. 区別"],
+    "contohBelakang": [
+      "1. 区：く — distrik",
+      "2. 区別：くべつ — membedakan"
+    ]
+  },
+  {
+    "kanji": "京",
+    "contohDepan": ["1. 京", "2. 東京", "3. 京都"],
+    "contohBelakang": [
+      "1. 京：きょう — ibu kota",
+      "2. 東京：とうきょう — Tokyo",
+      "3. 京都：きょうと — Kyoto"
+    ]
+  },
+  {
+    "kanji": "台",
+    "contohDepan": ["1. 台", "2. 台所"],
+    "contohBelakang": [
+      "1. 台：だい — alas/podium",
+      "2. 台所：だいどころ — dapur"
+    ]
+  },
+  {
+    "kanji": "地",
+    "contohDepan": ["1. 地", "2. 地下", "3. 地図"],
+    "contohBelakang": [
+      "1. 地：ち — tanah",
+      "2. 地下：ちか — bawah tanah",
+      "3. 地図：ちず — peta"
+    ]
+  },
+  {
+    "kanji": "寺",
+    "contohDepan": ["1. 寺", "2. お寺"],
+    "contohBelakang": [
+      "1. 寺：てら — kuil",
+      "2. お寺：おてら — kuil (sopan)"
+    ]
+  },
+  {
+    "kanji": "工",
+    "contohDepan": ["1. 工事", "2. 工場"],
+    "contohBelakang": [
+      "1. 工事：こうじ — konstruksi",
+      "2. 工場：こうじょう — pabrik"
+    ]
+  },
+  {
+    "kanji": "林",
+    "contohDepan": ["1. 林", "2. 森林", "3. 林業"],
+    "contohBelakang": [
+      "1. 林：はやし — hutan kecil",
+      "2. 森林：しんりん — hutan lebat",
+      "3. 林業：りんぎょう — industri kehutanan"
+    ]
+  },
+  {
+    "kanji": "村",
+    "contohDepan": ["1. 村", "2. 山村"],
+    "contohBelakang": [
+      "1. 村：むら — desa",
+      "2. 山村：さんそん — desa di pegunungan"
+    ]
+  },
+  {
+    "kanji": "森",
+    "contohDepan": ["1. 森", "2. 森林"],
+    "contohBelakang": [
+      "1. 森：もり — hutan",
+      "2. 森林：しんりん — hutan lebat"
+    ]
+  },
+  {
+    "kanji": "田",
+    "contohDepan": ["1. 田"],
+    "contohBelakang": [
+      "1. 田：た — sawah"
+    ]
+  },
+  {
+    "kanji": "図",
+    "contohDepan": ["1. 地図", "2. 意図", "3. 図書館"],
+    "contohBelakang": [
+      "1. 地図：ちず — peta",
+      "2. 意図：いと — niat",
+      "3. 図書館：としょかん — perpustakaan"
+    ]
+  },
+  {
+    "kanji": "館",
+    "contohDepan": ["1. 図書館", "2. 旅館", "3. 映画館"],
+    "contohBelakang": [
+      "1. 図書館：としょかん — perpustakaan",
+      "2. 旅館：りょかん — penginapan Jepang",
+      "3. 映画館：えいがかん — bioskop"
+    ]
+  },
+  {
+    "kanji": "正",
+    "contohDepan": ["1. 正しい", "2. 正月"],
+    "contohBelakang": [
+      "1. 正しい：ただしい — benar",
+      "2. 正月：しょうがつ — tahun baru"
+    ]
+  },
+  {
+    "kanji": "真",
+    "contohDepan": ["1. 写真", "2. 真中", "3. 真っ白"],
+    "contohBelakang": [
+      "1. 写真：しゃしん — foto",
+      "2. 真中：まんなか — tengah",
+      "3. 真っ白：まっしろ — putih bersih"
+    ]
+  },
+  {
+    "kanji": "紙",
+    "contohDepan": ["1. 紙", "2. 手紙"],
+    "contohBelakang": [
+      "1. 紙：かみ — kertas",
+      "2. 手紙：てがみ — surat"
+    ]
+  },
+  {
+    "kanji": "画",
+    "contohDepan": ["1. 映画", "2. 計画", "3. 画家"],
+    "contohBelakang": [
+      "1. 映画：えいが — film",
+      "2. 計画：けいかく — rencana",
+      "3. 画家：がか — pelukis"
+    ]
+  },
+  {
+    "kanji": "悪",
+    "contohDepan": ["1. 悪い", "2. 最悪"],
+    "contohBelakang": [
+      "1. 悪い：わるい — buruk",
+      "2. 最悪：さいあく — terburuk"
+    ]
+  },
+  {
+    "kanji": "洋",
+    "contohDepan": ["1. 洋風", "2. 洋食"],
+    "contohBelakang": [
+      "1. 洋風：ようふう — gaya barat",
+      "2. 洋食：ようしょく — makanan barat"
+    ]
+  },
+  {
+    "kanji": "代",
+    "contohDepan": ["1. 時代", "2. 代わり"],
+    "contohBelakang": [
+      "1. 時代：じだい — zaman/era",
+      "2. 代わり：かわり — menggantikan"
+    ]
+  },
+  {
+    "kanji": "界",
+    "contohDepan": ["1. 世界", "2. 外界"],
+    "contohBelakang": [
+      "1. 世界：せかい — dunia",
+      "2. 外界：がいかい — dunia luar"
+    ]
+  },
+  {
+    "kanji": "病",
+    "contohDepan": ["1. 病院", "2. 病気", "3. 病人"],
+    "contohBelakang": [
+      "1. 病院：びょういん — rumah sakit",
+      "2. 病気：びょうき — penyakit",
+      "3. 病人：びょうにん — pasien"
+    ]
+  },
+  {
+    "kanji": "理",
+    "contohDepan": ["1. 理", "2. 料理", "3. 理解"],
+    "contohBelakang": [
+      "1. 理：り — logika",
+      "2. 料理：りょうり — masakan",
+      "3. 理解：りかい — memahami"
+    ]
+  },
+  {
+    "kanji": "意",
+    "contohDepan": ["1. 意味", "2. 意見", "3. 注意"],
+    "contohBelakang": [
+      "1. 意味：いみ — arti",
+      "2. 意見：いけん — pendapat",
+      "3. 注意：ちゅうい — perhatian"
+    ]
+  },
+  {
+    "kanji": "野",
+    "contohDepan": ["1. 野菜", "2. 野球", "3. 上野"],
+    "contohBelakang": [
+      "1. 野菜：やさい — sayuran",
+      "2. 野球：やきゅう — baseball",
+      "3. 上野：うえの — Ueno"
+    ]
+  },
+  {
+    "kanji": "開",
+    "contohDepan": ["1. 開く", "2. 開催"],
+    "contohBelakang": [
+      "1. 開く：ひらく — membuka",
+      "2. 開催：かいさい — mengadakan"
+    ]
+  },
+  {
+    "kanji": "歩",
+    "contohDepan": ["1. 歩く", "2. 散歩"],
+    "contohBelakang": [
+      "1. 歩く：あるく — berjalan",
+      "2. 散歩：さんぽ — berjalan-jalan"
+    ]
+  },
+  {
+    "kanji": "走",
+    "contohDepan": ["1. 走る", "2. 走路"],
+    "contohBelakang": [
+      "1. 走る：はしる — berlari",
+      "2. 走路：そうろ — lintasan lari"
+    ]
+  },
+  {
+    "kanji": "止",
+    "contohDepan": ["1. 中止", "2. 止める", "3. 止まる"],
+    "contohBelakang": [
+      "1. 中止：ちゅうし — pembatalan",
+      "2. 止める：とめる — menghentikan",
+      "3. 止まる：とまる — berhenti"
+    ]
+  },
+  {
+    "kanji": "売",
+    "contohDepan": ["1. 売る", "2. 発売", "3. 売り場"],
+    "contohBelakang": [
+      "1. 売る：うる — menjual",
+      "2. 発売：はつばい — mulai dijual",
+      "3. 売り場：うりば — tempat jualan"
+    ]
+  },
+  {
+    "kanji": "計",
+    "contohDepan": ["1. 計画", "2. 時計", "3. 計る"],
+    "contohBelakang": [
+      "1. 計画：けいかく — rencana",
+      "2. 時計：とけい — jam",
+      "3. 計る：はかる — mengukur"
+    ]
+  },
+  {
+    "kanji": "住",
+    "contohDepan": ["1. 住む", "2. 住所"],
+    "contohBelakang": [
+      "1. 住む：すむ — tinggal",
+      "2. 住所：じゅうしょ — alamat"
+    ]
+  },
+  {
+    "kanji": "待",
+    "contohDepan": ["1. 待つ", "2. 待ち合わせ", "3. 招待"],
+    "contohBelakang": [
+      "1. 待つ：まつ — menunggu",
+      "2. 待ち合わせ：まちあわせ — janjian ketemu",
+      "3. 招待：しょうたい — undangan"
+    ]
+  },
+  {
+    "kanji": "持",
+    "contohDepan": ["1. 持つ", "2. 気持ち"],
+    "contohBelakang": [
+      "1. 持つ：もつ — memegang/membawa",
+      "2. 気持ち：きもち — perasaan"
+    ]
+  },
+  {
+    "kanji": "特",
+    "contohDepan": ["1. 特別", "2. 特に"],
+    "contohBelakang": [
+      "1. 特別：とくべつ — khusus",
+      "2. 特に：とくに — terutama"
+    ]
+  },
+  {
+    "kanji": "始",
+    "contohDepan": ["1. 始める", "2. 始まる", "3. 開始"],
+    "contohBelakang": [
+      "1. 始める：はじめる — memulai",
+      "2. 始まる：はじまる — dimulai",
+      "3. 開始：かいし — awal/permulaan"
+    ]
+  },
+  {
+    "kanji": "起",
+    "contohDepan": ["1. 起きる", "2. 起こる"],
+    "contohBelakang": [
+      "1. 起きる：おきる — bangun",
+      "2. 起こる：おこる — terjadi"
+    ]
+  },
+  {
+    "kanji": "答",
+    "contohDepan": ["1. 答え", "2. 答える", "3. 回答"],
+    "contohBelakang": [
+      "1. 答え：こたえ — jawaban",
+      "2. 答える：こたえる — menjawab",
+      "3. 回答：かいとう — jawaban"
+    ]
+  },
+  {
+    "kanji": "着",
+    "contohDepan": ["1. 着る", "2. 着く", "3. 着物"],
+    "contohBelakang": [
+      "1. 着る：きる — memakai",
+      "2. 着く：つく — sampai",
+      "3. 着物：きもの — kimono"
+    ]
+  },
+  {
+    "kanji": "教",
+    "contohDepan": ["1. 教える", "2. 教師"],
+    "contohBelakang": [
+      "1. 教える：おしえる — mengajar",
+      "2. 教師：きょうし — guru"
+    ]
+  },
+  {
+    "kanji": "動",
+    "contohDepan": ["1. 動く", "2. 動物", "3. 自動"],
+    "contohBelakang": [
+      "1. 動く：うごく — bergerak",
+      "2. 動物：どうぶつ — hewan",
+      "3. 自動：じどう — otomatis"
+    ]
+  },
+  {
+    "kanji": "働",
+    "contohDepan": ["1. 働く", "2. 働き者"],
+    "contohBelakang": [
+      "1. 働く：はたらく — bekerja",
+      "2. 働き者：はたらきもの — pekerja keras"
+    ]
+  },
+  {
+    "kanji": "集",
+    "contohDepan": ["1. 集める", "2. 集まる", "3. 集中"],
+    "contohBelakang": [
+      "1. 集める：あつめる — mengumpulkan",
+      "2. 集まる：あつまる — berkumpul",
+      "3. 集中：しゅうちゅう — konsentrasi"
+    ]
+  },
+  {
+    "kanji": "乗",
+    "contohDepan": ["1. 乗る", "2. 乗せる", "3. 乗員"],
+    "contohBelakang": [
+      "1. 乗る：のる — naik",
+      "2. 乗せる：のせる — mengangkut",
+      "3. 乗員：じょういん — kru"
+    ]
+  },
+  {
+    "kanji": "借",
+    "contohDepan": ["1. 借りる", "2. 借り物"],
+    "contohBelakang": [
+      "1. 借りる：かりる — meminjam",
+      "2. 借り物：かりもの — barang pinjaman"
+    ]
+  },
+  {
+    "kanji": "死",
+    "contohDepan": ["1. 死ぬ", "2. 死人"],
+    "contohBelakang": [
+      "1. 死ぬ：しぬ — meninggal",
+      "2. 死人：しにん — orang mati"
+    ]
+  },
+  {
+    "kanji": "注",
+    "contohDepan": ["1. 注ぐ", "2. 注文", "3. 注意"],
+    "contohBelakang": [
+      "1. 注ぐ：そそぐ — menuangkan",
+      "2. 注文：ちゅうもん — pesanan",
+      "3. 注意：ちゅうい — perhatian"
+    ]
+  },
+  {
+    "kanji": "習",
+    "contohDepan": ["1. 習う", "2. 練習", "3. 習慣"],
+    "contohBelakang": [
+      "1. 習う：ならう — belajar",
+      "2. 練習：れんしゅう — latihan",
+      "3. 習慣：しゅうかん — kebiasaan"
+    ]
+  },
+  {
+    "kanji": "急",
+    "contohDepan": ["1. 急ぐ", "2. 急に"],
+    "contohBelakang": [
+      "1. 急ぐ：いそぐ — buru-buru",
+      "2. 急に：きゅうに — tiba-tiba"
+    ]
+  },
+  {
+    "kanji": "勉",
+    "contohDepan": ["1. 勉強", "2. 不勉強"],
+    "contohBelakang": [
+      "1. 勉強：べんきょう — belajar",
+      "2. 不勉強：ふべんきょう — malas belajar"
+    ]
+  },
+  {
+    "kanji": "終",
+    "contohDepan": ["1. 終わる", "2. 終わり", "3. 最終"],
+    "contohBelakang": [
+      "1. 終わる：おわる — selesai",
+      "2. 終わり：おわり — akhir",
+      "3. 最終：さいしゅう — terakhir"
+    ]
+  },
+  {
+    "kanji": "考",
+    "contohDepan": ["1. 考える", "2. 考え", "3. 考え方"],
+    "contohBelakang": [
+      "1. 考える：かんがえる — berpikir",
+      "2. 考え：かんがえ — pemikiran",
+      "3. 考え方：かんがえかた — cara berpikir"
+    ]
+  },
+  {
+    "kanji": "思",
+    "contohDepan": ["1. 思う", "2. 思い出"],
+    "contohBelakang": [
+      "1. 思う：おもう — berpikir",
+      "2. 思い出：おもいで — kenangan"
+    ]
+  },
+  {
+    "kanji": "知",
+    "contohDepan": ["1. 知る", "2. 知恵", "3. 知らせる"],
+    "contohBelakang": [
+      "1. 知る：しる — mengetahui",
+      "2. 知恵：ちえ — kebijaksanaan",
+      "3. 知らせる：しらせる — memberi tahu"
+    ]
+  },
+  {
+    "kanji": "光",
+    "contohDepan": ["1. 光", "2. 光る", "3. 電光"],
+    "contohBelakang": [
+      "1. 光：ひかり — cahaya",
+      "2. 光る：ひかる — bersinar",
+      "3. 電光：でんこう — cahaya listrik"
+    ]
+  },
+  {
+    "kanji": "写",
+    "contohDepan": ["1. 写す", "2. 写し", "3. 写真"],
+    "contohBelakang": [
+      "1. 写す：うつす — menyalin",
+      "2. 写し：うつし — salinan",
+      "3. 写真：しゃしん — foto"
+    ]
+  },
+  {
+    "kanji": "映",
+    "contohDepan": ["1. 映す", "2. 映画", "3. 反映"],
+    "contohBelakang": [
+      "1. 映す：うつす — memantulkan/menayangkan",
+      "2. 映画：えいが — film",
+      "3. 反映：はんえい — refleksi/pencerminan"
+    ]
+  },
+  {
+    "kanji": "帰",
+    "contohDepan": ["1. 帰る", "2. 帰国", "3. 帰省"],
+    "contohBelakang": [
+      "1. 帰る：かえる — pulang",
+      "2. 帰国：きこく — pulang ke negara asal",
+      "3. 帰省：きせい — mudik"
+    ]
+  },
+  {
+    "kanji": "別",
+    "contohDepan": ["1. 別れる", "2. 別ける", "3. 別々に"],
+    "contohBelakang": [
+      "1. 別れる：わかれる — berpisah",
+      "2. 別ける：わける — membagi",
+      "3. 別々に：べつべつに — masing-masing"
+    ]
+  },
+  {
+    "kanji": "切",
+    "contohDepan": ["1. 切る", "2. 切手", "3. 親切"],
+    "contohBelakang": [
+      "1. 切る：きる — memotong",
+      "2. 切手：きって — perangko",
+      "3. 親切：しんせつ — ramah"
+    ]
+  },
+  {
+    "kanji": "力",
+    "contohDepan": ["1. 力", "2. 能力"],
+    "contohBelakang": [
+      "1. 力：ちから — kekuatan",
+      "2. 能力：のうりょく — kemampuan"
+    ]
+  },
+  {
+    "kanji": "試",
+    "contohDepan": ["1. 試合", "2. 試験"],
+    "contohBelakang": [
+      "1. 試合：しあい — pertandingan",
+      "2. 試験：しけん — ujian"
+    ]
+  },
+  {
+    "kanji": "者",
+    "contohDepan": ["1. 者", "2. 業者", "3. 死者"],
+    "contohBelakang": [
+      "1. 者：もの — orang (penyebutan)",
+      "2. 業者：ぎょうしゃ — pelaku usaha",
+      "3. 死者：ししゃ — orang mati"
+    ]
+  },
+  {
+    "kanji": "転",
+    "contohDepan": ["1. 転じる", "2. 自転車", "3. 転ぶ"],
+    "contohBelakang": [
+      "1. 転じる：てんじる — beralih",
+      "2. 自転車：じてんしゃ — sepeda",
+      "3. 転ぶ：ころぶ — jatuh"
+    ]
+  },
+  {
+    "kanji": "貸",
+    "contohDepan": ["1. 貸す", "2. 賃貸"],
+    "contohBelakang": [
+      "1. 貸す：かす — meminjamkan",
+      "2. 賃貸：ちんたい — sewa"
+    ]
+  },
+  {
+    "kanji": "運",
+    "contohDepan": ["1. 運ぶ", "2. 運動", "3. 運転"],
+    "contohBelakang": [
+      "1. 運ぶ：はこぶ — membawa",
+      "2. 運動：うんどう — olahraga",
+      "3. 運転：うんてん — mengemudi"
+      ]
+    }, 
+  {
+    "kanji": "送",
+    "contohDepan": [
+      "1. 送る",
+      "2. 放送"
+    ],
+    "contohBelakang": [
+      "1. 送る：おくる — mengirim",
+      "2. 放送：ほうそう — siaran"
+    ]
+  },
+  {
+    "kanji": "遠",
+    "contohDepan": [
+      "1. 遠い",
+      "2. 遠慮"
+    ],
+    "contohBelakang": [
+      "1. 遠い：とおい — jauh",
+      "2. 遠慮：えんりょ — sungkan"
+    ]
+  },
+  {
+    "kanji": "近",
+    "contohDepan": [
+      "1. 近い",
+      "2. 近所"
+    ],
+    "contohBelakang": [
+      "1. 近い：ちかい — dekat",
+      "2. 近所：きんじょ — lingkungan"
+    ]
+  },
+  {
+    "kanji": "重",
+    "contohDepan": [
+      "1. 重い",
+      "2. 重ねる",
+      "3. 体重"
+    ],
+    "contohBelakang": [
+      "1. 重い：おもい — berat",
+      "2. 重ねる：かさねる — menumpuk",
+      "3. 体重：たいじゅう — berat badan"
+    ]
+  },
+  {
+    "kanji": "楽",
+    "contohDepan": [
+      "1. 楽しい",
+      "2. 音楽",
+      "3. 楽"
+    ],
+    "contohBelakang": [
+      "1. 楽しい：たのしい — menyenangkan",
+      "2. 音楽：おんがく — musik",
+      "3. 楽：らく — nyaman"
+    ]
+  },
+  {
+    "kanji": "早",
+    "contohDepan": [
+      "1. 早い",
+      "2. 早起き",
+      "3. 早速"
+    ],
+    "contohBelakang": [
+      "1. 早い：はやい — cepat/dini",
+      "2. 早起き：はやおき — bangun pagi",
+      "3. 早速：さっそく — segera"
+    ]
+  },
+  {
+    "kanji": "広",
+    "contohDepan": [
+      "1. 広い",
+      "2. 広がる",
+      "3. 広場"
+    ],
+    "contohBelakang": [
+      "1. 広い：ひろい — luas",
+      "2. 広がる：ひろがる — menyebar",
+      "3. 広場：ひろば — alun-alun"
+    ]
+  },
+  {
+    "kanji": "強",
+    "contohDepan": [
+      "1. 強い",
+      "2. 強める",
+      "3. 勉強"
+    ],
+    "contohBelakang": [
+      "1. 強い：つよい — kuat",
+      "2. 強める：つよめる — memperkuat",
+      "3. 勉強：べんきょう — belajar"
+    ]
+  },
+  {
+    "kanji": "合",
+    "contohDepan": [
+      "1. 合う",
+      "2. 試合"
+    ],
+    "contohBelakang": [
+      "1. 合う：あう — cocok",
+      "2. 試合：しあい — pertandingan"
+    ]
+  },
+  {
+    "kanji": "同",
+    "contohDepan": [
+      "1. 同じ",
+      "2. 同意"
+    ],
+    "contohBelakang": [
+      "1. 同じ：おなじ — sama",
+      "2. 同意：どうい — setuju"
+    ]
+  },
+  {
+    "kanji": "公",
+    "contohDepan": [
+      "1. 公",
+      "2. 公園",
+      "3. 公務員"
+    ],
+    "contohBelakang": [
+      "1. 公：おおやけ — umum/publik",
+      "2. 公園：こうえん — taman umum/publik",
+      "3. 公務員：こうむいん — pegawai negeri"
+    ]
+  },
+  {
+    "kanji": "私",
+    "contohDepan": [
+      "1. 私",
+      "2. 私学",
+      "3. 私服"
+    ],
+    "contohBelakang": [
+      "1. 私：わたし — saya",
+      "2. 私学：しがく — sekolah swasta",
+      "3. 私服：しふく — pakaian pribadi"
+    ]
+  },
+  {
+    "kanji": "有",
+    "contohDepan": [
+      "1. 有る",
+      "2. 有名"
+    ],
+    "contohBelakang": [
+      "1. 有る：ある — ada",
+      "2. 有名：ゆうめい — terkenal"
+    ]
+  },
+  {
+    "kanji": "自",
+    "contohDepan": [
+      "1. 自分",
+      "2. 自動",
+      "3. 自転車"
+    ],
+    "contohBelakang": [
+      "1. 自分：じぶん — diri sendiri",
+      "2. 自動：じどう — otomatis",
+      "3. 自転車：じてんしゃ — sepeda"
+    ]
+  },
+  {
+    "kanji": "方",
+    "contohDepan": [
+      "1. 方",
+      "2. 方法",
+      "3. 夕方"
+    ],
+    "contohBelakang": [
+      "1. 方：かた — orang/cara",
+      "2. 方法：ほうほう — metode",
+      "3. 夕方：ゆうがた — sore hari"
+    ]
+  },
+  {
+    "kanji": "研",
+    "contohDepan": [
+      "1. 研究",
+      "2. 研究者"
+    ],
+    "contohBelakang": [
+      "1. 研究：けんきゅう — penelitian",
+      "2. 研究者：けんきゅうしゃ — peneliti"
+    ]
+  },
+  {
+    "kanji": "究",
+    "contohDepan": [
+      "1. 研究",
+      "2. 研究者"
+    ],
+    "contohBelakang": [
+      "1. 研究：けんきゅう — penelitian",
+      "2. 研究者：けんきゅうしゃ — peneliti"
+    ]
+  },
+  {
+    "kanji": "題",
+    "contohDepan": [
+      "1. 問題",
+      "2. 宿題"
+    ],
+    "contohBelakang": [
+      "1. 問題：もんだい — masalah",
+      "2. 宿題：しゅくだい — PR"
+    ]
+  },
+  {
+    "kanji": "無",
+    "contohDepan": [
+      "1. 無",
+      "2. 無理",
+      "3. 無料"
+    ],
+    "contohBelakang": [
+      "1. 無：む — tidak..",
+      "2. 無理：むり — tidak masuk akal/mustahil",
+      "3. 無料：むりょう — gratis"
+    ]
+  },
+  {
+    "kanji": "品",
+    "contohDepan": [
+      "1. 品物",
+      "2. 作品"
+    ],
+    "contohBelakang": [
+      "1. 品物：しなもの — barang",
+      "2. 作品：さくひん — karya"
+    ]
+  },
+  {
+    "kanji": "問",
+    "contohDepan": [
+      "1. 問い",
+      "2. 問題"
+    ],
+    "contohBelakang": [
+      "1. 問い：とい — pertanyaan",
+      "2. 問題：もんだい — soal/masalah"
+    ]
+  },
+  {
+    "kanji": "質",
+    "contohDepan": [
+      "1. 質問",
+      "2. 品質"
+    ],
+    "contohBelakang": [
+      "1. 質問：しつもん — pertanyaan",
+      "2. 品質：ひんしつ — kualitas"
+    ]
+  },
+  {
+    "kanji": "回",
+    "contohDepan": [
+      "1. 回す",
+      "2. 回収"
+    ],
+    "contohBelakang": [
+      "1. 回す：まわす — memutar",
+      "2. 回収：かいしゅう — pengumpulan"
+    ]
+  },
+  {
+    "kanji": "引",
+    "contohDepan": [
+      "1. 引く",
+      "2. 割引"
+    ],
+    "contohBelakang": [
+      "1. 引く：ひく — menarik",
+      "2. 割引：わりびき — diskon"
+    ]
+  },
+  {
+    "kanji": "業",
+    "contohDepan": [
+      "1. 業者",
+      "2. 工業",
+      "3. 休業"
+    ],
+    "contohBelakang": [
+      "1. 業者：ぎょうしゃ — pengusaha",
+      "2. 工業：こうぎょう — industri",
+      "3. 休業：きゅうぎょう — libur usaha"
+    ]
+  },
+  {
+    "kanji": "弱",
+    "contohDepan": [
+      "1. 弱い",
+      "2. 弱点",
+      "3. 弱気"
+    ],
+    "contohBelakang": [
+      "1. 弱い：よわい — lemah",
+      "2. 弱点：じゃくてん — kelemahan",
+      "3. 弱気：よわき — pesimis/tidak percaya diri"
+    ]
+  },
+  {
+    "kanji": "発",
+    "contohDepan": [
+      "1. 発表",
+      "2. 発言",
+      "3. 出発"
+    ],
+    "contohBelakang": [
+      "1. 発表：はっぴょう — presentasi",
+      "2. 発言：はつげん — pernyataan",
+      "3. 出発：しゅっぱつ — berangkat"
+    ]
+  },
+  {
+    "kanji": "的",
+    "contohDepan": [
+      "1. 的",
+      "2. 目的"
+    ],
+    "contohBelakang": [
+      "1. 的：まと — target",
+      "2. 目的：もくてき — tujuan"
+    ]
+  },
+  {
+    "kanji": "可",
+    "contohDepan": [
+      "1. 可能",
+      "2. 可愛い"
+    ],
+    "contohBelakang": [
+      "1. 可能：かのう — kemungkinan/bisa dilakukan",
+      "2. 可愛い：かわいい — lucu"
+    ]
+  },
+  {
+    "kanji": "身",
+    "contohDepan": [
+      "1. 身",
+      "2. 身長",
+      "3. 出身"
+    ],
+    "contohBelakang": [
+      "1. 身：み — tubuh",
+      "2. 身長：しんちょう — tinggi badan",
+      "3. 出身：しゅっしん — asal daerah"
+    ]
+  },
+  {
+    "kanji": "料",
+    "contohDepan": [
+      "1. 料理",
+      "2. 料金",
+      "3. 資料"
+    ],
+    "contohBelakang": [
+      "1. 料理：りょうり — masakan",
+      "2. 料金：りょうきん — biaya",
+      "3. 資料：しりょう — bahan/data"
+    ]
+  },
+  {
+    "kanji": "暑",
+    "contohDepan": [
+      "1. 暑い",
+      "2. 暑さ"
+    ],
+    "contohBelakang": [
+      "1. 暑い：あつい — panas",
+      "2. 暑さ：あつさ — suhu panas"
+    ]
+  },
+  {
+    "kanji": "暗",
+    "contohDepan": [
+      "1. 暗い",
+      "2. 真っ暗"
+    ],
+    "contohBelakang": [
+      "1. 暗い：くらい — gelap",
+      "2. 真っ暗：まっくら — sangat gelap"
+    ]
+  },
+  {
+    "kanji": "太",
+    "contohDepan": [
+      "1. 太い",
+      "2. 太る",
+      "3. 太陽"
+    ],
+    "contohBelakang": [
+      "1. 太い：ふとい — tebal/gemuk",
+      "2. 太る：ふとる — menjadi gemuk",
+      "3. 太陽：たいよう — matahari"
+    ]
+  },
+  {
+    "kanji": "店",
+    "contohDepan": [
+      "1. 店",
+      "2. 店員",
+      "3. 開店"
+    ],
+    "contohBelakang": [
+      "1. 店：みせ — toko",
+      "2. 店員：てんいん — pegawai toko",
+      "3. 開店：かいてん — pembukaan toko"
+    ]
+  },
+  {
+    "kanji": "池",
+    "contohDepan": [
+      "1. 池",
+      "2. 電池"
+    ],
+    "contohBelakang": [
+      "1. 池：いけ — kolam",
+      "2. 電池：でんち — baterai"
+    ]
+  },
+  {
+    "kanji": "民",
+    "contohDepan": [
+      "1. 民",
+      "2. 市民"
+    ],
+    "contohBelakang": [
+      "1. 民：たみ — rakyat",
+      "2. 市民：しみん — penduduk"
+    ]
+  },
+  {
+    "kanji": "洗",
+    "contohDepan": [
+      "1. 洗う",
+      "2. 洗濯",
+      "3. 手洗い"
+    ],
+    "contohBelakang": [
+      "1. 洗う：あらう — mencuci",
+      "2. 洗濯：せんたく — mencuci pakaian",
+      "3. 手洗い：てあらい — cuci tangan/toilet"
+    ]
+  },
+  {
+    "kanji": "産",
+    "contohDepan": [
+      "1. 産業",
+      "2. 不動産",
+      "3. 産む"
+    ],
+    "contohBelakang": [
+      "1. 産業：さんぎょう — industri",
+      "2. 不動産：ふどうさん — properti",
+      "3. 産む：うむ — melahirkan"
+    ]
+  },
+  {
+    "kanji": "短",
+    "contohDepan": [
+      "1. 短い",
+      "2. 短気"
+    ],
+    "contohBelakang": [
+      "1. 短い：みじかい — pendek",
+      "2. 短気：たんき — pemarah"
+    ]
+  },
+  {
+    "kanji": "薬",
+    "contohDepan": [
+      "1. 薬",
+      "2. 薬局"
+    ],
+    "contohBelakang": [
+      "1. 薬：くすり — obat",
+      "2. 薬局：やっきょく — apotek"
+    ]
+  },
+  {
+    "kanji": "菜",
+    "contohDepan": [
+      "1. 野菜",
+      "2. 白菜"
+    ],
+    "contohBelakang": [
+      "1. 野菜：やさい — sayur",
+      "2. 白菜：はくさい — sawi putih"
+    ]
+  },
+  {
+    "kanji": "説",
+    "contohDepan": [
+      "1. 説明",
+      "2. 小説"
+    ],
+    "contohBelakang": [
+      "1. 説明：せつめい — penjelasan",
+      "2. 小説：しょうせつ — novel"
+    ]
+  },
+  {
+    "kanji": "軽",
+    "contohDepan": [
+      "1. 軽い",
+      "2. 気軽"
+    ],
+    "contohBelakang": [
+      "1. 軽い：かるい — ringan",
+      "2. 気軽：きがる — tanpa beban"
+    ]
+  },
+  {
+    "kanji": "進",
+    "contohDepan": [
+      "1. 進む",
+      "2. 進歩"
+    ],
+    "contohBelakang": [
+      "1. 進む：すすむ — maju",
+      "2. 進歩：しんぽ — kemajuan"
+    ]
+  },
+  {
+    "kanji": "門",
+    "contohDepan": [
+      "1. 門",
+      "2. 入門",
+      "3. 専門"
+    ],
+    "contohBelakang": [
+      "1. 門：もん — gerbang",
+      "2. 入門：にゅうもん — pengantar",
+      "3. 専門：せんもん — pakar/khusus"
+    ]
+  },
+  {
+    "kanji": "頭",
+    "contohDepan": [
+      "1. 頭"
+    ],
+    "contohBelakang": [
+      "1. 頭：あたま — kepala"
+    ]
+  },
+  {
+    "kanji": "験",
+    "contohDepan": [
+      "1. 試験",
+      "2. 体験",
+      "3. 経験"
+    ],
+    "contohBelakang": [
+      "1. 試験：しけん — ujian",
+      "2. 体験：たいけん — pengalaman langsung",
+      "3. 経験：けいけん — pengalaman"
+    ]
+  },
+  {
+    "kanji": "顔",
+    "contohDepan": [
+      "1. 顔",
+      "2. 笑顔"
+    ],
+    "contohBelakang": [
+      "1. 顔：かお — wajah",
+      "2. 笑顔：えがお — senyum"
+    ]
+  },
+  {
+    "kanji": "首",
+    "contohDepan": [
+      "1. 首",
+      "2. 足首"
+    ],
+    "contohBelakang": [
+      "1. 首：くび — leher",
+      "2. 足首：あしくび — pergelangan kaki"
+    ]
+  }
+]
+  ;
+
+    // Inisialisasi rentang indeks yang tampil
+    let startIndex = 0;
+    let endIndex = flashcards.length - 1;
     let current = 0;
 
+    const startSelect = document.getElementById("start-kanji");
+    const endSelect = document.getElementById("end-kanji");
+
+    // Isi dropdown start dan end
+    function populateRangeSelectors() {
+      startSelect.innerHTML = "";
+      endSelect.innerHTML = "";
+      for(let i = 0; i < flashcards.length; i++) {
+        const optionStart = document.createElement("option");
+        optionStart.value = i;
+        optionStart.textContent = i + 1;
+        startSelect.appendChild(optionStart);
+
+        const optionEnd = document.createElement("option");
+        optionEnd.value = i;
+        optionEnd.textContent = i + 1;
+        endSelect.appendChild(optionEnd);
+      }
+      // Default pilihan
+      startSelect.value = startIndex;
+      endSelect.value = endIndex;
+    }
+
+    // Update range sesuai dropdown, otomatis update kartu
+    function updateRange() {
+      let s = parseInt(startSelect.value);
+      let e = parseInt(endSelect.value);
+      if (s > e) {
+        // Jika start lebih besar dari end, tukar
+        [s, e] = [e, s];
+      }
+      startIndex = s;
+      endIndex = e;
+
+      // Reset current ke startIndex supaya kartu valid
+      current = startIndex;
+      showCard(current);
+    }
+
+    startSelect.addEventListener("change", updateRange);
+    endSelect.addEventListener("change", updateRange);
+
     function showCard(index) {
+      if(index < startIndex) index = startIndex;
+      if(index > endIndex) index = endIndex;
+
       const data = flashcards[index];
       document.getElementById("kanji").textContent = data.kanji;
-      document.getElementById("contoh").innerHTML = data.contohDepan.map(c => c).join("<br>");
-      document.getElementById("back-merged").innerHTML = data.contohBelakang.map(c => c).join("<br>");
+      document.getElementById("contoh").innerHTML = data.contohDepan.join("<br>");
+      document.getElementById("back-merged").innerHTML = data.contohBelakang.join("<br>");
       document.getElementById("card-inner").classList.remove("is-flipped");
     }
 
@@ -178,16 +1994,76 @@
     }
 
     function nextCard() {
-      current = (current + 1) % flashcards.length;
+      current++;
+      if(current > endIndex) current = startIndex;
       showCard(current);
     }
 
     function prevCard() {
-      current = (current - 1 + flashcards.length) % flashcards.length;
+      current--;
+      if(current < startIndex) current = endIndex;
       showCard(current);
     }
 
-    // Tampilkan kartu pertama saat halaman dibuka
+    // Fungsi daftar kanji sudah diupdate supaya merge, nomor dihiragana & arti
+    function showDaftarKanji() {
+      document.getElementById("flashcard-container").style.display = "none";
+      document.getElementById("kanji-page").style.display = "block";
+
+      let html = `
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Kanji</th>
+              <th>Contoh Kata</th>
+              <th>Hiragana</th>
+              <th>Arti</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      flashcards.forEach((card, i) => {
+        let contohKata = [];
+        let hiraganaArr = [];
+        let artiArr = [];
+
+        for(let idx = 0; idx < card.contohDepan.length; idx++) {
+          const nomor = idx + 1;
+          const contohKataClean = card.contohDepan[idx].replace(/^\d+\.\s*/, "");
+          const back = card.contohBelakang[idx];
+          const backClean = back.replace(/^\d+\.\s*/, "");
+          const [kanjiHira, arti] = backClean.split(" — ");
+          const [kanjiHiragana, hiragana] = kanjiHira.split("：");
+
+          contohKata.push(`${nomor}. ${contohKataClean}`);
+          hiraganaArr.push(`${nomor}. ${hiragana}`);
+          artiArr.push(`${nomor}. ${arti}`);
+        }
+
+        html += `
+          <tr>
+            <td>${i + 1}</td>
+            <td>${card.kanji}</td>
+            <td>${contohKata.join("<br>")}</td>
+            <td>${hiraganaArr.join("<br>")}</td>
+            <td>${artiArr.join("<br>")}</td>
+          </tr>
+        `;
+      });
+
+      html += "</tbody></table>";
+      document.getElementById("kanji-table").innerHTML = html;
+    }
+
+    function backToFlashcards() {
+      document.getElementById("kanji-page").style.display = "none";
+      document.getElementById("flashcard-container").style.display = "block";
+    }
+
+    // Inisialisasi dropdown dan tampilkan kartu pertama
+    populateRangeSelectors();
     showCard(current);
   </script>
 </body>
