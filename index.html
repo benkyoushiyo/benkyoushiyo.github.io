@@ -2013,6 +2013,7 @@
       document.getElementById("kanji-page").style.display = "block";
 
       let html = `
+      <div style="overflow-x: auto;">
         <table>
           <thead>
             <tr>
@@ -2024,6 +2025,7 @@
             </tr>
           </thead>
           <tbody>
+    
       `;
 
       flashcards.forEach((card, i) => {
@@ -2055,7 +2057,7 @@
         `;
       });
 
-      html += "</tbody></table>";
+      html += "</tbody></table></div>";
       document.getElementById("kanji-table").innerHTML = html;
     }
 
