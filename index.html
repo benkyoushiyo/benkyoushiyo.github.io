@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Flashcard</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Flashcard Kanji N4</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff8f0;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .card {
+      width: 300px;
+      height: 200px;
+      perspective: 1000px;
+      margin: auto;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
+
+    .card-inner.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .card-front .kanji {
+      font-size: 48px;
+      color: #2c3e50;
+    }
+
+    .card-front .contoh {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      color: #34495e;
+      font-size: 14px;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #back-merged {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      background: #B76E33;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+     h1, h5 {
+      margin: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: #B76E33;","margin-bottom: 0px;">Flashcard Kanji JLPT N4</h1>
+  <h5 "margin-top: 0px;">Follow Tiktok dan Instagram @benkyoushiyo.id</h5>
+  <div class="container">
+    <div class="card" id="card">
+      <div class="card-inner" id="card-inner">
+        <div class="card-front">
+          <div class="kanji" id="kanji"></div>
+          <div class="contoh" id="contoh"></div>
+        </div>
+        <div class="card-back">
+          <div id="back-merged"></div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="buttons">
+      <button onclick="prevCard()">Sebelumnya</button>
+      <button onclick="flipCard()">Balik Kartu</button>
+      <button onclick="nextCard()">Selanjutnya</button>
+    </div>
+  </div>
+  <script>
+    const flashcards = [
+      {
+        kanji: "親",
+        contohDepan: ["1. 親", "2. 親しい", "3. 親切"],
+        contohBelakang: [
+          "1. 親：おや — orang tua",
+          "2. 親しい：したしい — akrab",
+          "3. 親切：しんせつ — baik hati"
+        ]
+      },
+      {
+        kanji: "兄",
+        contohDepan: ["1. 兄", "2. お兄さん", "3. 兄弟"],
+        contohBelakang: [
+          "1. 兄：あに — kakak laki-laki",
+          "2. お兄さん：おにいさん — kakak laki-laki (sopan)",
+          "3. 兄弟：きょうだい — saudara kandung"
+        ]
+      },
+      {
+        kanji: "姉",
+        contohDepan: ["1. 姉", "2. お姉さん"],
+        contohBelakang: [
+          "1. 姉：あね — kakak perempuan",
+          "2. お姉さん：おねえさん — kakak perempuan (sopan)"
+        ]
+      }
+    ];
+
+    let current = 0;
+
+    function showCard(index) {
+      const data = flashcards[index];
+      document.getElementById("kanji").textContent = data.kanji;
+      document.getElementById("contoh").innerHTML = data.contohDepan.map(c => c).join("<br>");
+      document.getElementById("back-merged").innerHTML = data.contohBelakang.map(c => c).join("<br>");
+      document.getElementById("card-inner").classList.remove("is-flipped");
+    }
+
+    function flipCard() {
+      document.getElementById("card-inner").classList.toggle("is-flipped");
+    }
+
+    function nextCard() {
+      current = (current + 1) % flashcards.length;
+      showCard(current);
+    }
+
+    function prevCard() {
+      current = (current - 1 + flashcards.length) % flashcards.length;
+      showCard(current);
+    }
+
+    // Tampilkan kartu pertama saat halaman dibuka
+    showCard(current);
+  </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
