@@ -14,10 +14,10 @@
       font-family: 'Noto Sans JP', sans-serif;
       background: #fff8f0;
       text-align: center;
-      padding-top: 20px; /* ↓ dari 30px atau 20px jadi lebih rapat */
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-bottom: 40px;
+  padding-top: 20px; /* ↓ dari 30px atau 20px jadi lebih rapat */
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
       user-select: none;
     }
 
@@ -145,7 +145,11 @@
 </head>
 <body>
   <div id="level-select">
-    <h1 style="
+    <!-- Tambahkan di <head> -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+<!-- Tambahkan di body -->
+<h1 style="
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 2.3em;
@@ -154,9 +158,9 @@
   margin-bottom: 20px;
 ">
   Flashcard Kanji JLPT
-    </h1>
+</h1>
+    <div style="margin-bottom: 20px; color: #555; font-size: 14px; font-weight: bold;">Follow TikTok dan Instagram <br> @benkyoushiyo.id</div>
     <img src="https://i.imgur.com/3V04uUf.png" alt="Logo Benkyoushiyo" width="200" />
-    <div style="margin-bottom: 20px; color: #555; font-size: 14px; font-weight: bold;">Follow TikTok dan Instagram @benkyoushiyo.id</div>
     <div style="margin-bottom: 20px; color: #555; font-size: 14px; font-weight: bold;"></div>
     <div class="button-container">
       <button class="level-button" onclick="loadLevel('N5')">Level N5</button>
@@ -165,15 +169,17 @@
   </div>
 
   <div id="main-app" class="hidden">
-    <button onclick="backToLevelSelect()">⬅️ Kembali ke Pilihan Level</button>
+    <button onclick="backToLevelSelect()", >⬅️ Kembali ke Pilihan Level</button>
     <h1 id="judul-level" style="color: #B76E33;"></h1>
-    <div style="margin-bottom: 20px; color: #555; font-size: 14px; font-weight: bold;">Follow TikTok dan Instagram @benkyoushiyo.id</div>
+    <div style="margin-bottom: 20px; color: #555; font-size: 14px; font-weight: bold;">Follow TikTok dan IG @benkyoushiyo.id</div>
     <button onclick="showDaftarKanji()" >📖 Lihat Daftar Kanji</button>
 
     <div style="margin-top: 20px; margin-bottom: 20px;" id="range-selectors">
       <label for="start-kanji">Mulai Kanji ke:</label>
       <select id="start-kanji"></select>
-      <br>
+      <br><br>
+      
+
       <label for="end-kanji">Sampai Kanji ke:</label>
       <select id="end-kanji"></select>
     </div>
