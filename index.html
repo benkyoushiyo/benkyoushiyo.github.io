@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Flashcard Kanji N4 - Indonesia</title>
-  
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flashcard Kanji N4</title>
+  <title>Flashcard Kanji</title>
   <style>
+    #range-selectors select {
+  font-size: 18px; /* atau 20px kalau mau lebih besar */
+  padding: 6px 12px;
+  border-radius: 6px;
+}
     body {
-      font-family: sans-serif;
+      font-family: 'Noto Sans JP', sans-serif;
       background: #fff8f0;
       text-align: center;
       padding: 50px;
       user-select: none;
     }
 
-    .container {
-      max-width: 400px;
-      margin: auto;
+    .hidden {
+      display: none;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .level-button, .flashcard-button {
+      background: #B76E33;
+      color: white;
+      padding: 16px 32px;
+      font-size: 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .card {
@@ -107,16 +120,11 @@
       cursor: pointer;
     }
 
-    h1, h5 {
-      margin: 12px;
-    }
-
-     table {
+    table {
       border-collapse: collapse;
       width: 100%;
-      min-width: 600px;
       max-width: 800px;
-      margin: 0 auto;
+      margin: 20px auto;
       background: #fcfcfc;
     }
 
@@ -130,34 +138,26 @@
     th {
       background: #f2f2f2;
     }
-
-    select {
-      font-size: 16px;
-      padding: 6px 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      margin: 0 5px;
-    }
-
-    #range-selectors {
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
   </style>
 </head>
 <body>
-  <h1 style="color: #B76E33;">Flashcard Kanji JLPT N4</h1>
-  <h5 style="color: #‹E44F73;">Follow Tiktok dan Instagram @benkyoushiyo.id</h5>
+  <div id="level-select">
+    <h1 style="color: #B76E33;">Flashcard Kanji JLPT</h1>
+    <div style="margin-bottom: 20px; color: #555; font-size: 14px; font-weight: bold;">Follow TikTok dan Instagram @benkyoushiyo.id</div>
+    <div style="margin-bottom: 20px; color: #555; font-size: 14px; font-weight: bold;"></div>
+    <div class="button-container">
+      <button class="level-button" onclick="loadLevel('N5')">Level N5</button>
+      <button class="level-button" onclick="loadLevel('N4')">Level N4</button>
+    </div>
+  </div>
 
-  <div class="container" id="flashcard-container">
+  <div id="main-app" class="hidden">
+    <button onclick="backToLevelSelect()">⬅️ Kembali ke Pilihan Level</button>
+    <h1 id="judul-level" style="color: #B76E33;"></h1>
+    <div style="margin-bottom: 20px; color: #555; font-size: 14px; font-weight: bold;">Follow TikTok dan Instagram @benkyoushiyo.id</div>
+    <button onclick="showDaftarKanji()" >📖 Lihat Daftar Kanji</button>
 
-    <button onclick="showDaftarKanji()" style="margin-bottom: 10px;">📖 Lihat Daftar Kanji</button>
-<br /><br />
-    <div id="range-selectors">
+    <div style="margin-top: 20px; margin-bottom: 20px;" id="range-selectors">
       <label for="start-kanji">Mulai Kanji ke:</label>
       <select id="start-kanji"></select>
 
@@ -176,24 +176,579 @@
         </div>
       </div>
     </div>
-
-    <br /><br />
     <div class="buttons">
-      <button onclick="prevCard()">⬅️⬅️</button>
-      <button onclick="flipCard()">✨Balik Kartu✨</button>
-      <button onclick="nextCard()">➡️➡️</button>
+      <button onclick="prevCard()" style="margin-top: 40px;">⬅️⬅️</button>
+      <button onclick="flipCard()" style="margin-top: 40px;">✨Balik Kartu✨</button>
+      <button onclick="nextCard()" style="margin-top: 40px;">➡️➡️</button>
     </div>
   </div>
 
-  <div id="kanji-page" style="display: none; padding-top: 10px;">
-    <button onclick="backToFlashcards()" style="margin-top: 0px;">⬅️ Kembali ke Flashcard</button>
-    <h2>Daftar Kanji</h2>
+  <div id="kanji-page" class="hidden">
+    <button onclick="backToFlashcards()">⬅️ Kembali ke Flashcard</button>
+    <h2 id="judul-daftar"></h2>
     <div id="kanji-table"></div>
   </div>
 
   <script>
-    // Contoh data, nanti ganti ke 185 kanji sesuai kebutuhan
-    const flashcards = [
+    const dataN5 = [
+  {
+    "kanji": "一",
+    "contohDepan": ["1. 一", "2. 一つ"],
+    "contohBelakang": ["1. 一：いち — satu", "2. 一つ：ひとつ — satu (benda)"]
+  },
+  {
+    "kanji": "二",
+    "contohDepan": ["1. 二", "2. 二つ"],
+    "contohBelakang": ["1. 二：に — dua", "2. 二つ：ふたつ — dua (benda)"]
+  },
+  {
+    "kanji": "三",
+    "contohDepan": ["1. 三", "2. 三つ"],
+    "contohBelakang": ["1. 三：さん — tiga", "2. 三つ：みっつ — tiga (benda)"]
+  },
+  {
+    "kanji": "四",
+    "contohDepan": ["1. 四", "2. 四つ"],
+    "contohBelakang": ["1. 四：し／よん — empat", "2. 四つ：よっつ — empat (benda)"]
+  },
+  {
+    "kanji": "五",
+    "contohDepan": ["1. 五", "2. 五つ"],
+    "contohBelakang": ["1. 五：ご — lima", "2. 五つ：いつつ — lima (benda)"]
+  },
+  {
+    "kanji": "六",
+    "contohDepan": ["1. 六", "2. 六つ"],
+    "contohBelakang": ["1. 六：ろく — enam", "2. 六つ：むっつ — enam (benda)"]
+  },
+  {
+    "kanji": "七",
+    "contohDepan": ["1. 七", "2. 七つ"],
+    "contohBelakang": ["1. 七：しち／なな — tujuh", "2. 七つ：ななつ — tujuh (benda)"]
+  },
+  {
+    "kanji": "八",
+    "contohDepan": ["1. 八", "2. 八つ"],
+    "contohBelakang": ["1. 八：はち — delapan", "2. 八つ：やっつ — delapan (benda)"]
+  },
+  {
+    "kanji": "九",
+    "contohDepan": ["1. 九", "2. 九つ"],
+    "contohBelakang": ["1. 九：きゅう — sembilan", "2. 九つ：ここのつ — sembilan (benda)"]
+  },
+  {
+    "kanji": "十",
+    "contohDepan": ["1. 十", "2. 十分"],
+    "contohBelakang": ["1. 十：じゅう — sepuluh", "2. 十分：じゅっぷん — sepuluh menit"]
+  },
+  {
+    "kanji": "口",
+    "contohDepan": ["1. 口", "2. 出口"],
+    "contohBelakang": ["1. 口：くち — mulut", "2. 出口：でぐち — pintu keluar"]
+  },
+  {
+    "kanji": "日",
+    "contohDepan": ["1. 日", "2. 日本"],
+    "contohBelakang": ["1. 日：ひ／にち — hari", "2. 日本：にほん — Jepang"]
+  },
+  {
+    "kanji": "白",
+    "contohDepan": ["1. 白い"],
+    "contohBelakang": ["1. 白い：しろい — putih"]
+  },
+  {
+    "kanji": "百",
+    "contohDepan": ["1. 百", "2. 百円"],
+    "contohBelakang": ["1. 百：ひゃく — seratus", "2. 百円：ひゃくえん — seratus yen"]
+  },
+  {
+    "kanji": "千",
+    "contohDepan": ["1. 千", "2. 千円"],
+    "contohBelakang": ["1. 千：せん — seribu", "2. 千円：せんえん — seribu yen"]
+  },
+  {
+    "kanji": "万",
+    "contohDepan": ["1. 万", "2. 一万"],
+    "contohBelakang": ["1. 万：まん — sepuluh ribu", "2. 一万：いちまん — sepuluh ribu"]
+  },{
+    "kanji": "人",
+    "contohDepan": ["1. 人", "2. 日本人"],
+    "contohBelakang": ["1. 人：ひと — orang", "2. 日本人：にほんじん — orang Jepang"]
+  },
+  {
+    "kanji": "分",
+    "contohDepan": ["1. 分", "2. 五分"],
+    "contohBelakang": ["1. 分：ふん／ぶん — menit/pembagian", "2. 五分：ごふん — lima menit"]
+  },
+  {
+    "kanji": "土",
+    "contohDepan": ["1. 土", "2. 土曜日"],
+    "contohBelakang": ["1. 土：つち — tanah", "2. 土曜日：どようび — hari Sabtu"]
+  },
+  {
+    "kanji": "時",
+    "contohDepan": ["1. 時", "2. 一時"],
+    "contohBelakang": ["1. 時：じ — jam/waktu", "2. 一時：いちじ — jam satu"]
+  },
+  {
+    "kanji": "週",
+    "contohDepan": ["1. 今週", "2. 来週"],
+    "contohBelakang": ["1. 今週：こんしゅう — minggu ini", "2. 来週：らいしゅう — minggu depan"]
+  },
+  {
+    "kanji": "月",
+    "contohDepan": ["1. 月", "2. 月曜日"],
+    "contohBelakang": ["1. 月：つき／げつ — bulan", "2. 月曜日：げつようび — hari Senin"]
+  },
+  {
+    "kanji": "午",
+    "contohDepan": ["1. 午前", "2. 午後"],
+    "contohBelakang": ["1. 午前：ごぜん — pagi hari", "2. 午後：ごご — siang/sore hari"]
+  },
+  {
+    "kanji": "年",
+    "contohDepan": ["1. 一年", "2. 来年"],
+    "contohBelakang": ["1. 一年：いちねん — satu tahun", "2. 来年：らいねん — tahun depan"]
+  },
+  {
+    "kanji": "今",
+    "contohDepan": ["1. 今", "2. 今日"],
+    "contohBelakang": ["1. 今：いま — sekarang", "2. 今日：きょう — hari ini"]
+  },
+  {
+    "kanji": "木",
+    "contohDepan": ["1. 木", "2. 木曜日"],
+    "contohBelakang": ["1. 木：き — pohon", "2. 木曜日：もくようび — hari Kamis"]
+  },
+  {
+    "kanji": "田",
+    "contohDepan": ["1. 田", "2. 山田"],
+    "contohBelakang": ["1. 田：た／だ — sawah", "2. 山田：やまだ — nama keluarga"]
+  },
+  {
+    "kanji": "力",
+    "contohDepan": ["1. 力"],
+    "contohBelakang": ["1. 力：ちから — kekuatan"]
+  },
+  {
+    "kanji": "前",
+    "contohDepan": ["1. 前", "2. 午前"],
+    "contohBelakang": ["1. 前：まえ — depan/sebelum", "2. 午前：ごぜん — pagi"]
+  },
+  {
+    "kanji": "後",
+    "contohDepan": ["1. 後", "2. 午後"],
+    "contohBelakang": ["1. 後：あと／うしろ — sesudah/belakang", "2. 午後：ごご — sore"]
+  },
+  {
+    "kanji": "先",
+    "contohDepan": ["1. 先生", "2. 先月"],
+    "contohBelakang": ["1. 先生：せんせい — guru", "2. 先月：せんげつ — bulan lalu"]
+  },
+  {
+    "kanji": "来",
+    "contohDepan": ["1. 来る", "2. 来週"],
+    "contohBelakang": ["1. 来る：くる — datang", "2. 来週：らいしゅう — minggu depan"]
+  },
+      {
+    "kanji": "男",
+    "contohDepan": ["1. 男", "2. 男の子"],
+    "contohBelakang": ["1. 男：おとこ — laki-laki", "2. 男の子：おとこのこ — anak laki-laki"]
+  },
+  {
+    "kanji": "女",
+    "contohDepan": ["1. 女", "2. 女の人"],
+    "contohBelakang": ["1. 女：おんな — perempuan", "2. 女の人：おんなのひと — wanita"]
+  },
+  {
+    "kanji": "子",
+    "contohDepan": ["1. 子", "2. 子ども"],
+    "contohBelakang": ["1. 子：こ — anak", "2. 子ども：こども — anak-anak"]
+  },
+  {
+    "kanji": "父",
+    "contohDepan": ["1. 父", "2. お父さん"],
+    "contohBelakang": ["1. 父：ちち — ayah (sendiri)", "2. お父さん：おとうさん — ayah (orang lain)"]
+  },
+  {
+    "kanji": "火",
+    "contohDepan": ["1. 火", "2. 火曜日"],
+    "contohBelakang": ["1. 火：ひ — api", "2. 火曜日：かようび — hari Selasa"]
+  },
+  {
+    "kanji": "水",
+    "contohDepan": ["1. 水", "2. 水曜日"],
+    "contohBelakang": ["1. 水：みず — air", "2. 水曜日：すいようび — hari Rabu"]
+  },
+  {
+    "kanji": "金",
+    "contohDepan": ["1. 金", "2. 金曜日"],
+    "contohBelakang": ["1. 金：かね — uang/logam", "2. 金曜日：きんようび — hari Jumat"]
+  },
+  {
+    "kanji": "本",
+    "contohDepan": ["1. 本", "2. 日本"],
+    "contohBelakang": ["1. 本：ほん — buku", "2. 日本：にほん — Jepang"]
+  },
+  {
+    "kanji": "川",
+    "contohDepan": ["1. 川"],
+    "contohBelakang": ["1. 川：かわ — sungai"]
+  },
+  {
+    "kanji": "山",
+    "contohDepan": ["1. 山", "2. 富士山"],
+    "contohBelakang": ["1. 山：やま — gunung", "2. 富士山：ふじさん — Gunung Fuji"]
+  },
+  {
+    "kanji": "雨",
+    "contohDepan": ["1. 雨", "2. 大雨"],
+    "contohBelakang": ["1. 雨：あめ — hujan", "2. 大雨：おおあめ — hujan lebat"]
+  },
+  {
+    "kanji": "花",
+    "contohDepan": ["1. 花", "2. 花火"],
+    "contohBelakang": ["1. 花：はな — bunga", "2. 花火：はなび — kembang api"]
+  },
+  {
+    "kanji": "耳",
+    "contohDepan": ["1. 耳"],
+    "contohBelakang": ["1. 耳：みみ — telinga"]
+  },
+  {
+    "kanji": "手",
+    "contohDepan": ["1. 手", "2. 上手"],
+    "contohBelakang": ["1. 手：て — tangan", "2. 上手：じょうず — mahir/pintar"]
+  },
+  {
+    "kanji": "足",
+    "contohDepan": ["1. 足"],
+    "contohBelakang": ["1. 足：あし — kaki"]
+  },
+  {
+    "kanji": "目",
+    "contohDepan": ["1. 目", "2. 目的"],
+    "contohBelakang": ["1. 目：め — mata", "2. 目的：もくてき — tujuan"]
+  },
+  {
+    "kanji": "北",
+    "contohDepan": ["1. 北", "2. 北海道"],
+    "contohBelakang": ["1. 北：きた — utara", "2. 北海道：ほっかいどう — Hokkaido"]
+  },
+  {
+    "kanji": "南",
+    "contohDepan": ["1. 南", "2. 南口"],
+    "contohBelakang": ["1. 南：みなみ — selatan", "2. 南口：みなみぐち — pintu selatan"]
+  },
+  {
+    "kanji": "東",
+    "contohDepan": ["1. 東", "2. 東京"],
+    "contohBelakang": ["1. 東：ひがし — timur", "2. 東京：とうきょう — Tokyo"]
+  },
+  {
+    "kanji": "西",
+    "contohDepan": ["1. 西", "2. 関西"],
+    "contohBelakang": ["1. 西：にし — barat", "2. 関西：かんさい — wilayah Kansai"]
+  },
+  {
+    "kanji": "上",
+    "contohDepan": ["1. 上", "2. 上手"],
+    "contohBelakang": ["1. 上：うえ — atas", "2. 上手：じょうず — mahir"]
+  },
+  {
+    "kanji": "下",
+    "contohDepan": ["1. 下", "2. 地下鉄"],
+    "contohBelakang": ["1. 下：した — bawah", "2. 地下鉄：ちかてつ — kereta bawah tanah"]
+  },
+  {
+    "kanji": "中",
+    "contohDepan": ["1. 中", "2. 中国"],
+    "contohBelakang": ["1. 中：なか — tengah", "2. 中国：ちゅうごく — Tiongkok"]
+  },
+  {
+    "kanji": "右",
+    "contohDepan": ["1. 右"],
+    "contohBelakang": ["1. 右：みぎ — kanan"]
+  }
+      ,
+      {
+    "kanji": "左",
+    "contohDepan": ["1. 左"],
+    "contohBelakang": ["1. 左：ひだり — kiri"]
+  },
+  {
+    "kanji": "私",
+    "contohDepan": ["1. 私"],
+    "contohBelakang": ["1. 私：わたし — saya"]
+  },
+  {
+    "kanji": "半",
+    "contohDepan": ["1. 半分", "2. 半年"],
+    "contohBelakang": ["1. 半分：はんぶん — setengah", "2. 半年：はんとし — setengah tahun"]
+  },
+  {
+    "kanji": "母",
+    "contohDepan": ["1. 母", "2. お母さん"],
+    "contohBelakang": ["1. 母：はは — ibu (sendiri)", "2. お母さん：おかあさん — ibu (orang lain)"]
+  },
+  {
+    "kanji": "毎",
+    "contohDepan": ["1. 毎日", "2. 毎週"],
+    "contohBelakang": ["1. 毎日：まいにち — setiap hari", "2. 毎週：まいしゅう — setiap minggu"]
+  },
+  {
+    "kanji": "何",
+    "contohDepan": ["1. 何", "2. 何人"],
+    "contohBelakang": ["1. 何：なに／なん — apa", "2. 何人：なんにん — berapa orang"]
+  },
+  {
+    "kanji": "友",
+    "contohDepan": ["1. 友達", "2. 親友"],
+    "contohBelakang": ["1. 友達：ともだち — teman", "2. 親友：しんゆう — sahabat"]
+  },
+  {
+    "kanji": "気",
+    "contohDepan": ["1. 元気", "2. 気持ち"],
+    "contohBelakang": ["1. 元気：げんき — sehat", "2. 気持ち：きもち — perasaan"]
+  },
+  {
+    "kanji": "生",
+    "contohDepan": ["1. 生まれる", "2. 学生"],
+    "contohBelakang": ["1. 生まれる：うまれる — lahir", "2. 学生：がくせい — pelajar"]
+  },
+  {
+    "kanji": "魚",
+    "contohDepan": ["1. 魚"],
+    "contohBelakang": ["1. 魚：さかな — ikan"]
+  },
+  {
+    "kanji": "大",
+    "contohDepan": ["1. 大きい", "2. 大人"],
+    "contohBelakang": ["1. 大きい：おおきい — besar", "2. 大人：おとな — orang dewasa"]
+  },
+  {
+    "kanji": "天",
+    "contohDepan": ["1. 天気", "2. 天国"],
+    "contohBelakang": ["1. 天気：てんき — cuaca", "2. 天国：てんごく — surga"]
+  },
+  {
+    "kanji": "空",
+    "contohDepan": ["1. 空", "2. 空港"],
+    "contohBelakang": ["1. 空：そら — langit", "2. 空港：くうこう — bandara"]
+  },
+  {
+    "kanji": "電",
+    "contohDepan": ["1. 電話", "2. 電気"],
+    "contohBelakang": ["1. 電話：でんわ — telepon", "2. 電気：でんき — listrik"]
+  },
+  {
+    "kanji": "車",
+    "contohDepan": ["1. 車", "2. 電車"],
+    "contohBelakang": ["1. 車：くるま — mobil", "2. 電車：でんしゃ — kereta listrik"]
+  },
+  {
+    "kanji": "言",
+    "contohDepan": ["1. 言う"],
+    "contohBelakang": ["1. 言う：いう — mengatakan"]
+  },
+  {
+    "kanji": "語",
+    "contohDepan": ["1. 日本語", "2. 英語"],
+    "contohBelakang": ["1. 日本語：にほんご — bahasa Jepang", "2. 英語：えいご — bahasa Inggris"]
+  },
+  {
+    "kanji": "名",
+    "contohDepan": ["1. 名前", "2. 有名"],
+    "contohBelakang": ["1. 名前：なまえ — nama", "2. 有名：ゆうめい — terkenal"]
+  },
+  {
+    "kanji": "店",
+    "contohDepan": ["1. 店", "2. 店員"],
+    "contohBelakang": ["1. 店：みせ — toko", "2. 店員：てんいん — pegawai toko"]
+  },
+  {
+    "kanji": "馬",
+    "contohDepan": ["1. 馬"],
+    "contohBelakang": ["1. 馬：うま — kuda"]
+  },
+  {
+    "kanji": "駅",
+    "contohDepan": ["1. 駅", "2. 駅前"],
+    "contohBelakang": ["1. 駅：えき — stasiun", "2. 駅前：えきまえ — depan stasiun"]
+  },
+  {
+    "kanji": "道",
+    "contohDepan": ["1. 道"],
+    "contohBelakang": ["1. 道：みち — jalan"]
+  },
+  {
+    "kanji": "社",
+    "contohDepan": ["1. 会社", "2. 社長"],
+    "contohBelakang": ["1. 会社：かいしゃ — perusahaan", "2. 社長：しゃちょう — direktur"]
+  },
+  {
+    "kanji": "国",
+    "contohDepan": ["1. 国", "2. 外国"],
+    "contohBelakang": ["1. 国：くに — negara", "2. 外国：がいこく — luar negeri"]
+  },
+      {
+    "kanji": "外",
+    "contohDepan": ["1. 外", "2. 外国"],
+    "contohBelakang": ["1. 外：そと — luar", "2. 外国：がいこく — luar negeri"]
+  },
+  {
+    "kanji": "学",
+    "contohDepan": ["1. 学ぶ", "2. 学校"],
+    "contohBelakang": ["1. 学ぶ：まなぶ — belajar", "2. 学校：がっこう — sekolah"]
+  },
+  {
+    "kanji": "校",
+    "contohDepan": ["1. 学校", "2. 校長"],
+    "contohBelakang": ["1. 学校：がっこう — sekolah", "2. 校長：こうちょう — kepala sekolah"]
+  },
+  {
+    "kanji": "入",
+    "contohDepan": ["1. 入る", "2. 入学"],
+    "contohBelakang": ["1. 入る：はいる — masuk", "2. 入学：にゅうがく — masuk sekolah"]
+  },
+  {
+    "kanji": "見",
+    "contohDepan": ["1. 見る", "2. 見学"],
+    "contohBelakang": ["1. 見る：みる — melihat", "2. 見学：けんがく — kunjungan belajar"]
+  },
+  {
+    "kanji": "門",
+    "contohDepan": ["1. 門"],
+    "contohBelakang": ["1. 門：もん — gerbang"]
+  },
+  {
+    "kanji": "間",
+    "contohDepan": ["1. 時間", "2. 間に合う"],
+    "contohBelakang": ["1. 時間：じかん — waktu", "2. 間に合う：まにあう — tepat waktu"]
+  },
+      {
+  "kanji": "聞",
+  "contohDepan": ["1. 聞く", "2. 新聞"],
+  "contohBelakang": ["1. 聞く：きく — mendengar/bertanya", "2. 新聞：しんぶん — surat kabar"]
+},
+  {
+    "kanji": "書",
+    "contohDepan": ["1. 書く", "2. 書店"],
+    "contohBelakang": ["1. 書く：かく — menulis", "2. 書店：しょてん — toko buku"]
+  },
+  {
+    "kanji": "読",
+    "contohDepan": ["1. 読む", "2. 読書"],
+    "contohBelakang": ["1. 読む：よむ — membaca", "2. 読書：どくしょ — membaca buku"]
+  },
+  {
+    "kanji": "話",
+    "contohDepan": ["1. 話", "2. 話す", "3. 会話"],
+    "contohBelakang": [
+      "1. 話：はなし — cerita",
+      "2. 話す：はなす — berbicara",
+      "3. 会話：かいわ — percakapan"
+    ]
+  },
+
+  {
+    "kanji": "買",
+    "contohDepan": ["1. 買う", "2. 買い物"],
+    "contohBelakang": ["1. 買う：かう — membeli", "2. 買い物：かいもの — belanja"]
+  },
+  {
+    "kanji": "行",
+    "contohDepan": ["1. 行く", "2. 旅行"],
+    "contohBelakang": ["1. 行く：いく — pergi", "2. 旅行：りょこう — perjalanan"]
+  },
+  {
+    "kanji": "出",
+    "contohDepan": ["1. 出る", "2. 出口"],
+    "contohBelakang": ["1. 出る：でる — keluar", "2. 出口：でぐち — pintu keluar"]
+  },
+  {
+    "kanji": "休",
+    "contohDepan": ["1. 休む"],
+    "contohBelakang": ["1. 休む：やすむ — istirahat"]
+  },
+  {
+    "kanji": "食",
+    "contohDepan": ["1. 食べる", "2. 食事"],
+    "contohBelakang": ["1. 食べる：たべる — makan", "2. 食事：しょくじ — makan"]
+  },
+  {
+    "kanji": "飲",
+    "contohDepan": ["1. 飲む", "2. 飲み物"],
+    "contohBelakang": ["1. 飲む：のむ — minum", "2. 飲み物：のみもの — minuman"]
+  },
+  {
+    "kanji": "立",
+    "contohDepan": ["1. 立つ", "2. 国立"],
+    "contohBelakang": ["1. 立つ：たつ — berdiri", "2. 国立：こくりつ — nasional"]
+  },
+  {
+    "kanji": "会",
+    "contohDepan": ["1. 会う", "2. 会社"],
+    "contohBelakang": ["1. 会う：あう — bertemu", "2. 会社：かいしゃ — perusahaan"]
+  },
+  {
+    "kanji": "多",
+    "contohDepan": ["1. 多い", "2. 多分"],
+    "contohBelakang": ["1. 多い：おおい — banyak", "2. 多分：たぶん — mungkin"]
+  },
+  {
+    "kanji": "小",
+    "contohDepan": ["1. 小さい", "2. 小学生"],
+    "contohBelakang": ["1. 小さい：ちいさい — kecil", "2. 小学生：しょうがくせい — siswa SD"]
+  },
+  {
+    "kanji": "少",
+    "contohDepan": ["1. 少ない", "2. 少年"],
+    "contohBelakang": ["1. 少ない：すくない — sedikit", "2. 少年：しょうねん — anak laki-laki"]
+  },
+  {
+    "kanji": "古",
+    "contohDepan": ["1. 古い"],
+    "contohBelakang": ["1. 古い：ふるい — tua"]
+  },
+  {
+    "kanji": "辛",
+    "contohDepan": ["1. 辛い"],
+    "contohBelakang": ["1. 辛い：からい — pedas"]
+  },
+  {
+    "kanji": "新",
+    "contohDepan": ["1. 新しい", "2. 新年"],
+    "contohBelakang": ["1. 新しい：あたらしい — baru", "2. 新聞：koran"]
+  },
+  {
+    "kanji": "安",
+    "contohDepan": ["1. 安い", "2. 安全"],
+    "contohBelakang": ["1. 安い：やすい — murah", "2. 安全：あんぜん — aman"]
+  },
+  {
+    "kanji": "高",
+    "contohDepan": ["1. 高い", "2. 高校"],
+    "contohBelakang": ["1. 高い：たかい — mahal/tinggi", "2. 高校：こうこう — SMA"]
+  },
+  {
+    "kanji": "長",
+    "contohDepan": ["1. 長い", "2. 社長"],
+    "contohBelakang": ["1. 長い：ながい — panjang", "2. 社長：しゃちょう — direktur"]
+  },
+  {
+    "kanji": "円",
+    "contohDepan": ["1. 円", "2. 百円"],
+    "contohBelakang": ["1. 円：えん — yen (mata uang Jepang)", "2. 百円：ひゃくえん — seratus yen"]
+  },
+      {
+  "kanji": "同",
+  "contohDepan": ["1. 同じ"],
+  "contohBelakang": ["1. 同じ：おなじ — sama"]
+}
+];
+
+    const dataN4 = [
   {
     "kanji": "親",
     "contohDepan": ["1. 親", "2. 親しい", "3. 親切"],
@@ -1948,49 +2503,55 @@
     "2. 冷蔵庫：れいぞうこ — lemari es"
   ]
 }
-]
-  ;
+];
 
-    // Inisialisasi rentang indeks yang tampil
-    let startIndex = 0;
-    let endIndex = flashcards.length - 1;
+    let flashcards = [];
     let current = 0;
+    let currentLevel = '';
+    let startIndex = 0;
+    let endIndex = 0;
+
+    function loadLevel(level) {
+      currentLevel = level;
+      flashcards = level === 'N5' ? dataN5 : dataN4;
+      document.getElementById("judul-level").textContent = `Flashcard Kanji JLPT ${level}`;
+      document.getElementById("level-select").classList.add("hidden");
+      document.getElementById("main-app").classList.remove("hidden");
+      document.getElementById("kanji-page").classList.add("hidden");
+      populateRangeSelectors();
+      startIndex = 0;
+      endIndex = flashcards.length - 1;
+      current = startIndex;
+      showCard(current);
+    }
 
     const startSelect = document.getElementById("start-kanji");
     const endSelect = document.getElementById("end-kanji");
 
-    // Isi dropdown start dan end
     function populateRangeSelectors() {
       startSelect.innerHTML = "";
       endSelect.innerHTML = "";
-      for(let i = 0; i < flashcards.length; i++) {
-        const optionStart = document.createElement("option");
-        optionStart.value = i;
-        optionStart.textContent = i + 1;
-        startSelect.appendChild(optionStart);
+      for (let i = 0; i < flashcards.length; i++) {
+        const optStart = document.createElement("option");
+        optStart.value = i;
+        optStart.textContent = i + 1;
+        startSelect.appendChild(optStart);
 
-        const optionEnd = document.createElement("option");
-        optionEnd.value = i;
-        optionEnd.textContent = i + 1;
-        endSelect.appendChild(optionEnd);
+        const optEnd = document.createElement("option");
+        optEnd.value = i;
+        optEnd.textContent = i + 1;
+        endSelect.appendChild(optEnd);
       }
-      // Default pilihan
-      startSelect.value = startIndex;
-      endSelect.value = endIndex;
+      startSelect.value = 0;
+      endSelect.value = flashcards.length - 1;
     }
 
-    // Update range sesuai dropdown, otomatis update kartu
     function updateRange() {
       let s = parseInt(startSelect.value);
       let e = parseInt(endSelect.value);
-      if (s > e) {
-        // Jika start lebih besar dari end, tukar
-        [s, e] = [e, s];
-      }
+      if (s > e) [s, e] = [e, s];
       startIndex = s;
       endIndex = e;
-
-      // Reset current ke startIndex supaya kartu valid
       current = startIndex;
       showCard(current);
     }
@@ -1998,14 +2559,24 @@
     startSelect.addEventListener("change", updateRange);
     endSelect.addEventListener("change", updateRange);
 
-    function showCard(index) {
-      if(index < startIndex) index = startIndex;
-      if(index > endIndex) index = endIndex;
+    function backToLevelSelect() {
+      document.getElementById("main-app").classList.add("hidden");
+      document.getElementById("level-select").classList.remove("hidden");
+      document.getElementById("kanji-page").classList.add("hidden");
+    }
 
-      const data = flashcards[index];
-      document.getElementById("kanji").textContent = data.kanji;
-      document.getElementById("contoh").innerHTML = data.contohDepan.join("<br>");
-      document.getElementById("back-merged").innerHTML = data.contohBelakang.join("<br>");
+    function backToFlashcards() {
+      document.getElementById("kanji-page").classList.add("hidden");
+      document.getElementById("main-app").classList.remove("hidden");
+    }
+
+    function showCard(index) {
+      if (index < startIndex) index = startIndex;
+      if (index > endIndex) index = endIndex;
+      const card = flashcards[index];
+      document.getElementById("kanji").textContent = card.kanji;
+      document.getElementById("contoh").innerHTML = card.contohDepan.join("<br>");
+      document.getElementById("back-merged").innerHTML = card.contohBelakang.join("<br>");
       document.getElementById("card-inner").classList.remove("is-flipped");
     }
 
@@ -2015,80 +2586,40 @@
 
     function nextCard() {
       current++;
-      if(current > endIndex) current = startIndex;
+      if (current > endIndex) current = startIndex;
       showCard(current);
     }
 
     function prevCard() {
       current--;
-      if(current < startIndex) current = endIndex;
+      if (current < startIndex) current = endIndex;
       showCard(current);
     }
 
-    // Fungsi daftar kanji sudah diupdate supaya merge, nomor dihiragana & arti
     function showDaftarKanji() {
-      document.getElementById("flashcard-container").style.display = "none";
-      document.getElementById("kanji-page").style.display = "block";
+      document.getElementById("main-app").classList.add("hidden");
+      document.getElementById("kanji-page").classList.remove("hidden");
+      document.getElementById("judul-daftar").textContent = `Daftar Kanji JLPT ${currentLevel}`;
 
-      let html = `
-      <div style="overflow-x: auto;">
-        <table>
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Kanji</th>
-              <th>Contoh Kata</th>
-              <th>Hiragana & Arti</th>
-           
-            </tr>
-          </thead>
-          <tbody>
-    
-      `;
-
+      let html = `<div style="overflow-x: auto;"><table><thead><tr><th>No</th><th>Kanji</th><th>Contoh Kata</th><th>Hiragana & Arti</th></tr></thead><tbody>`;
       flashcards.forEach((card, i) => {
         let contohKata = [];
-        let hiraganaArr = [];
-        let artiArr = [];
-        let gabunganHiraganaArti = [];
-
-        for(let idx = 0; idx < card.contohDepan.length; idx++) {
+        let artiGabung = [];
+        for (let idx = 0; idx < card.contohDepan.length; idx++) {
           const nomor = idx + 1;
           const contohKataClean = card.contohDepan[idx].replace(/^\d+\.\s*/, "");
           const back = card.contohBelakang[idx];
           const backClean = back.replace(/^\d+\.\s*/, "");
           const [kanjiHira, arti] = backClean.split(" — ");
-          const [kanjiHiragana, hiragana] = kanjiHira.split("：");
-
-          contohKata.push(`${nomor}. ${contohKataClean}`);               gabunganHiraganaArti.push(`${nomor}. ${hiragana}: ${arti}`);
+          const [, hiragana] = kanjiHira.split("：");
+          contohKata.push(`${nomor}. ${contohKataClean}`);
+          artiGabung.push(`${nomor}. ${hiragana}: ${arti}`);
         }
-
-        html += `
-          <tr>
-            <td>${i + 1}</td>
-            <td>${card.kanji}</td>
-            <td>${contohKata.join("<br>")}</td>
-       <td>${gabunganHiraganaArti.join("<br>")}</td>
-          </tr>
-        `;
+        html += `<tr><td>${i + 1}</td><td>${card.kanji}</td><td>${contohKata.join("<br>")}</td><td>${artiGabung.join("<br>")}</td></tr>`;
       });
-
       html += "</tbody></table></div>";
       document.getElementById("kanji-table").innerHTML = html;
     }
-
-    function backToFlashcards() {
-      document.getElementById("kanji-page").style.display = "none";
-      document.getElementById("flashcard-container").style.display = "block";
-    }
-
-    // Inisialisasi dropdown dan tampilkan kartu pertama
-    populateRangeSelectors();
-    showCard(current);
   </script>
-</body>
-</html>
-<!-- partial -->
-  
 </body>
 </html>
