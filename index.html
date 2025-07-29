@@ -5196,17 +5196,16 @@ document.getElementById("card-inner").classList.remove("is-flipped");
   document.getElementById("kanji-page").classList.remove("hidden");
   document.getElementById("judul-daftar").textContent = `Daftar Kanji JLPT ${currentLevel}`;
 
-  let html = `<div style="overflow-x: auto;"><table><thead><tr><th>No</th><th>Kanji</th><th>Contoh Kata</th><th>Hiragana & Arti</th></tr></thead><tbody>`;
-  
+  let html = `<div style="overflow-x: auto;"><table><thead><tr><th>No</th><th class="kanji-col">Kanji</th><th>Contoh Kata</th><th>Hiragana & Arti</th></tr></thead><tbody>`;
+
   flashcards.forEach((card, i) => {
     let contohKata = [];
     let artiGabung = [];
 
     let belakang = card.contohBelakang;
 
-    // Jika hanya satu string panjang dan mengandung <br>, kita pecah jadi baris
     if (belakang.length === 1 && belakang[0].includes("<br>")) {
-      belakang = belakang[0].split("<br>").slice(1); // abaikan baris pertama (judul bacaan)
+      belakang = belakang[0].split("<br>").slice(1);
     }
 
     for (let idx = 0; idx < belakang.length; idx++) {
@@ -5220,17 +5219,10 @@ document.getElementById("card-inner").classList.remove("is-flipped");
       artiGabung.push(`${nomor}. ${hiragana}: ${arti}`);
     }
 
-    let kanjiDisplay = card.kanji;
+    // tampilkan hanya kanjinya tanpa bacaan
+    const kanjiDisplay = card.kanji;
 
-// cek apakah contohBelakang[0] mengandung bacaan dalam kurung
-if (card.contohBelakang?.[0]?.includes("（") && card.contohBelakang[0].includes("）")) {
-  const match = card.contohBelakang[0].match(/^(.+?)（(.+?)）/);
-  if (match) {
-    kanjiDisplay = `${match[1]}（${match[2]}）`;
-  }
-}
-
-html += `<tr><td>${i + 1}</td><td>${kanjiDisplay}</td><td>${contohKata.join("<br>")}</td><td>${artiGabung.join("<br>")}</td></tr>`;
+    html += `<tr><td>${i + 1}</td><td class="kanji-col">${kanjiDisplay}</td><td>${contohKata.join("<br>")}</td><td>${artiGabung.join("<br>")}</td></tr>`;
   });
 
   html += "</tbody></table></div>";
