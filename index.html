@@ -166,6 +166,7 @@
     <div class="button-container">
       <button class="level-button" onclick="loadLevel('N5')">Level N5</button>
       <button class="level-button" onclick="loadLevel('N4')">Level N4</button>
+      <button class="level-button" onclick="loadLevel('N3')">Level N3</button>
     </div>
     <blockquote style="font-style: italic; background-color: #fdf6e3; border-left: 5px solid #f39c12; padding: 10px 20px; margin: 20px 0; border-radius: 8px;">
   🗝️“Kunci belajar bahasa Jepang itu konsisten, yang penting maju terus~<br>
@@ -2531,6 +2532,2537 @@
   ]
 }
 ];
+   const dataN3 = [
+
+  {
+    "kanji": "市",
+    "contohDepan": ["1. 市", "2. 市民", "3. 都市",  "4. 市場"],
+    "contohBelakang": [
+      "市（シ／いち）<br>1. 市：し — kota<br>2. 市民：しみん — warga kota<br>3. 都市：とし — kota besar<br>4. 市場：いちば — pasar"
+    ]
+  },
+  {
+  "kanji": "合",
+  "contohDepan": [
+    "1. 間に合う", 
+    "2. 話し合う", 
+    "3. 合計", 
+    "4. 合図",
+    "5. 場合", 
+    "6. 試合", 
+    "7. 合う",
+    "8. 集合"
+  ],
+  "contohBelakang": [
+    "合（ゴウ／あう）<br>1. 間に合う：まにあう — tepat waktu<br>2. 話し合う：はなしあう — berdiskusi<br>3. 合計：ごうけい — jumlah total<br>4. 合図：あいず — tanda/isyarat<br>5. 場合：ばあい — kasus, situasi<br>6. 試合：しあい — pertandingan<br>7. 合う：あう — cocok, sesuai<br>8. 集合：しゅうごう — berkumpul"
+  ]
+},
+  {
+    "kanji": "民",
+    "contohDepan": ["1. 市民", "2. 国民", "3. 住民"],
+    "contohBelakang": [
+      "民（ミン／たみ）<br>1. 市民：しみん — warga kota<br>2. 国民：こくみん — warga negara<br>3. 住民：じゅうみん — penduduk"
+    ]
+  },
+     {
+    kanji: "回",
+    contohDepan: ["1. 一回", "2. 次回", "3.  回す", "4.  回る"],
+    contohBelakang: [
+      "回（カイ／まわる／まわす）<br>1. 一回：いっかい — satu kali<br>2. 次回：じかい — kali berikutnya<br> 3. 回す：まわす — memutar, mengoper (transitif)<br> 4. 回る：まわる — berputar, berkeliling (intransitif)"]
+  },
+  {
+    kanji: "首",
+    contohDepan: ["1. 首", "2. 首相", "3. 首都"],
+    contohBelakang: [
+      "首（シュ／くび）<br>1. 首：くび — leher<br>2. 首相：しゅしょう — perdana menteri<br>3. 首都：しゅと — ibu kota"
+    ]
+  },
+  {
+    kanji: "都",
+    contohDepan: ["1. 都会", "2. 都合", "3. 都市"],
+    contohBelakang: [
+      "都（ト／ツ／みやこ）<br>1. 都会：とかい — kota besar<br>2. 都合：つごう — keadaan<br>3. 都市：とし — kota"
+    ]
+  },
+  {
+  kanji: "進",
+  contohDepan: [
+    "1. 進む",
+    "2. 進める",
+    "3. 進学",
+    "4. 進歩",
+    "5. 前進"
+  ],
+  contohBelakang: [
+    "進（シン／すすむ／すすめる）<br>" +
+    "1. 進む：すすむ — maju<br>" +
+    "2. 進める：すすめる — memajukan / melanjutkan<br>" +
+    "3. 進学：しんがく — melanjutkan sekolah<br>" +
+    "4. 進歩：しんぽ — kemajuan<br>" +
+    "5. 前進：ぜんしん — maju ke depan"
+  ]
+},
+  {
+  kanji: "産",
+  contohDepan: [
+    "1. 出産",
+    "2. 生産",
+    "3. 国産",
+    "4. お土産",
+    "5. 破産"
+  ],
+  contohBelakang: [
+    "産（サン／うむ／うまれる/やげ）<br>" +
+    "1. 出産：しゅっさん — melahirkan<br>" +
+    "2. 生産：せいさん — produksi<br>" +
+    "3. 国産：こくさん — produksi dalam negeri<br>" +
+    "4. お土産：おみやげ — oleh-oleh<br>" +
+    "5. 破産：はさん — bangkrut"
+  ]
+},
+  {
+  kanji: "引",
+  contohDepan: [
+    "1. 引く",
+    "2. 引っ越し",
+    "3. 引き出し",
+    "4. 引用",
+    "5. 引退"
+  ],
+  contohBelakang: [
+    "引（イン／ひく）<br>" +
+    "1. 引く：ひく — menarik<br>" +
+    "2. 引っ越し：ひっこし — pindahan<br>" +
+    "3. 引き出し：ひきだし — laci<br>" +
+    "4. 引用：いんよう — kutipan<br>" +
+    "5. 引退：いんたい — pensiun"
+  ]
+},
+  {
+  kanji: "所",
+  contohDepan: [
+    "1. 場所",
+    "2. 近所",
+    "3. 台所",
+    "4. 住所"
+  ],
+  contohBelakang: [
+    "所（ショ／ところ）<br>" +
+    "1. 場所：ばしょ — tempat<br>" +
+    "2. 近所：きんじょ — lingkungan sekitar/tetangga<br>" +
+    "3. 台所：だいどころ — dapur<br>" +
+    "4. 住所：じゅうしょ — alamat"
+  ]
+},
+  {
+  kanji: "説",
+  contohDepan: [
+    "1. 説明",
+    "2. 小説",
+    "3. 演説"
+  ],
+  contohBelakang: [
+    "説（セツ／ゼイ／とく）<br>" +
+    "1. 説明：せつめい — penjelasan<br>" +
+    "2. 小説：しょうせつ — novel<br>" +
+    "3. 演説：えんぜつ — pidato"
+  ]
+},
+     {
+  kanji: "乗",
+  contohDepan: ["1. 乗る", "2. 乗せる", "3. 乗車", "4. 乗客"],
+  contohBelakang: [
+    "乗（ジョウ／のる／のせる）<br>1. 乗る：のる — naik (kendaraan)<br>2. 乗せる：のせる — menaikkan (penumpang, barang)<br>3. 乗車：じょうしゃ — naik kendaraan<br>4. 乗客：じょうきゃく — penumpang"
+  ]
+},
+  {
+    kanji: "声",
+    contohDepan: ["1. 声", "2. 大声", "3. 声援"],
+    contohBelakang: [
+      "声（セイ／ショウ／こえ／こわ）<br>1. 声：こえ — suara<br>2. 大声：おおごえ — teriak/suara keras<br>3. 声援：せいえん — sorakan semangat"
+    ]
+  },
+  {
+    kanji: "働",
+    contohDepan: ["1. 働く", "2. 労働"],
+    contohBelakang: [
+      "働（ドウ／はたらく）<br>1. 働く：はたらく — bekerja<br>2. 労働：ろうどう — pekerjaan, tenaga kerja/buruh"
+    ]
+  },
+     {
+  kanji: "好",
+  contohDepan: ["1. 好き", "2. 好意", "3. 好み", "4. 格好"],
+  contohBelakang: [
+    "好（コウ／このむ・すく）<br>1. 好き：すき — suka<br>2. 好意：こうい — niat baik, kebaikan<br>3. 好み：このみ — kesukaan, selera<br>4. 格好：かっこう — penampilan, bentuk"
+  ]
+},
+{
+  kanji: "頭",
+  contohDepan: ["1. 頭", "2. 頭痛"],
+  contohBelakang: [
+    "頭（トウ・ズ・ト／あたま・かしら）<br>1. 頭：あたま — kepala<br>2. 頭痛：ずつう — sakit kepala"
+  ]
+},
+{
+  kanji: "太",
+  contohDepan: ["1. 太い", "2. 太る", "3. 太陽"],
+  contohBelakang: [
+    "太（タイ・タ／ふとい・ふとる）<br>1. 太い：ふとい — tebal, besar<br>2. 太る：ふとる — menjadi gemuk<br>3. 太陽：たいよう — matahari"
+  ]
+},
+{
+  kanji: "顔",
+  contohDepan: ["1. 顔", "2. 笑顔"],
+  contohBelakang: [
+    "顔（ガン／かお）<br>1. 顔：かお — wajah<br>2. 笑顔：えがお — wajah tersenyum"
+  ]
+},
+     {
+  kanji: "薬",
+  contohDepan: ["1. 薬", "2. 薬局", "3. 薬品"],
+  contohBelakang: [
+    "薬（ヤク／くすり）<br>1. 薬：くすり — obat<br>2. 薬局：やっきょく — apotek<br>3. 薬品：やくひん — bahan kimia, zat obat"
+  ]
+},
+{
+  kanji: "便",
+  contohDepan: ["1. 便利", "2. 不便", "3. 便り", "4. 郵便"],
+  contohBelakang: [
+    "便（ベン・ビン／たより）<br>1. 便利：べんり — praktis, nyaman<br>2. 不便：ふべん — tidak praktis, tidak nyaman<br>3. 便り：たより — kabar, berita<br>4. 郵便：ゆうびん — pos"
+  ]
+},
+{
+  kanji: "遠",
+  contohDepan: ["1. 遠い", "2. 永遠", "3. 遠足", "4. 遠慮"],
+  contohBelakang: [
+    "遠（エン・オン／とおい）<br>1. 遠い：とおい — jauh<br>2. 永遠：えいえん — kekekalan<br>3. 遠足：えんそく — piknik, tamasya<br>4. 遠慮：えんりょ — sungkan, segan"
+  ]
+},
+{
+  kanji: "暗",
+  contohDepan: ["1. 暗い", "2. 暗記"],
+  contohBelakang: [
+    "暗（アン／くらい）<br>1. 暗い：くらい — gelap<br>2. 暗記：あんき — hafalan"
+  ]
+},
+{
+  kanji: "洗",
+  contohDepan: ["1. 洗う", "2. 洗濯", "3. 手洗い"],
+  contohBelakang: [
+    "洗（セン／あらう）<br>1. 洗う：あらう — mencuci<br>2. 洗濯：せんたく — cucian<br>3. 手洗い：てあらい — cuci tangan, toilet"
+  ]
+},
+{
+  kanji: "議",
+  contohDepan: ["1. 会議", "2. 議論", "3. 議員", "4. 不思議", "5. 議長", "6. 議会"],
+  contohBelakang: [
+    "議（ギ）<br>1. 会議：かいぎ — rapat, pertemuan<br>2. 議論：ぎろん — diskusi, debat<br>3. 議員：ぎいん — anggota parlemen<br>4. 不思議：ふしぎ — ajaib, aneh<br>5. 議長：ぎちょう — ketua rapat<br>6. 議会：ぎかい — dewan, parlemen"
+  ]
+},
+{
+  kanji: "連",
+  contohDepan: ["1. 連れて行く", "2. 連絡", "3. 連続", "4. 連想", "5. 関連"],
+  contohBelakang: [
+    "連（レン／つらなる・つらねる・つれる）<br>1. 連れて行く：つれていく — membawa (orang)<br>2. 連絡：れんらく — menghubungi<br>3. 連続：れんぞく — berkelanjutan, terus-menerus<br>4. 連想：れんそう — asosiasi pikiran<br>5. 関連：かんれん — keterkaitan, hubungan"
+  ]
+},
+{
+  kanji: "対",
+  contohDepan: ["1. 反対", "2. 対する", "3. 対象", "4. 絶対"],
+  contohBelakang: [
+    "対（タイ・ツイ）<br>1. 反対：はんたい — menentang<br>2. 対する：たいする — terhadap<br>3. 対象：たいしょう — objek, sasaran<br>4. 絶対：ぜったい — pasti, mutlak"
+  ]
+},
+     {
+  kanji: "部",
+  contohDepan: ["1. 部屋", "2. 部長", "3. 学部", "4. 部分", "5. 大部分"],
+  contohBelakang: [
+    "部（ブ）<br>1. 部屋：へや — kamar<br>2. 部長：ぶちょう — kepala bagian<br>3. 学部：がくぶ — fakultas (di universitas)<br>4. 部分：ぶぶん — bagian<br>5. 大部分：だいぶぶん — sebagian besar"
+  ]
+},
+  {
+  kanji: "内",
+  contohDepan: ["1. 家内", "2. 国内", "3. 内側", "4. 以内", "5. 内容"],
+  contohBelakang: [
+    "内（ナイ・ダイ／うち）<br>1. 家内：かない — istri (sendiri)/rumah tangga<br>2. 国内：こくない — dalam negeri<br>3. 内側：うちがわ — sisi dalam<br>4. 以内：いない — di dalam, tidak lebih dari<br>5. 内容：ないよう — isi, konten"
+  ]
+},
+{
+  kanji: "相",
+  contohDepan: ["1. 相手", "2. 相談", "3. 首相", "4. 相当"],
+  contohBelakang: [
+    "相（ソウ・ショウ／あい）<br>1. 相手：あいて — lawan bicara, pasangan/partner<br>2. 相談：そうだん — diskusi, konsultasi<br>3. 首相：しゅしょう — perdana menteri<br>4. 相当：そうとう — sepadan, setara, cukup (banyak/tinggi)"
+  ]
+},
+{
+  kanji: "定",
+  contohDepan: ["1. 決定", "2. 定める", "3. 定期", "4. 安定", "5. 予定"],
+  contohBelakang: [
+    "定（テイ・ジョウ／さだめる・さだまる・さだか）<br>1. 決定：けってい — keputusan<br>2. 定める：さだめる — menetapkan<br>3. 定期：ていき — berkala, rutin, teratur<br>4. 安定：あんてい — stabil<br>5. 予定：よてい — rencana, jadwal"
+  ]
+},
+{
+  kanji: "選",
+  contohDepan: ["1. 選ぶ", "2. 選手", "3. 選択"],
+  contohBelakang: [
+    "選（セン／えらぶ）<br>1. 選ぶ：えらぶ — memilih<br>2. 選手：せんしゅ — atlet<br>3. 選択：せんたく — pilihan, seleksi"
+  ]
+},
+{
+  kanji: "米",
+  contohDepan: ["1. 米", "2. 米国"],
+  contohBelakang: [
+    "米（ベイ・マイ／こめ）<br>1. 米：こめ — beras<br>2. 米国：べいこく — Amerika Serikat"
+  ]
+},
+  {
+  kanji: "実",
+  contohDepan: ["1. 実は", "2. 実力", "3. 実際", "4. 実施", "5. 事実", "6. 実行"],
+  contohBelakang: [
+    "実（ジツ／み・みのる）<br>1. 実は：じつは — sebenarnya<br>2. 実力：じつりょく — kemampuan sesungguhnya<br>3. 実際：じっさい — kenyataan, sebenarnya<br>4. 実施：じっし — pelaksanaan (formal)<br>5. 事実：じじつ — fakta<br>6. 実行：じっこう — pelaksanaan (aksi)"
+  ]
+},
+{
+  kanji: "関",
+  contohDepan: ["1. 関係", "2. 関わる", "3. 関心"],
+  contohBelakang: [
+    "関（カン／せき・かかわる）<br>1. 関係：かんけい — hubungan<br>2. 関わる：かかわる — terlibat, berkaitan<br>3. 関心：かんしん — minat, perhatian"
+  ]
+},
+{
+  kanji: "決",
+  contohDepan: ["1. 決める", "2. 決まる", "3. 解決", "4. 決定"],
+  contohBelakang: [
+    "決（ケツ／きめる・きまる）<br>1. 決める：きめる — memutuskan<br>2. 決まる：きまる — ditentukan<br>3. 解決：かいけつ — penyelesaian, solusi<br>4. 決定：けってい — keputusan, penetapan"
+  ]
+},
+{
+  kanji: "全",
+  contohDepan: ["1. 全く", "2. 全て", "3. 安全", "4. 全員"],
+  contohBelakang: [
+    "全（ゼン／まったく・すべて）<br>1. 全く：まったく — sama sekali, benar-benar<br>2. 全て：すべて — semua<br>3. 安全：あんぜん — aman<br>4. 全員：ぜんいん — semua orang (anggota), seluruh anggota"
+  ]
+},
+{
+  kanji: "表",
+  contohDepan: ["1. 発表", "2. 表す", "3. 表面", "4. 表現", "5. 代表"],
+  contohBelakang: [
+    "表（ヒョウ／おもて・あらわす・あらわれる）<br>1. 発表：はっぴょう — presentasi, pengumuman<br>2. 表す：あらわす — menyatakan, mengungkapkan<br>3. 表面：ひょうめん — permukaan<br>4. 表現：ひょうげん — ekspresi, ungkapan<br>5. 代表：だいひょう — perwakilan"
+  ]
+},
+    {
+  kanji: "戦",
+  contohDepan: ["1. 戦争", "2. 戦う", "3. 作戦", "4. 大戦"],
+  contohBelakang: [
+    "戦（セン／いくさ・たたかう）<br>1. 戦争：せんそう — perang<br>2. 戦う：たたかう — bertarung, berperang<br>3. 作戦：さくせん — strategi, taktik<br>4. 大戦：たいせん — perang besar (misal: Perang Dunia)"
+  ]
+},
+{
+  kanji: "最",
+  contohDepan: ["1. 最も", "2. 最初", "3. 最後", "4. 最高", "5. 最終", "6. 最悪", "7. 最低", "8. 最中"],
+  contohBelakang: [
+    "最（サイ／もっとも）<br>1. 最も：もっとも — paling<br>2. 最初：さいしょ — yang pertama<br>3. 最後：さいご — yang terakhir<br>4. 最高：さいこう — paling hebat, tertinggi<br>5. 最終：さいしゅう — akhir, terakhir<br>6. 最悪：さいあく — terburuk<br>7. 最低：さいてい — paling rendah<br>8. 最中：さいちゅう — sedang (di tengah proses)"
+  ]
+},
+{
+  kanji: "調",
+  contohDepan: ["1. 調べる", "2. 調子", "3. 調査", "4. 強調", "5. 順調"],
+  contohBelakang: [
+    "調（チョウ／しらべる・ととのう・ととのえる）<br>1. 調べる：しらべる — menyelidiki, memeriksa<br>2. 調子：ちょうし — kondisi<br>3. 調査：ちょうさ — penyelidikan, investigasi, survei<br>4. 強調：きょうちょう — penekanan, highlight<br>5. 順調：じゅんちょう — lancar, berjalan dengan baik"
+  ]
+},
+{
+  kanji: "化",
+  contohDepan: ["1. 文化", "2. 化粧", "3. 化学", "4. 変化"],
+  contohBelakang: [
+    "化（カ・ケ／ばける・ばかす）<br>1. 文化：ぶんか — budaya<br>2. 化粧：けしょう — riasan, make-up<br>3. 化学：かがく — kimia<br>4. 変化：へんか — perubahan"
+  ]
+},
+{
+  kanji: "当",
+  contohDepan: ["1. 本当", "2. 当たる", "3. 弁当", "4. 適当", "5. 相当", "6. 当たり前"],
+  contohBelakang: [
+    "当（トウ／あたる・あてる）<br>1. 本当：ほんとう — benar, sungguh<br>2. 当たる：あたる — mengenai, kena<br>3. 弁当：べんとう — bekal makanan<br>4. 適当：てきとう — sesuai / asal-asalan<br>5. 相当：そうとう — sepadan, cukup besar<br>6. 当たり前：あたりまえ — wajar, tentu saja, sudah seharusnya"
+  ]
+},
+  {
+  kanji: "約",
+  contohDepan: ["1. 約束", "2. 約〜", "3. 契約", "4. 予約", "5. 節約"],
+  contohBelakang: [
+    "約（ヤク）<br>1. 約束：やくそく — janji<br>2. 約〜：やく〜 — kira-kira (jumlah)<br>3. 契約：けいやく — kontrak, perjanjian<br>4. 予約：よやく — reservasi, pemesanan<br>5. 節約：せつやく — penghematan"
+  ]
+},
+  {
+  kanji: "法",
+  contohDepan: ["1. 方法", "2. 法律", "3. 憲法", "4. 文法", "5. 作法"],
+  contohBelakang: [
+    "法（ホウ・ハッ・ホ）<br>1. 方法：ほうほう — metode, cara<br>2. 法律：ほうりつ — hukum<br>3. 憲法：けんぽう — konstitusi, undang-undang dasar<br>4. 文法：ぶんぽう — tata bahasa<br>5. 作法：さほう — etika, tata krama"
+  ]
+},
+  {
+  kanji: "的",
+  contohDepan: ["1. 目的", "2. 基本的", "3. 具体的", "4. 感情的",  "5. 積極的"],
+  contohBelakang: [
+    "的（テキ・まと）<br>1. 目的：もくてき — tujuan<br>2. 基本的：きほんてき — secara dasar<br>3. 具体的：ぐたいてき — secara konkret<br>4. 感情的：かんじょうてき — secara emosional<br>5. 積極的：せっきょくてき — aktif, positif (berinisiatif)"
+  ]
+},
+  {
+  kanji: "要",
+  contohDepan: ["1. 重要", "2. 必要", "3. 要点", "4. 要求", "5. 主要"],
+  contohBelakang: [
+    "要（ヨウ・かなめ・いる）<br>1. 重要：じゅうよう — penting<br>2. 必要：ひつよう — perlu<br>3. 要点：ようてん — pokok penting<br>4. 要求：ようきゅう — tuntutan, permintaan<br>5. 主要：しゅよう — utama, pokok"
+  ]
+},
+  {
+    kanji: "治",
+    contohDepan: ["1. 政治", "2. 治す", "3. 治る", "4. 治療"],
+    contohBelakang: [
+      "治（ジ・チ・おさめる・なおす・なおる）<br>1. 政治：せいじ — politik<br>2. 治す：なおす — menyembuhkan<br>3. 治る：なおる — sembuh<br>4. 治療：ちりょう — perawatan medis<br>"
+    ]
+  },
+  {
+  kanji: "成",
+  contohDepan: ["1. 成功", "2. 成長", "3. 成績", "4. 成る", "5. 完成"],
+  contohBelakang: [
+    "成（セイ・ジョウ・なる・なす）<br>1. 成功：せいこう — keberhasilan<br>2. 成長：せいちょう — pertumbuhan<br>3. 成績：せいせき — hasil, nilai<br>4. 成る：なる — menjadi<br>5. 完成：かんせい — penyelesaian, selesai dibuat"
+  ]
+},
+  {
+    kanji: "期",
+    contohDepan: ["1. 期間", "2. 学期", "3. 長期", "4. 短期", "5. 期待"],
+    contohBelakang: [
+      "期（キ）<br>1. 期間：きかん — jangka waktu<br>2. 学期：がっき — semester<br>3. 長期：ちょうき — jangka panjang<br>4. 短期：たんき — jangka pendek<br>5. 期待：きたい — harapan"
+    ]
+  },
+  {
+    kanji: "取",
+    contohDepan: ["1. 取る", "2. 受け取る", "3. 聞き取り", "4. 取り消す"],
+    contohBelakang: [
+      "取（シュ・とる）<br>1. 取る：とる — mengambil<br>2. 受け取る：うけとる — menerima<br>3. 聞き取り：ききとり — pemahaman mendengar<br>4. 取り消す：とりけす — membatalkan"
+    ]
+  },
+     {
+  kanji: "和",
+  contohDepan: ["1. 和食", "2. 和服"],
+  contohBelakang: [
+    "和（ワ・やわらぐ・なごむ・あえる）<br>1. 和食：わしょく — makanan Jepang<br>2. 和服：わふく — pakaian tradisional Jepang"
+  ]
+},
+{
+  kanji: "機",
+  contohDepan: ["1. 機会", "2. 飛行機", "3. 機械", "4. 洗濯機", "5. 機能"],
+  contohBelakang: [
+    "機（キ・はた）<br>1. 機会：きかい — kesempatan<br>2. 飛行機：ひこうき — pesawat terbang<br>3. 機械：きかい — mesin<br>4. 洗濯機：せんたくき — mesin cuci<br>5. 機能：きのう — fungsi"
+  ]
+},
+{
+  kanji: "平",
+  contohDepan: ["1. 平和", "2. 平日", "3. 平等", "4. 平気", "5. 平均"],
+  contohBelakang: [
+    "平（ヘイ・ビョウ・たいら・ひら）<br>1. 平和：へいわ — perdamaian<br>2. 平日：へいじつ — hari kerja<br>3. 平等：びょうどう — kesetaraan<br>4. 平気：へいき — tenang, tidak apa-apa<br>5. 平均：へいきん — rata-rata"
+  ]
+},
+{
+  kanji: "加",
+  contohDepan: ["1. 追加", "2. 加える", "3. 参加", "4. 加速"],
+  contohBelakang: [
+    "加（カ・くわえる・くわわる）<br>1. 追加：ついか — tambahan<br>2. 加える：くわえる — menambahkan<br>3. 参加：さんか — partisipasi<br>4. 加速：かそく — percepatan"
+  ]
+},
+{
+  kanji: "受",
+  contohDepan: ["1. 受付", "2. 受ける", "3. 受験", "4. 受信"],
+  contohBelakang: [
+    "受（ジュ・うける・うかる）<br>1. 受付：うけつけ — resepsionis, meja penerima tamu<br>2. 受ける：うける — menerima, mengikuti (ujian)<br>3. 受験：じゅけん — ikut ujian<br>4. 受信：じゅしん — penerimaan sinyal/pesan"
+  ]
+},
+{
+  kanji: "続",
+  contohDepan: ["1. 続ける", "2. 続く", "3. 連続"],
+  contohBelakang: [
+    "続（ゾク・つづける・つづく）<br>1. 続ける：つづける — melanjutkan<br>2. 続く：つづく — berlanjut<br>3. 連続：れんぞく — berturut-turut"
+  ]
+},
+{
+  kanji: "数",
+  contohDepan: ["1. 数字", "2. 数える", "3. 人数", "4. 数学"],
+  contohBelakang: [
+    "数（スウ・かず・かぞえる）<br>1. 数字：すうじ — angka<br>2. 数える：かぞえる — menghitung<br>3. 人数：にんずう — jumlah orang<br>4. 数学：すうがく — matematika"
+  ]
+},
+    {
+  kanji: "記",
+  contohDepan: ["1. 記事", "2. 記入", "3. 記念", "4. 日記", "5. 記録", "6. 記者"],
+  contohBelakang: [
+    "記（キ・しるす）<br>1. 記事：きじ — artikel, berita<br>2. 記入：きにゅう — pengisian (formulir, data)<br>3. 記念：きねん — peringatan<br>4. 日記：にっき — buku harian<br>5. 記録：きろく — catatan, rekor<br>6. 記者：きしゃ — jurnalis, wartawan"
+  ]
+},
+{
+  kanji: "初",
+  contohDepan: ["1. 初めて", "2. 初恋", "3. 初日", "4. 最初"],
+  contohBelakang: [
+    "初（ショ・はじめ・はつ・うい・そめる）<br>1. 初めて：はじめて — pertama kali<br>2. 初恋：はつこい — cinta pertama<br>3. 初日：しょにち — hari pertama<br>4. 最初：さいしょ — paling awal"
+  ]
+},
+{
+  kanji: "指",
+  contohDepan: ["1. 指輪", "2. 指導", "3. 指す", "4. 人差し指"],
+  contohBelakang: [
+    "指（シ・ゆび・さす）<br>1. 指輪：ゆびわ — cincin<br>2. 指導：しどう — bimbingan<br>3. 指す：さす — menunjuk<br>4. 人差し指：ひとさしゆび — jari telunjuk"
+  ]
+},
+{
+  kanji: "点",
+  contohDepan: ["1. 点検", "2. 満点", "3. 欠点"],
+  contohBelakang: [
+    "点（テン）<br>1. 点検：てんけん — pemeriksaan<br>2. 満点：まんてん — nilai penuh/sempurna<br>3. 欠点：けってん — kekurangan, kelemahan, gagal"
+  ]
+},
+{
+  kanji: "活",
+  contohDepan: ["1. 活動", "2. 生活", "3. 活気", "4. 活用"],
+  contohBelakang: [
+    "活（カツ）<br>1. 活動：かつどう — aktivitas<br>2. 生活：せいかつ — kehidupan sehari-hari<br>3. 活気：かっき — semangat, energi<br>4. 活用：かつよう — penggunaan secara efektif, pengaplikasian, konjugasi (kata kerja)"
+  ]
+},
+{
+  kanji: "原",
+  contohDepan: ["1. 原因", "2. 原料"],
+  contohBelakang: [
+    "原（ゲン・はら）<br>1. 原因：げんいん — penyebab<br>2. 原料：げんりょう — bahan baku"
+  ]
+},
+{
+  kanji: "共",
+  contohDepan: ["1. 共同", "2. 共通", "３. 共に"],
+  contohBelakang: [
+    "共（キョウ・とも）<br>1. 共同：きょうどう — kerja sama<br>2. 共通：きょうつう — kesamaan<br>3. 共に：ともに — bersama-sama"
+  ]
+},
+{
+  kanji: "得",
+  contohDepan: ["1. 得る", "2. 納得", "3. 得意"],
+  contohBelakang: [
+    "得（トク・える・うる）<br>1. 得る：える — mendapatkan<br>2. 納得：なっとく — pemahaman, menerima secara logis<br>3. 得意：とくい — mahir, keahlian"
+  ]
+},
+  {
+    kanji: "交",
+    contohDepan: ["1. 交差点", "2. 交流", "3. 交通"],
+    contohBelakang: [
+      "交（コウ・まじる・まじわる）<br>1. 交差点：こうさてん — perempatan<br>2. 交流：こうりゅう — pertukaran (budaya, dsb)<br>3. 交通：こうつう — lalu lintas"
+    ]
+  },
+  {
+  kanji: "予",
+  contohDepan: ["1. 予定", "2. 予習", "3. 予想", "4. 予算", "5. 予期"],
+  contohBelakang: [
+    "予（ヨ）<br>1. 予定：よてい — rencana<br>2. 予習：よしゅう — mempersiapkan pelajaran<br>3. 予想：よそう — prediksi<br>4. 予算：よさん — anggaran, budget<br>5. 予期：よき — perkiraan, ekspetasi"
+  ]
+},
+  {
+    kanji: "向",
+    contohDepan: ["1. 向かう", "2. 方向", "3. 向こう"],
+    contohBelakang: [
+      "向（コウ・むく・むける・むかう・むこう）<br>1. 向かう：むかう — mengarah ke<br>2. 方向：ほうこう — arah<br>3. 向こう：むこう — seberang, sisi lain"
+    ]
+  },
+  {
+  kanji: "勝",
+  contohDepan: ["1. 勝つ", "2. 優勝", "3. 勝ち"],
+  contohBelakang: [
+    "勝（ショウ・かつ・まさる）<br>1. 勝つ：かつ — menang<br>2. 優勝：ゆうしょう — kemenangan utama<br>3. 勝ち：かち — kemenangan"
+  ]
+},
+  {
+  kanji: "面",
+  contohDepan: ["1. 面白い", "2. 面接", "3. 面する", "4. 場面", "5. 表面", "6. 真面目"],
+  contohBelakang: [
+    "面（メン・おも・おもて・つら）<br>1. 面白い：おもしろい — menarik<br>2. 面接：めんせつ — wawancara<br>3. 面する：めんする — menghadap ke<br>4. 場面：ばめん — adegan, situasi<br>5. 表面：ひょうめん — permukaan<br>6. 真面目：まじめ — serius, sungguh-sungguh"
+  ]
+},
+  {
+  kanji: "告",
+  contohDepan: ["1. 告げる", "2. 広告", "3. 報告", "4. 警告"],
+  contohBelakang: [
+    "告（コク・つげる）<br>1. 告げる：つげる — memberitahu<br>2. 広告：こうこく — iklan<br>3. 報告：ほうこく — laporan<br>4. 警告：けいこく — peringatan"
+  ]
+},
+  {
+    kanji: "反",
+    contohDepan: ["1. 反対", "2. 違反"],
+    contohBelakang: [
+      "反（ハン・ホン・タン・そる・そらす）<br>1. 反対：はんたい — menentang<br>2. 違反：いはん — pelanggaran"
+    ]
+  },
+  {
+    kanji: "参",
+    contohDepan: ["1. 参加", "2. 参る", "3. 参考"],
+    contohBelakang: [
+      "参（サン・まいる）<br>1. 参加：さんか — partisipasi<br>2. 参る：まいる — datang (kenjougo)<br>3. 参考：さんこう — referensi,konsultasi"
+    ]
+  },
+  {
+  kanji: "利",
+  contohDepan: ["1. 利用", "2. 便利", "3. 権利", "4. 利益", "5. 利口"],
+  contohBelakang: [
+    "利（リ・きく）<br>1. 利用：りよう — penggunaan<br>2. 便利：べんり — praktis<br>3. 権利：けんり — hak<br>4. 利益：りえき — keuntungan<br>5. 利口：りこう — pintar, cerdas (biasanya untuk anak-anak atau hewan)"
+  ]
+},
+  {
+    kanji: "組",
+    contohDepan: ["1. 番組", "2. 組み立てる", "3. 組織"],
+    contohBelakang: [
+      "組（ソ・くむ・くみ）<br>1. 番組：ばんぐみ — acara TV<br>2. 組み立てる：くみたてる — merakit<br>3. 組織：そしき — organisasi"
+    ]
+  },
+ 
+  {
+    kanji: "求",
+    contohDepan: ["1. 求人", "2. 要求", "3. 求める", "4. 請求書"],
+    contohBelakang: [
+      "求（キュウ・もとめる）<br>1. 求人：きゅうじん — lowongan kerja<br>2. 要求：ようきゅう — permintaan<br>3. 求める：もとめる — menginginkan, meminta<br>4. 請求書：せいきゅうしょ — tagihan"
+    ]
+  },
+  {
+  kanji: "次",
+  contohDepan: ["1. 次回", "2. 次第", "3. 次々", "4. 次男", "5. 次"],
+  contohBelakang: [
+    "次（ジ・つぐ・つぎ）<br>1. 次回：じかい — kali berikutnya<br>2. 次第：しだい — tergantung, segera setelah<br>3. 次々：つぎつぎ — berturut-turut<br>4. 次男：じなん — anak laki-laki kedua<br>5. 次：つぎ — selanjutnya, berikutnya"
+  ]
+},
+  {
+    kanji: "昨",
+    contohDepan: ["1. 昨日", "2. 昨年", "3. 昨夜", "4. 一昨日"],
+    contohBelakang: [
+      "昨（サク）<br>1. 昨日：さくじつ／きのう — kemarin<br>2. 昨年：さくねん — tahun lalu<br>3. 昨夜：さくや — tadi malam<br>4. 一昨日：おととい — dua hari lalu"
+    ]
+  },
+  {
+    kanji: "官", 
+    contohDepan: ["1. 警官", "2. 官庁"],
+    contohBelakang: [
+      "官（カン）<br>1. 警官：けいかん — polisi<br>2. 官庁：かんちょう — badan pemerintah"
+    ]
+  },
+  {
+    kanji: "係",
+    contohDepan: ["1. 関係", "2. 係員", "3. 係る"],
+    contohBelakang: [
+      "係（ケイ・かかる・かかり）<br>1. 関係：かんけい — hubungan<br>2. 係員：かかりいん — petugas<br>3. 係る：かかる — berkaitan"
+    ]
+  },
+  {
+  kanji: "感",
+  contohDepan: ["1. 感じる", "2. 感動", "3. 感謝", "4. 感情", "5. 感覚"],
+  contohBelakang: [
+    "感（カン）<br>1. 感じる：かんじる — merasakan<br>2. 感動：かんどう — tersentuh secara emosional<br>3. 感謝：かんしゃ — terima kasih<br>4. 感情：かんじょう — perasaan<br>5. 感覚：かんかく — indra, rasa"
+  ]
+},
+  {
+    kanji: "投",
+    contohDepan: ["1. 投げる", "2. 投票", "3. 投書"],
+    contohBelakang: [
+      "投（トウ・なげる）<br>1. 投げる：なげる — melempar<br>2. 投票：とうひょう — pemungutan suara<br>3. 投書：とうしょ — surat pembaca"
+    ]
+  },
+ {
+  kanji: "変",
+  contohDepan: ["1. 変える", "2. 変わる", "3. 変化", "4. 大変", "5. 変"],
+  contohBelakang: [
+    "変（ヘン・かえる・かわる）<br>1. 変える：かえる — mengubah<br>2. 変わる：かわる — berubah<br>3. 変化：へんか — perubahan<br>4. 大変：たいへん — sulit, berat<br>5. 変：へん — aneh"
+  ]
+},
+  {
+    kanji: "打",
+    contohDepan: ["1. 打つ"],
+    contohBelakang: [
+      "打（ダ・うつ）<br>1. 打つ：うつ — memukul/menembak"
+    ]
+  },
+  {
+  kanji: "直",
+  contohDepan: ["1. 直接", "2. 直す", "3. 正直"],
+  contohBelakang: [
+    "直（チョク・ジキ・なおす・ただちに）<br>1. 直接：ちょくせつ — langsung<br>2. 直す：なおす — memperbaiki<br>3. 正直：しょうじき — jujur"
+  ]
+},
+  {
+    kanji: "両",
+    contohDepan: ["1. 両親", "2. 両方", "3. 両替"],
+    contohBelakang: [
+      "両（リョウ）<br>1. 両親：りょうしん — orang tua<br>2. 両方：りょうほう — kedua sisi/keduanya<br>3. 両替：りょうがえ — penukaran uang"
+    ]
+  },
+  {
+  kanji: "式",
+  contohDepan: ["1. 結婚式", "2. 正式"],
+  contohBelakang: [
+    "式（シキ）<br>1. 結婚式：けっこんしき — upacara pernikahan<br>2. 正式：せいしき — resmi, formal"
+  ]
+},
+  {
+    kanji: "果",
+    contohDepan: ["1. 結果", "2. 果物", "3. 効果"],
+    contohBelakang: [
+      "果（カ・はたす・はて）<br>1. 結果：けっか — hasil<br>2. 果物：くだもの — buah-buahan<br>3. 効果：こうか — efek/khasiat"
+    ]
+  },
+  {
+    kanji: "必",
+    contohDepan: ["1. 必要", "2. 必ず"],
+    contohBelakang: [
+      "必（ヒツ・かならず）<br>1. 必要：ひつよう — perlu<br>2. 必ず：かならず — pasti/selalu"
+    ]
+  },
+  {
+  kanji: "争",
+  contohDepan: ["1. 争う", "2. 戦争", "3. 競争", "4. 論争"],
+  contohBelakang: [
+    "争（ソウ・あらそう）<br>1. 争う：あらそう — berselisih/bersaing<br>2. 戦争：せんそう — perang<br>3. 競争：きょうそう — kompetisi<br>4. 論争：ろんそう — perdebatan"
+  ]
+},
+  {
+    kanji: "談",
+    contohDepan: ["1. 相談", "2. 冗談"],
+    contohBelakang: [
+      "談（ダン）<br>1. 相談：そうだん — diskusi/konsultasi<br>2. 冗談：じょうだん — lelucon/candaan"
+    ]
+  },
+     {
+  kanji: "無",
+  contohDepan: ["1. 無理", "2. 無料", "3. 無事"],
+  contohBelakang: [
+    "無（ム・ブ・ない）<br>1. 無理：むり — tidak masuk akal/mustahil<br>2. 無料：むりょう — gratis<br>3. 無事：ぶじ — selamat/tidak apa-apa"
+  ]
+},
+{
+  kanji: "位",
+  contohDepan: ["1. 地位", "2. 単位", "3. 上位", "4. 一位"],
+  contohBelakang: [
+    "位（イ・くらい）<br>1. 地位：ちい — posisi/jabatan<br>2. 単位：たんい — satuan, SKS dalam kuliah<br>3. 上位：じょうい — peringkat atas<br>4. 一位：いちい — juara pertama"
+  ]
+},
+{
+  kanji: "置",
+  contohDepan: ["1. 位置", "2. 放置", "3. 配置", "4. 置く"],
+  contohBelakang: [
+    "置（チ・おく）<br>1. 位置：いち — posisi/lokasi<br>2. 放置：ほうち — dibiarkan<br>3. 配置：はいち — penataan<br>4. 置く：おく — meletakkan"
+  ]
+},
+{
+  kanji: "流",
+  contohDepan: ["1. 流れる", "2. 流す", "3. 流行"],
+  contohBelakang: [
+    "流（リュウ・ル・ながれる・ながす）<br>1. 流れる：ながれる — mengalir<br>2. 流す：ながす — mengalirkan, menyalurkan<br>3. 流行：りゅうこう — tren"
+  ]
+},
+     {
+  kanji: "局",
+  contohDepan: ["1. 郵便局", "2. 結局"],
+  contohBelakang: [
+    "局（キョク）<br>1. 郵便局：ゆうびんきょく — kantor pos<br>>2. 結局：けっきょく — pada akhirnya"
+  ]
+},
+{
+  kanji: "放",
+  contohDepan: ["1. 放送", "2. 放す"],
+  contohBelakang: [
+    "放（ホウ・はなす・はなれる）<br>1. 放送：ほうそう — siaran<br>2. 放す：はなす — melepaskan" ]
+},
+{
+  kanji: "球",
+  contohDepan: ["1. 野球", "2. 地球", "3. 電球"],
+  contohBelakang: [
+    "球（キュウ・たま）<br>1. 野球：やきゅう — baseball<br>2. 地球：ちきゅう — bumi<br>3. 電球：でんきゅう — bola lampu"
+  ]
+},
+{
+  kanji: "役",
+  contohDepan: ["1. 役に立つ", "2. 市役所"],
+  contohBelakang: [
+    "役（ヤク・エキ）<br>1. 役に立つ：やくにたつ — berguna<br>2. 市役所：しやくしょ — kantor walikota" ]
+},
+{
+  kanji: "身",
+  contohDepan: ["1. 身長", "2. 出身", "3. 自身"],
+  contohBelakang: [
+    "身（シン・み）<br>1. 身長：しんちょう — tinggi badan<br>2. 出身：しゅっしん — asal<br>3. 自身：じしん — diri sendiri"
+  ]
+},
+{
+  kanji: "費",
+  contohDepan: ["1. 費用", "2. 消費", "3. 学費"],
+  contohBelakang: [
+    "費（ヒ・ついやす・ついえる）<br>1. 費用：ひよう — biaya<br>2. 消費：しょうひ — konsumsi/pemakaian<br>3. 学費：がくひ — uang sekolah"
+  ]
+},
+{
+  kanji: "付",
+  contohDepan: ["1. 付ける", "2. 受付", "3. 添付"],
+  contohBelakang: [
+    "付（フ・つける・つく）<br>1. 付ける：つける — menempelkan<br>2. 受付：うけつけ — resepsionis<br>3. 添付：てんぷ — lampiran"
+  ]
+},
+{
+  kanji: "由",
+  contohDepan: ["1. 自由", "2. 理由", "3. 経由"],
+  contohBelakang: [
+    "由（ユ・ユウ・よし）<br>1. 自由：じゆう — kebebasan<br>2. 理由：りゆう — alasan<br>3. 経由：けいゆ — via, lewat"
+  ]
+},
+    {
+  kanji: "夫",
+  contohDepan: ["1. 夫婦", "2. 大丈夫", "3. 夫"],
+  contohBelakang: [
+    "夫（フ・フウ・おっと）<br>1. 夫婦：ふうふ — suami istri<br>2. 大丈夫：だいじょうぶ — tidak apa-apa<br>3. 夫：おっと — suami (sendiri)"
+  ]
+},
+{
+  kanji: "石",
+  contohDepan: ["1. 石油", "2. 石鹸", "3. 石炭", "4. 石"],
+  contohBelakang: [
+    "石（セキ・シャク・コク・いし）<br>1. 石油：せきゆ — minyak bumi<br>2. 石鹸：せっけん — sabun<br>3. 石炭：せきたん — batu bara<br>4. 石：いし — batu/bebatuan"
+  ]
+},
+{
+  kanji: "消",
+  contohDepan: ["1. 消える", "2. 消す", "3. 消防", "4. 消費"],
+  contohBelakang: [
+    "消（ショウ・きえる・けす）<br>1. 消える：きえる — padam, hilang<br>2. 消す：けす — memadamkan, menghapus<br>3. 消防：しょうぼう — pemadam kebakaran<br>4. 消費：しょうひ — konsumsi/pemakaian"
+  ]
+},
+{
+  kanji: "神",
+  contohDepan: ["1. 神社", "2. 神様", "3. 神経", "4. 精神"],
+  contohBelakang: [
+    "神（シン・ジン・かみ）<br>1. 神社：じんじゃ — kuil Shinto<br>2. 神様：かみさま — dewa, Tuhan<br>3. 神経：しんけい — saraf<br>4. 精神：せいしん — jiwa, semangat, mental"
+  ]
+},
+{
+  kanji: "番",
+  contohDepan: ["1. 番号", "2. 一番", "3. 番組"],
+  contohBelakang: [
+    "番（バン）<br>1. 番号：ばんごう — nomor<br>2. 一番：いちばん — nomor satu<br>3. 番組：ばんぐみ — acara TV"
+  ]
+},
+{
+  kanji: "害",
+  contohDepan: ["1. 損害", "2. 障害"],
+  contohBelakang: [
+    "害（ガイ）<br>1. 損害：そんがい — kerugian, kerusakan<br>2. 障害：しょうがい — hambatan, gangguan"
+  ]
+},
+{
+  kanji: "配",
+  contohDepan: ["1. 配る", "2. 配達", "3. 心配", "4. 支配"],
+  contohBelakang: [
+    "配（ハイ・くばる）<br>1. 配る：くばる — membagikan<br>2. 配達：はいたつ — pengiriman<br>3. 心配：しんぱい — khawatir<br>4. 支配：しはい — kendali, dominasi"
+  ]
+},
+{
+  kanji: "育",
+  contohDepan: ["1. 教育", "2. 育てる","3. 体育"],
+  contohBelakang: [
+    "育（イク・そだつ・そだてる・はぐくむ）<br>1. 教育：きょういく — pendidikan<br>2. 育てる：そだてる — membesarkan<br>3. 体育：たいいく — olahraga"
+  ]
+},
+     {
+  kanji: "席",
+  contohDepan: ["1. 出席", "2. 欠席", "3. 座席"],
+  contohBelakang: [
+    "席（セキ）<br>1. 出席：しゅっせき — hadir<br>2. 欠席：けっせき — absen<br>3. 座席：ざせき — tempat duduk"
+  ]
+},
+{
+  kanji: "残",
+  contohDepan: ["1. 残る", "2. 残す", "3. 残業", "4. 残念"],
+  contohBelakang: [
+    "残（ザン・のこる・のこす）<br>1. 残る：のこる — tersisa<br>2. 残す：のこす — menyisakan<br>3. 残業：ざんぎょう — lembur<br>4. 残念：ざんねん — sayang sekali"
+  ]
+},
+{
+  kanji: "想",
+  contohDepan: ["1. 理想", "2. 想像"],
+  contohBelakang: [
+    "想（ソウ）<br>1. 理想：りそう — ideal<br>2. 想像：そうぞう — imajinasi, membayangkan"
+  ]
+},
+{
+  kanji: "念",
+  contohDepan: ["1. 記念", "2. 残念"],
+  contohBelakang: [
+    "念（ネン）<br>1. 記念：きねん — peringatan<br>2. 残念：ざんねん — disayangkan"
+  ]
+},
+     {
+  kanji: "助",
+  contohDepan: ["1. 助ける", "2. 助かる", "3. 援助", "4. 助手"],
+  contohBelakang: [
+    "助（ジョ・たすける・たすかる・すけ）<br>1. 助ける：たすける — menolong<br>2. 助かる：たすかる — tertolong<br>3. 援助：えんじょ — bantuan<br>4. 助手：じょしゅ — asisten"
+  ]
+},
+{
+  kanji: "労",
+  contohDepan: ["1. 労働", "2. 苦労", "3. 労力", "4. 労使"],
+  contohBelakang: [
+    "労（ロウ）<br>1. 労働：ろうどう — kerja, tenaga kerja<br>2. 苦労：くろう — kesusahan, usaha keras<br>3. 労力：ろうりょく — tenaga kerja, usaha<br>4. 労使：ろうし — buruh dan manajemen"
+  ]
+},
+{
+  kanji: "例",
+  contohDepan: ["1. 例えば", "2. 例文"],
+  contohBelakang: [
+    "例（レイ・たとえる）<br>1. 例えば：たとえば — misalnya/contohnya<br>2. 例文：れいぶん — contoh kalimat"
+  ]
+},
+{
+  kanji: "然",
+  contohDepan: ["1. 自然", "2. 全然", "3. 偶然"],
+  contohBelakang: [
+    "然（ゼン・ネン）<br>1. 自然：しぜん — alam, alami<br>2. 全然：ぜんぜん — sama sekali (negatif)<br>3. 偶然：ぐうぜん — kebetulan"
+  ]
+},
+{
+  kanji: "追",
+  contohDepan: ["1. 追いつく", "2. 追加"],
+  contohBelakang: [
+    "追（ツイ・おう）<br>1. 追いつく：おいつく — menyusul, mengejar sampai<br>2. 追加：ついか — penambahan"
+  ]
+},
+{
+  kanji: "商",
+  contohDepan: [ "1. 商品","2. 商売", ],
+  contohBelakang: [
+    "商（ショウ・あきなう）<br>1. 商品：しょうひん — produk <br>2. 商売：しょうばい — bisnis, dagang"
+  ]
+},
+{
+  kanji: "葉",
+  contohDepan: [ "1. 言葉", "2. 紅葉", "3. 葉書"],
+  contohBelakang: [
+    "葉（ヨウ・は）<br>1. 言葉：ことば — kata, bahasa<br>2. 紅葉：こうよう／もみじ — daun merah musim gugur<br>3. 葉書：はがき — kartu pos"
+  ]
+},
+{
+  kanji: "伝",
+  contohDepan: ["1. 伝える", "2. 伝わる", "3. 伝統","4. 手伝う"],
+  contohBelakang: [
+    "伝（デン・つたえる・つたわる・つたう）<br>1. 伝える：つたえる — menyampaikan<br>2. 伝わる：つたわる — tersampaikan<br>3. 伝統：でんとう — tradisi<br>4. 手伝う：てつだう — membantu"
+  ]
+},
+     {
+  kanji: "形",
+  contohDepan: ["1. 形", "2. 人形"],
+  contohBelakang: [
+    "形（ケイ・ギョウ・かた・かたち）<br>1. 形：かたち — bentuk<br>2. 人形：にんぎょう — boneka"  ]
+},
+{
+  kanji: "景",
+  contohDepan: ["1. 景", "2. 景色", "3. 景気"],
+  contohBelakang: [
+    "景（ケイ）<br>1. 景：けい — pemandangan<br>2. 景色：けしき — pemandangan<br>3. 景気：けいき — kondisi ekonomi"
+  ]
+},
+{
+  kanji: "落",
+  contohDepan: ["1. 落ちる", "2. 落とす", "3. 落ち着く"],
+  contohBelakang: [
+    "落（ラク・おちる・おとす）<br>1. 落ちる：おちる — jatuh<br>2. 落とす：おとす — menjatuhkan<br>3. 落ち着く：おちつく — tenang "
+  ]
+},
+{
+  kanji: "負",
+  contohDepan: ["1. 負ける", "2. 負かす", "3. 勝負"],
+  contohBelakang: [
+    "負（フ・まける・まかす・おう）<br>1. 負ける：まける — kalah<br>2. 負かす：まかす — mengalahkan<br>3. 勝負：しょうぶ — pertandingan"
+  ]
+},
+{
+  kanji: "失",
+  contohDepan: ["1. 失敗", "2. 失礼", "3. 失う", "4. 失業"],
+  contohBelakang: [
+    "失（シツ・うしなう）<br>1. 失敗：しっぱい — kegagalan<br>2. 失礼：しつれい — tidak sopan<br>3. 失う：うしなう — kehilangan<br>4. 失業：しつぎょう — pengangguran"
+  ]
+},
+{
+  kanji: "差",
+  contohDepan: ["1. 差", "2. 差別", "3. 交差点"],
+  contohBelakang: [
+    "差（サ・さす）<br>1. 差：さ — selisih<br>2. 差別：さべつ — diskriminasi<br>3. 交差点：こうさてん — perempatan"
+  ]
+},
+{
+  kanji: "末",
+  contohDepan: ["1. 週末", "2. 年末", "3. 月末", "4. 末っ子"],
+  contohBelakang: [
+    "末（マツ・バツ・すえ）<br>1. 週末：しゅうまつ — akhir pekan<br>2. 年末：ねんまつ — akhir tahun<br>3. 月末：げつまつ — akhir bulan<br>4. 末っ子：すえっこ — anak bungsu"
+  ]
+},
+{
+  kanji: "守",
+  contohDepan: ["1. 守る", "2. 留守"],
+  contohBelakang: [
+    "守（シュ・まもる・もり）<br>1. 守る：まもる — melindungi, mematuhi<br>2. 留守：るす — tidak di rumah"
+  ]
+},
+{
+  kanji: "種",
+  contohDepan: ["1. 種類", "2. 人種", "3. 種"],
+  contohBelakang: [
+    "種（シュ・たね）<br>1. 種類：しゅるい — jenis<br>2. 人種：じんしゅ — ras manusia<br>3. 種：たね — biji, benih"
+  ]
+},
+{
+  kanji: "美",
+  contohDepan: ["1. 美しい", "2. 美術", "3. 美人", "4. 美味しい"],
+  contohBelakang: [
+    "美（ビ・うつくしい）<br>1. 美しい：うつくしい — indah, cantik<br>2. 美術：びじゅつ — seni rupa<br>3. 美人：びじん — wanita cantik<br>4. 美味しい：おいしい — enak (※ditulis 美味 meskipun umum: おいしい)"
+  ]
+},
+{
+  kanji: "命",
+  contohDepan: ["1. 命", "2. 寿命", "3. 運命", "4. 生命"],
+  contohBelakang: [
+    "命（メイ・ミョウ・いのち）<br>1. 命：いのち — nyawa<br>2. 寿命：じゅみょう — umur (harapan hidup)<br>3. 運命：うんめい — takdir<br>4. 生命：せいめい — kehidupan"
+  ]
+},
+{
+  kanji: "福",
+  contohDepan: ["1. 幸福"],
+  contohBelakang: [
+    "福（フク）<br>1. 幸福：こうふく — kebahagiaan"
+  ]
+},{
+  kanji: "望",
+  contohDepan: ["1. 望む", "2. 希望", "3. 失望"],
+  contohBelakang: [
+    "望（ボウ・モウ・のぞむ）<br>1. 望む：のぞむ — mengharapkan<br>2. 希望：きぼう — harapan<br>3. 失望：しつぼう — kecewa"
+  ]
+},
+{
+  kanji: "観",
+  contohDepan: ["1. 観光", "2. 観客", "3. 観察"],
+  contohBelakang: [
+    "観（カン）<br>1. 観光：かんこう — wisata<br>2. 観客：かんきゃく — penonton<br>3. 観察：かんさつ — pengamatan"
+  ]
+},
+{
+  kanji: "察",
+  contohDepan: ["1. 警察", "2. 観察", "3. 診察"],
+  contohBelakang: [
+    "察（サツ）<br>1. 警察：けいさつ — polisi<br>2. 観察：かんさつ — pengamatan/observasi<br>3. 診察：しんさつ — pemeriksaan medis"
+  ]
+},
+{
+  kanji: "横",
+  contohDepan: ["1. 横", "2. 横断"],
+  contohBelakang: [
+    "横（オウ・よこ）<br>1. 横：よこ — horizontal, sisi, samping<br>2. 横断：おうだん — penyeberangan"
+  ]
+},
+{
+  kanji: "深",
+  contohDepan: ["1. 深い","3. 深刻"],
+  contohBelakang: [
+    "深（シン・ふかい・ふかまる・ふかめる）<br>1. 深い：ふかい — dalam<br>3. 深刻：しんこく — serius"
+  ]
+},
+{
+  kanji: "申",
+  contohDepan: ["1. 申し込む", "2. 申請", "3. 申し訳"],
+  contohBelakang: [
+    "申（シン・もうす）<br>1. 申し込む：もうしこむ — mendaftar<br>2. 申請：しんせい — aplikasi (permohonan resmi)<br>3. 申し訳：もうしわけ — permintaan maaf"
+  ]
+},
+{
+  kanji: "様",
+  contohDepan: ["1. 様", "2. 同様", "3. 神様"],
+  contohBelakang: [
+    "様（ヨウ・さま）<br>1. 様：さま — Tuan (bentuk sopan untuk sapaan orang) <br>2. 同様：どうよう — serupa, sama<br>3. 神様：かみさま — Tuhan"
+  ]
+},
+{
+  kanji: "港",
+  contohDepan: ["1. 空港", "2. 港", "3. 港町", "4. 出港"],
+  contohBelakang: [
+    "港（コウ・みなと）<br>1. 空港：くうこう — bandara<br>2. 港：みなと — pelabuhan<br>3. 港町：みなとまち — kota pelabuhan<br>4. 出港：しゅっこう — keberangkatan kapal"
+  ]
+},
+     {
+  kanji: "達",
+  contohDepan: ["1. 上達", "2. 達人", "3. 発達", "4. 友達"],
+  contohBelakang: [
+    "達（タツ）<br>1. 上達：じょうたつ — kemajuan (skill)<br>2. 達人：たつじん — ahli<br>3. 発達：はったつ — perkembangan<br>4. 友達：ともだち — teman"
+  ]
+},
+{
+  kanji: "良",
+  contohDepan: ["1. 良い"],
+  contohBelakang: [
+    "良（リョウ・よい）<br>1. 良い：よい — baik"
+  ]
+},
+{
+  kanji: "候",
+  contohDepan: ["1. 候補", "2. 天候", "3. 気候"],
+  contohBelakang: [
+    "候（コウ・そうろう）<br>1. 候補：こうほ — calon/kandidat<br>2. 天候：てんこう — cuaca<br>3. 気候：きこう — iklim"
+  ]
+},
+{
+  kanji: "満",
+  contohDepan: ["1. 満足", "2. 不満", "3. 満員"],
+  contohBelakang: [
+    "満（マン・みちる・みたす）<br>1. 満足：まんぞく — puas<br>2. 不満：ふまん — ketidakpuasan<br>3. 満員：まんいん — penuh orang"
+  ]
+},
+{
+  kanji: "敗",
+  contohDepan: [ "1. 失敗"],
+  contohBelakang: [
+    "敗（ハイ・やぶれる）<br>1. 失敗：しっぱい — kegagalan"
+  ]
+},
+{
+  kanji: "路",
+  contohDepan: ["1. 道路", "2. 線路"],
+  contohBelakang: [
+    "路（ロ・じ）<br>1. 道路：どうろ — jalan raya<br>2. 線路：せんろ — rel kereta"
+  ]
+},
+{
+  kanji: "科",
+  contohDepan: ["1. 科学", "2. 科目", "3. 教科書", "4. 外科"],
+  contohBelakang: [
+    "科（カ）<br>1. 科学：かがく — ilmu pengetahuan<br>2. 科目：かもく — mata pelajaran<br>3. 教科書：きょうかしょ — buku pelajaran<br>4. 外科：げか — bedah/departemen bedah"
+  ]
+},
+{
+  kanji: "積",
+  contohDepan: [ "1. 積もる", "2. 積極的"],
+  contohBelakang: [
+    "積（セキ・つむ・つもる）<br>1. 積もる：つもる — menumpuk (salju, dsb)<br>2. 積極的：せっきょくてき — aktif, positif, proaktif<br>"
+  ]
+},
+{
+  kanji: "他",
+  contohDepan: ["1. その他", "2. 他人"],
+  contohBelakang: [
+    "他（タ・ほか）<br>1. その他：そのた/そのほか — selain itu<br>2. 他人：たにん — orang lain<br>"
+  ]
+},
+{
+  kanji: "客",
+  contohDepan: ["1. 客", "2. 乗客", "3. 観客"],
+  contohBelakang: [
+    "客（キャク・カク）<br>1. 客：きゃく — tamu<br>2. 乗客：じょうきゃく — penumpang<br>3. 観客：かんきゃく — penonton"
+  ]
+},
+{
+  kanji: "登",
+  contohDepan: ["1. 登る", "2. 登録", "3. 登山"],
+  contohBelakang: [
+    "登（トウ・ト・のぼる）<br>1. 登る：のぼる — mendaki<br>2. 登録：とうろく — registrasi/pendaftaran<br>3. 登山：とざん — pendakian gunung"
+  ]
+},
+{
+  kanji: "速",
+  contohDepan: ["1. 速い", "2. 速度", "3. 早速", "4. 高速"],
+  contohBelakang: [
+    "速（ソク・はやい・すみやか）<br>1. 速い：はやい — cepat<br>2. 速度：そくど — kecepatan<br>3. 早速：さっそく — segera<br>4. 高速：こうそく — berkecepatan tinggi"
+  ]
+},
+     {
+  kanji: "飛",
+  contohDepan: ["1. 飛ぶ", "2. 飛行機", "3. 飛ばす", "4. 飛び出す"],
+  contohBelakang: [
+    "飛（ヒ・とぶ・とばす）<br>1. 飛ぶ：とぶ — terbang<br>2. 飛行機：ひこうき — pesawat<br>3. 飛ばす：とばす — menerbangkan<br>4. 飛び出す：とびだす — melompat keluar, muncul keluar"
+  ]
+},
+  {
+    kanji: "殺",
+    contohDepan: ["1. 殺す", "2. 自殺"],
+    contohBelakang: [
+      "殺（サツ・サイ・セツ・ころす）<br>1. 殺す：ころす — membunuh<br>2. 自殺：じさつ — bunuh diri"
+    ]
+  },
+  {
+    kanji: "号",
+    contohDepan: ["1. 番号", "2. 信号"],
+    contohBelakang: [
+      "号（ゴウ）<br>1. 番号：ばんごう — nomor<br>2. 信号：しんごう — lampu lalu lintas"
+    ]
+  },
+  {
+  kanji: "単",
+  contohDepan: ["1. 単語", "2. 単位", "3. 簡単", "4. 単純"],
+  contohBelakang: [
+    "単（タン）<br>1. 単語：たんご — kosakata<br>2. 単位：たんい — satuan<br>3. 簡単：かんたん — mudah<br>4. 単純：たんじゅん — sederhana"
+  ]
+},
+  {
+    kanji: "完",
+    contohDepan: ["1. 完了", "2. 完成", "3. 完璧", "4. 完全"],
+    contohBelakang: [
+      "完（カン）<br>1. 完了：かんりょう — selesai<br>2. 完成：かんせい — penyelesaian<br>3. 完璧：かんぺき — sempurna<br>4. 完全：かんぜん — keseluruhan"
+    ]
+  },
+  {
+    kanji: "給",
+    contohDepan: ["1. 給料", "2. 支給", "3. 月給"],
+    contohBelakang: [
+      "給（キュウ）<br>1. 給料：きゅうりょう — gaji<br>2. 支給：しきゅう — pemberian (tunjangan, dll)<br>3. 月給：げっきゅう — gaji bulanan"
+    ]
+  },
+  {
+    kanji: "苦",
+    contohDepan: ["1. 苦しい", "2. 苦労", "3. 苦い", "4. 苦手"],
+    contohBelakang: [
+      "苦（ク・くるしい・くるしむ・くるしめる・にがい・にがる）<br>1. 苦しい：くるしい — menyakitkan<br>2. 苦労：くろう — penderitaan<br>3. 苦い：にがい — pahit<br>4. 苦手：にがて — tidak suka/tidak mahir"
+    ]
+  },
+  {
+    kanji: "園",
+    contohDepan: ["1. 公園", "2. 動物園"],
+    contohBelakang: [
+      "園（エン・その）<br>1. 公園：こうえん — taman<br>2. 動物園：どうぶつえん — kebun binatang"
+    ]
+  },
+      {
+  kanji: "具",
+  contohDepan: ["1. 具合", "2. 道具", "3. 家具", "4. 具体"],
+  contohBelakang: [
+    "具（グ）<br>1. 具合：ぐあい — kondisi<br>2. 道具：どうぐ — alat<br>3. 家具：かぐ — perabot<br>4. 具体：ぐたい — konkret"
+  ]
+},
+  {
+    kanji: "辞",
+    contohDepan: ["1. 辞める", "2. 辞書"],
+    contohBelakang: [
+      "辞（ジ・やめる）<br>1. 辞める：やめる — berhenti (kerja, sekolah)<br>2. 辞書：じしょ — kamus"
+    ]
+  },
+  {
+  kanji: "馬",
+  contohDepan: ["1. 馬", "2. 馬鹿"],
+  contohBelakang: [
+    "馬（バ・うま・ま）<br>1. 馬：うま — kuda<br>2. 馬鹿：ばか — bodoh (kasar)"
+  ]
+},
+  {
+    kanji: "愛",
+    contohDepan: ["1. 愛", "2. 愛情", "3. 恋愛"],
+    contohBelakang: [
+      "愛（アイ）<br>1. 愛：あい — cinta<br>2. 愛情：あいじょう — kasih sayang<br>3. 恋愛：れんあい — percintaan"
+    ]
+  },
+  {
+  kanji: "未",
+  contohDepan: ["1. 未来", "２. 未だ"],
+  contohBelakang: [
+    "未（ミ）<br>1. 未来：みらい — masa depan<br>2. 未だ：まだ — belum（biasanya ditulis dalam kana)"
+  ]
+},
+  {
+    kanji: "冷",
+    contohDepan: ["1. 冷たい", "2. 冷える", "3. 冷房", "4. 冷蔵庫"],
+    contohBelakang: [
+      "冷（レイ・つめたい・ひえる・ひやす・ひやかす・さめる・さます）<br>1. 冷たい：つめたい — dingin (sentuhan)<br>2. 冷える：ひえる — menjadi dingin<br>3. 冷房：れいぼう — AC<br>4. 冷蔵庫：れいぞうこ — kulkas"
+    ]
+  },
+  {
+  kanji: "類",
+  contohDepan: ["1. 書類", "2. 種類", "3. 人類"],
+  contohBelakang: [
+    "類（ルイ）<br>1. 書類：しょるい — dokumen<br>2. 種類：しゅるい — jenis<br>3. 人類：じんるい — umat manusia"
+  ]
+},
+  {
+    kanji: "王",
+    contohDepan: ["1. 王様", "2. 国王", "3. 女王", "4. 王子"],
+    contohBelakang: [
+      "王（オウ）<br>1. 王様：おうさま — raja<br>2. 国王：こくおう — raja suatu negara<br>3. 女王：じょおう — ratu<br>4. 王子：おうじ — pangeran"
+    ]
+  },
+     {
+  kanji: "返",
+  contohDepan: ["1. 返す", "2. 返事", "3. 繰り返す"],
+  contohBelakang: [
+    "返（ヘン・かえす・かえる）<br>1. 返す：かえす — mengembalikan<br>2. 返事：へんじ — balasan/jawaban<br>3. 繰り返す：くりかえす — mengulang"
+  ]
+},
+  {
+    kanji: "熱",
+    contohDepan: ["1. 熱い", "2. 高熱", "3. 熱心"],
+    contohBelakang: [
+      "熱（ネツ・あつい）<br>1. 熱い：あつい — panas<br>2. 高熱：こうねつ — demam tinggi<br>3. 熱心：ねっしん — semangat/antusias"
+    ]
+  },
+  {
+    kanji: "宿",
+    contohDepan: ["1. 宿題", "2. 宿泊"],
+    contohBelakang: [
+      "宿（シュク・やど・やどる・やどす）<br>1. 宿題：しゅくだい — PR<br>2. 宿泊：しゅくはく — akomodasi/penginapan"
+    ]
+  },
+  {
+    kanji: "覚",
+    contohDepan: ["1. 覚える", "2. 目覚まし", "3. 感覚", "4. 覚悟"],
+    contohBelakang: [
+      "覚（カク・おぼえる・さます・さめる）<br>1. 覚える：おぼえる — menghafal, ingat<br>2. 目覚まし：めざまし — alarm<br>3. 感覚：かんかく — indra/perasaan<br>4. 覚悟：かくご — kesiapan mental"
+    ]
+  },
+     {
+    kanji: "船",
+    contohDepan: ["1. 船"],
+    contohBelakang: [
+      "船（セン・ふね）<br>1. 船：ふね — kapal"
+    ]
+  },
+  {
+    kanji: "努",
+    contohDepan: ["1. 努力"],
+    contohBelakang: [
+      "努（ド・つとめる）<br>1. 努力：どりょく — usaha keras"
+    ]
+  },
+  {
+    kanji: "散",
+    contohDepan: ["1. 散歩", "2. 散る"],
+    contohBelakang: [
+      "散（サン・ちる・ちらす・ちらかす・ちらかる）<br>1. 散歩：さんぽ — jalan-jalan<br>2. 散る：ちる — gugur, jatuh（misal: daun), tersebar "]
+  },
+  {
+    kanji: "静",
+    contohDepan: ["1. 静か", "2. 冷静"],
+    contohBelakang: [
+      "静（セイ・ジョウ・しずか・しずまる・しずめる）<br>1. 静か：しずか — tenang<br>2. 冷静：れいせい — tenang (secara mental)"
+    ]
+  },
+  {
+    kanji: "喜",
+    contohDepan: ["1. 喜ぶ", "2. 喜び"],
+    contohBelakang: [
+      "喜（キ・よろこぶ）<br>1. 喜ぶ：よろこぶ — senang, merasa gembira<br>2. 喜び：よろこび — kegembiraan"
+    ]
+  },
+  {
+  kanji: "幸",
+  contohDepan: ["1. 幸せ", "2. 幸福", "3. 不幸", "4. 幸運", "5. 幸い"],
+  contohBelakang: [
+    "幸（コウ・さいわい・しあわせ・きち）<br>1. 幸せ：しあわせ — bahagia<br>2. 幸福：こうふく — kebahagiaan<br>3. 不幸：ふこう — kesedihan<br>4. 幸運：こううん — keberuntungan<br>5. 幸い：さいわい — keberuntungan, syukur"
+  ]
+},
+  {
+    kanji: "等",
+    contohDepan: ["1. 等しい", "2. 上等", "2. 平等"],
+    contohBelakang: [
+      "等（トウ・ひとしい）<br>1. 等しい：ひとしい — setara<br>2. 上等：じょうとう — berkualitas tinggi<br>3. 平等：びょうどう — kesetaraan"
+    ]
+  },
+  {
+    kanji: "老",
+    contohDepan: ["1. 老人"],
+    contohBelakang: [
+      "老（ロウ・おいる・ふける）<br>1. 老人：ろうじん — orang tua/lanjut usia"
+    ]
+  },
+  {
+    kanji: "曲",
+    contohDepan: ["1. 曲がる", "2. 作曲", "2. 曲"],
+    contohBelakang: [
+      "曲（キョク・まがる・まげる）<br>1. 曲がる：まがる — membelok<br>2. 作曲：さっきょく — menyusun lagu<br>2. 曲：きょく — lagu"
+    ]
+  },
+  {
+    kanji: "庭",
+    contohDepan: ["1. 庭", "2. 家庭"],
+    contohBelakang: [
+      "庭（テイ・にわ）<br>1. 庭：にわ — taman<br>2. 家庭：かてい — rumah tangga"
+    ]
+  },
+  {
+    kanji: "徒",
+    contohDepan: [ "1. 教徒", "2. 生徒"],
+    contohBelakang: [
+      "徒（ト）<br>1. 教徒：きょうと — penganut agama<br>2. 生徒：せいと — murid<br>"
+    ]
+  },
+  {
+    kanji: "欠",
+    contohDepan: ["1. 欠ける", "2. 欠点", "3. 欠席"],
+    contohBelakang: [
+      "欠（ケツ・かける）<br>1. 欠ける：かける — kurang<br>2. 欠点：けってん — kekurangan<br>3. 欠席：けっせき — absen"
+    ]
+  },
+  {
+    kanji: "息",
+    contohDepan: ["1. 息", "2. 休息", "3. ため息", "4. 息子"],
+    contohBelakang: [
+      "息（ソク・いき）<br>1. 息：いき — napas<br>2. 休息：きゅうそく — istirahat<br>3. ため息：ためいき — menghela napas<br>4. 息子：むすこ — anak laki-laki"
+    ]
+  },
+  {
+    kanji: "願",
+    contohDepan: ["1. 願う", "2. 願望"],
+    contohBelakang: [
+      "願（ガン・ねがう）<br>1. 願う：ねがう — memohon<br>2. 願望：がんぼう — keinginan"
+    ]
+  },
+  {
+  kanji: "絵",
+  contohDepan: ["1. 絵", "2. 絵本", "3. 絵画"],
+  contohBelakang: [
+    "絵（カイ・エ）<br>1. 絵：え — gambar<br>2. 絵本：えほん — buku bergambar<br>3. 絵画：かいが — lukisan, karya seni gambar"
+  ]
+},
+  {
+    kanji: "笑",
+    contohDepan: ["1. 笑う", "2. 笑顔"],
+    contohBelakang: [
+      "笑（ショウ・わらう・えむ）<br>1. 笑う：わらう — tertawa<br>2. 笑顔：えがお — wajah tersenyum"
+    ]
+  },
+  {
+    kanji: "束",
+    contohDepan: ["1. 束", "2. 約束"],
+    contohBelakang: [
+      "束（ソク・たば）<br>1. 束：たば — ikatan<br>2. 約束：やくそく — janji"
+    ]
+  },
+  {
+    kanji: "列",
+    contohDepan: ["1. 列", "2. 行列", "3. 列車"],
+    contohBelakang: [
+      "列（レツ）<br>1. 列：れつ — barisan<br>2. 行列：ぎょうれつ — antrean<br>3. 列車：れっしゃ — kereta api"
+    ]
+  },
+  {
+    kanji: "遊",
+    contohDepan: ["1. 遊ぶ", "2. 遊園地"],
+    contohBelakang: [
+      "遊（ユウ・あそぶ）<br>1. 遊ぶ：あそぶ — bermain<br>2. 遊園地：ゆうえんち — taman hiburan"
+    ]
+  },
+  {
+    kanji: "君",
+    contohDepan: ["1. 君"],
+    contohBelakang: [
+      "君（クン・きみ）<br>1. 君：きみ/くん — kamu/panggilan orang (informal)"
+    ]
+  },
+      {
+    kanji: "折",
+    contohDepan: ["1. 折る", "2. 折れる", "3. 骨折", "4. 折り紙"],
+    contohBelakang: [
+      "折（セツ・おる・おり・おれる）<br>1. 折る：おる — melipat, mematahkan<br>2. 折れる：おれる — patah<br>3. 骨折：こっせつ — patah tulang<br>4. 折り紙：おりがみ — origami"
+    ]
+  },
+  {
+    kanji: "草",
+    contohDepan: ["1. 草"],
+    contohBelakang: [
+      "草（ソウ・くさ）<br>1. 草：くさ — rumput"
+    ]
+  },
+  {
+    kanji: "酒",
+    contohDepan: ["1. お酒", "2. 酒屋", "3. 飲酒", "4. 酒場"],
+    contohBelakang: [
+      "酒（シュ・さけ・さか）<br>1. お酒：おさけ — alkohol<br>2. 酒屋：さかや — toko minuman keras<br>3. 飲酒：いんしゅ — minum alkohol<br>4. 酒場：さかば — bar"
+    ]
+  },
+  {
+    kanji: "悲",
+    contohDepan: ["1. 悲しい", "2. 悲しむ", "3. 悲劇"],
+    contohBelakang: [
+      "悲（ヒ・かなしい・かなしむ）<br>1. 悲しい：かなしい — sedih<br>2. 悲しむ：かなしむ — bersedih<br>3. 悲劇：ひげき — tragedi"
+    ]
+  },
+  {
+    kanji: "晴",
+    contohDepan: ["1. 晴れる", "2. 快晴"],
+    contohBelakang: [
+      "晴（セイ・はれる・はらす）<br>1. 晴れる：はれる — cerah<br>2. 快晴：かいせい — cuaca cerah sempurna"
+    ]
+  },
+  {
+    kanji: "陽",
+    contohDepan: ["1. 太陽", "2. 陽気"],
+    contohBelakang: [
+      "陽（ヨウ）<br>1. 太陽：たいよう — matahari<br>2. 陽気：ようき — ceria"
+    ]
+  },
+  {
+  kanji: "歯",
+  contohDepan: ["1. 歯", "2. 歯医者", "3. 虫歯"],
+  contohBelakang: [
+    "歯（シ・は）<br>1. 歯：は — gigi<br>2. 歯医者：はいしゃ — dokter gigi<br>3. 虫歯：むしば — gigi berlubang"
+  ]
+},
+  {
+    kanji: "雪",
+    contohDepan: ["1. 雪", "2. 大雪", "3. 吹雪"],
+    contohBelakang: [
+      "雪（セツ・ゆき）<br>1. 雪：ゆき — salju<br>2. 大雪：おおゆき — salju lebat<br>3. 吹雪：ふぶき — badai salju"
+    ]
+  },
+  {
+  kanji: "礼",
+  contohDepan: ["1. 礼", "2. 礼儀", "3. お礼"],
+  contohBelakang: [
+    "礼（レイ・ライ）<br>1. 礼：れい — sopan santun<br>2. 礼儀：れいぎ — tata krama<br>3. お礼：おれい — ucapan terima kasih"
+  ]
+},
+  {
+    kanji: "昔",
+    contohDepan: ["1. 昔", "2. 昔話"],
+    contohBelakang: [
+      "昔（セキ・シャク・むかし）<br>1. 昔：むかし — dahulu<br>2. 昔話：むかしばなし — cerita lama, legenda"
+    ]
+  },
+  {
+    kanji: "泳",
+    contohDepan: ["1. 泳ぐ", "2. 水泳"],
+    contohBelakang: [
+      "泳（エイ・およぐ）<br>1. 泳ぐ：およぐ — berenang<br>2. 水泳：すいえい — renang"
+    ]
+  },
+  {
+    kanji: "鳴",
+    contohDepan: ["1. 鳴く", "2. 鳴る"],
+    contohBelakang: [
+      "鳴（メイ・なく・なる・ならす）<br>1. 鳴く：なく — berkicau<br>2. 鳴る：なる — berbunyi"
+    ]
+  },
+  {
+    kanji: "箱",
+    contohDepan: ["1. 箱", "2. ゴミ箱",  "3. 郵便箱"],
+    contohBelakang: [
+      "箱（はこ）<br>1. 箱：はこ — kotak<br>2. ゴミ箱：ごみばこ — tempat sampah<br>3. 郵便箱：ゆうびんばこ — kotak pos"
+    ]
+  },
+  {
+    kanji: "才",
+    contohDepan: ["1. 天才", "2. 才能"],
+    contohBelakang: [
+      "才（サイ）<br>1. 天才：てんさい — jenius<br>2. 才能：さいのう — bakat, talenta"
+    ]
+  },
+  {
+    kanji: "政",
+    contohDepan: ["1. 政治", "2. 政府", "3. 政党"],
+    contohBelakang: [
+      "政（セイ・ショウ・まつりごと）<br>1. 政治：せいじ — politik<br>2. 政府：せいふ — pemerintah<br>3. 政党：せいとう — partai politik"
+    ]
+  },
+  {
+  kanji: "経",
+  contohDepan: ["1. 経済", "2. 経験", "3. 経由", "4. 神経", "5. 経営"],
+  contohBelakang: [
+    "経（ケイ・キョウ・へる）<br>1. 経済：けいざい — ekonomi<br>2. 経験：けいけん — pengalaman<br>3. 経由：けいゆ — lewat, via<br>4. 神経：しんけい — saraf<br>5. 経営：けいえい — manajemen, pengelolaan"
+  ]
+},
+  {
+  kanji: "現",
+  contohDepan: ["1. 現れる", "2. 現在", "3. 現金", "4. 現実", "5. 実現", "6. 現場"],
+  contohBelakang: [
+    "現（ゲン・あらわれる・あらわす）<br>1. 現れる：あらわれる — muncul<br>2. 現在：げんざい — saat ini<br>3. 現金：げんきん — uang tunai<br>4. 現実：げんじつ — kenyataan<br>5. 実現：じつげん — terwujud, realisasi<br>6. 現場：げんば — lokasi kejadian/lapangan"
+  ]
+},
+  {
+  kanji: "性",
+  contohDepan: ["1. 性格", "2. 性別", "3. 性格", "4. 男性", "5. 女性"],
+  contohBelakang: [
+    "性（セイ・ショウ）<br>1. 性格：せいかく — kepribadian<br>2. 性別：せいべつ — jenis kelamin<br>3. 性格：せいかく — kepribadian, sifat<br>4. 男性：だんせい — pria<br>5. 女性：じょせい — perempuan"
+  ]
+},
+  {
+    kanji: "制",
+    contohDepan: ["1. 制度", "2. 制限"],
+    contohBelakang: [
+      "制（セイ）<br>1. 制度：せいど — sistem<br>2. 制限：せいげん — batasan"
+    ]
+  },
+  {
+    kanji: "務",
+    contohDepan: ["1. 勤務", "2. 義務", "3. 務める", "4. 事務"],
+    contohBelakang: [
+      "務（ム・つとめる・つとまる）<br>1. 勤務：きんむ — kerja<br>2. 義務：ぎむ — kewajiban/tugas<br>3. 務める：つとめる — bertugas<br>4. 事務：じむ — pekerjaan kantor"
+    ]
+  },
+     {
+    kanji: "権",
+    contohDepan: ["1. 権利", "2. 人権"],
+    contohBelakang: [
+      "権（ケン・ゴン）<br>1. 権利：けんり — hak<br>2. 人権：じんけん — hak asasi manusia"
+    ]
+  },
+  {
+  kanji: "支",
+  contohDepan: ["1. 支える", "2. 支店", "3. 支出", "4. 支配", "5. 支払う", "6. 支給", "7. 支度"],
+  contohBelakang: [
+    "支（シ・ささえる）<br>1. 支える：ささえる — menopang<br>2. 支店：してん — cabang toko<br>3. 支出：ししゅつ — pengeluaran<br>4. 支配：しはい — kendali, dominasi<br>5. 支払う：しはらう — membayar<br>6. 支給：しきゅう — pemberian, tunjangan<br>7. 支度：したく — persiapan"
+  ]
+},
+  {
+  kanji: "報",
+  contohDepan: ["1. 報告", "2. 情報", "3. 天気予報"],
+  contohBelakang: [
+    "報（ホウ・むくいる）<br>1. 報告：ほうこく — laporan<br>2. 情報：じょうほう — informasi<br>3. 天気予報：てんきよほう — prakiraan cuaca"
+  ]
+},
+  {
+    kanji: "済",
+    contohDepan: ["1. 経済", "2. 済む", "3. 済ませる"],
+    contohBelakang: [
+      "済（サイ・すむ・すます）<br>1. 経済：けいざい — ekonomi<br>2. 済む：すむ — selesai<br>3. 済ませる：すませる — menyelesaikan"
+    ]
+  },
+  {
+    kanji: "解",
+    contohDepan: ["1. 解く", "2. 解ける", "3. 解決", "4. 理解"],
+    contohBelakang: [
+      "解（カイ・ゲ・とく・とかす・とける）<br>1. 解く：とく — memecahkan, menyelesaikan<br>2. 解ける：とける — terpecahkan, terurai<br>3. 解決：かいけつ — penyelesaian<br>4. 理解：りかい — pemahaman"
+    ]
+  },
+  {
+  kanji: "資",
+  contohDepan: ["1. 資料", "2. 資格", "3. 資源"],
+  contohBelakang: [
+    "資（シ）<br>1. 資料：しりょう — data, bahan<br>2. 資格：しかく — kualifikasi<br>3. 資源：しげん — sumber daya"
+  ]
+},
+  {
+    kanji: "際",
+    contohDepan: ["1. 実際", "2. 国際", "3. 交際"],
+    contohBelakang: [
+      "際（サイ・きわ）<br>1. 実際：じっさい — kenyataan<br>2. 国際：こくさい — internasional<br>3. 交際：こうさい — hubungan sosial"
+    ]
+  },
+  {
+  kanji: "判",
+  contohDepan: ["1. 判断", "2. 評判", "3. 判決", "4. 批判"],
+  contohBelakang: [
+    "判（ハン・バン）<br>1. 判断：はんだん — penilaian<br>2. 評判：ひょうばん — reputasi, rumor<br>3. 判決：はんけつ — putusan hukum<br>4. 批判：ひはん — kritik"
+  ]
+},
+  {
+    kanji: "認",
+    contohDepan: ["1. 認める", "2. 認定", "3. 確認"],
+    contohBelakang: [
+      "認（ニン・みとめる）<br>1. 認める：みとめる — mengakui<br>2. 認定：にんてい — pengakuan resmi<br>3. 確認：かくにん — konfirmasi"
+    ]
+  },
+  {
+  kanji: "在",
+  contohDepan: ["1. 現在", "2. 在宅", "3. 存在"],
+  contohBelakang: [
+    "在（ザイ・ある）<br>1. 現在：げんざい — saat ini<br>2. 在宅：ざいたく — di rumah<br>3. 存在：そんざい — keberadaan, eksistensi"
+  ]
+},
+  {
+    kanji: "件",
+    contohDepan: ["1. 事件", "2. 条件", "3. 件数"],
+    contohBelakang: [
+      "件（ケン）<br>1. 事件：じけん — kejadian, insiden<br>2. 条件：じょうけん — syarat<br>3. 件数：けんすう — jumlah kasus"
+    ]
+  },
+  {
+    kanji: "任",
+    contohDepan: ["1. 任せる", "2. 任務", "3. 責任"],
+    contohBelakang: [
+      "任（ニン・まかせる・まかす）<br>1. 任せる：まかせる — mempercayakan<br>2. 任務：にんむ — tugas<br>3. 責任：せきにん — tanggung jawab"
+    ]
+  },
+  {
+    kanji: "論",
+    contohDepan: ["1. 論文", "2. 議論", "3. 結論"],
+    contohBelakang: [
+      "論（ロン）<br>1. 論文：ろんぶん — karya tulis ilmiah<br>2. 議論：ぎろん — debat, diskusi<br>3. 結論：けつろん — kesimpulan"
+    ]
+  },
+  {
+    kanji: "増",
+    contohDepan: ["1. 増える", "2. 増やす", "3. 増加"],
+    contohBelakang: [
+      "増（ゾウ・ます・ふえる・ふやす）<br>1. 増える：ふえる — bertambah, meningkat<br>2. 増やす：ふやす — menambah, meningkatkan<br>3. 増加：ぞうか — pertambahan"
+    ]
+  },
+  {
+  kanji: "情",
+  contohDepan: ["1. 情報", "2. 感情", "3. 同情", "4. 愛情", "5. 表情", "6. 事情"],
+  contohBelakang: [
+    "情（ジョウ・セイ・なさけ）<br>1. 情報：じょうほう — informasi<br>2. 感情：かんじょう — emosi<br>3. 同情：どうじょう — simpati<br>4. 愛情：あいじょう — kasih sayang<br>5. 表情：ひょうじょう — ekspresi wajah<br>6. 事情：じじょう — situasi, keadaan"
+  ]
+},
+  {
+    kanji: "示",
+    contohDepan: ["1. 示す", "2. 指示"],
+    contohBelakang: [
+      "示（ジ・シ・しめす）<br>1. 示す：しめす — menunjukkan<br>2. 指示：しじ — instruksi"
+    ]
+  },
+  {
+    kanji: "確",
+    contohDepan: ["1. 確か", "2. 確認", "3. 明確"],
+    contohBelakang: [
+      "確（カク・たしか・たしかめる）<br>1. 確か：たしか — pasti<br>2. 確認：かくにん — konfirmasi<br>3. 明確：めいかく — jelas"
+    ]
+  },
+  {
+  kanji: "容",
+  contohDepan: ["1. 内容", "2. 容器", "3. 美容", "4. 容易"],
+  contohBelakang: [
+    "容（ヨウ）<br>1. 内容：ないよう — isi<br>2. 容器：ようき — wadah<br>3. 美容：びよう — kecantikan<br>4. 容易：ようい — mudah, sederhana"
+  ]
+},
+  {
+  kanji: "演",
+  contohDepan: ["1. 演技", "2. 演奏", "3. 公演", "4. 講演", "5. 演説"],
+  contohBelakang: [
+    "演（エン）<br>1. 演技：えんぎ — akting<br>2. 演奏：えんそう — pertunjukan musik<br>3. 公演：こうえん — pertunjukan<br>4. 講演：こうえん — ceramah, kuliah, seminar<br>5. 演説：えんぜつ — pidato"
+  ]
+},
+  {
+  kanji: "歳",
+  contohDepan: ["1. ～歳"],
+  contohBelakang: [
+    "歳（サイ・セイ）<br>1. ～歳：～さい — ... tahun (umur) "
+  ]
+}, {
+  kanji: "能",
+  contohDepan: ["1. 能力", "2. 可能", "3. 機能", "4. 才能"],
+  contohBelakang: [
+    "能（ノウ）<br>1. 能力：のうりょく — kemampuan<br>2. 可能：かのう — mungkin<br>3. 機能：きのう — fungsi<br>4. 才能：さいのう — bakat"
+  ]
+},
+  {
+  kanji: "格",
+  contohDepan: ["1. 性格", "2. 合格", "3. 価格", "4. 格好"],
+  contohBelakang: [
+    "格（カク・コウ）<br>1. 性格：せいかく — kepribadian<br>2. 合格：ごうかく — lulus<br>3. 価格：かかく — harga<br>4. 格好：かっこう — penampilan"
+  ]
+},
+  {
+    kanji: "疑",
+    contohDepan: ["1. 疑う", "2. 疑問"],
+    contohBelakang: [
+      "疑（ギ・うたがう）<br>1. 疑う：うたがう — meragukan<br>2. 疑問：ぎもん — pertanyaan, ragu"
+    ]
+  },
+  {
+    kanji: "過",
+    contohDepan: ["1. 過ぎる", "2. 過ごす"],
+    contohBelakang: [
+      "過（カ・すぎる・すごす・あやまつ・あやまち）<br>1. 過ぎる：すぎる — melewati<br>2. 過ごす：すごす — menghabiskan waktu"
+    ]
+  },
+ {
+  kanji: "常",
+  contohDepan: ["1. 常に", "2. 日常", "3. 非常口", "4. 異常"],
+  contohBelakang: [
+    "常（ジョウ・つね・とこ）<br>1. 常に：つねに — selalu<br>2. 日常：にちじょう — kehidupan sehari-hari<br>3. 非常口：ひじょうぐち — pintu darurat<br>4. 異常：いじょう — tidak normal, abnormal"
+  ]
+},
+  {
+    kanji: "状",
+    contohDepan: ["1. 状況", "2. 状態"],
+    contohBelakang: [
+      "状（ジョウ）<br>1. 状況：じょうきょう — situasi/kondisi (luar / lingkungan)<br>2. 状態：じょうたい — kondisi"
+    ]
+  },
+  {
+    kanji: "職",
+    contohDepan: ["1. 職業", "2. 職場", "3. 就職"],
+    contohBelakang: [
+      "職（ショク）<br>1. 職業：しょくぎょう — pekerjaan<br>2. 職場：しょくば — tempat kerja<br>3. 就職：しゅうしょく — mencari pekerjaan, mendapat pekerjaan"
+    ]
+  },
+  {
+    kanji: "与",
+    contohDepan: ["1. 与える"],
+    contohBelakang: [
+      "与（ヨ・あたえる）<br>1. 与える：あたえる — memberikan"
+    ]
+  },
+  {
+    kanji: "供",
+    contohDepan: ["1. 供える", "2. 供給", "3. 子供"],
+    contohBelakang: [
+      "供（キョウ・ク・そなえる・とも）<br>1. 供える：そなえる — mempersembahkan, mendedikasikan br>2. 供給：きょうきゅう — suplai<br>3. 子供：こども — anak"
+    ]
+  },
+  {
+    kanji: "構",
+    contohDepan: ["1. 構う", "2. 構成", "3. 結構"],
+    contohBelakang: [
+      "構（コウ・かまえる・かまう）<br>1. 構う：かまう — peduli<br>2. 構成：こうせい — struktur, organisasi<br>3. 結構：けっこう — cukup"
+    ]
+  },
+  {
+    kanji: "割",
+    contohDepan: ["1. 割る", "2. 割れる", "3. 割合"],
+    contohBelakang: [
+      "割（カツ・わる・われる・さく）<br>1. 割る：わる — membagi, memecah<br>2. 割れる：われる — pecah<br>3. 割合：わりあい — persentase"
+    ]
+  },
+  {
+    kanji: "難",
+    contohDepan: ["1. 難しい", "2. 困難"],
+    contohBelakang: [
+      "難（ナン・かたい・むずかしい）<br>1. 難しい：むずかしい — sulit<br>2. 困難：こんなん — kesulitan"
+    ]
+  },
+  {
+  kanji: "優",
+  contohDepan: ["1. 優しい", "2. 俳優", "3. 優勝", "4. 優先"],
+  contohBelakang: [
+    "優（ユウ・やさしい・すぐれる）<br>1. 優しい：やさしい — lembut, baik<br>2. 俳優：はいゆう — aktor<br>3. 優勝：ゆうしょう — juara<br>4. 優先：ゆうせん — prioritas"
+  ]
+},
+  {
+    kanji: "収",
+    contohDepan: ["1. 収める", "2. 収入", "3. 吸収"],
+    contohBelakang: [
+      "収（シュウ・おさめる・おさまる）<br>1. 収める：おさめる — menerima, mengumpulkan<br>2. 収入：しゅうにゅう — penghasilan<br>3. 吸収：きゅうしゅう — penyerapan"
+    ]
+  },
+  {
+  kanji: "断",
+  contohDepan: ["1. 断る", "2. 判断", "3. 横断"],
+  contohBelakang: [
+    "断（ダン・たつ・ことわる）<br>1. 断る：ことわる — menolak<br>2. 判断：はんだん — penilaian<br>3. 横断：おうだん — penyeberangan"
+  ]
+},
+  {
+    kanji: "違",
+    contohDepan: ["1. 違う", "2. 間違い", "3. 違反"],
+    contohBelakang: [
+      "違（イ・ちがう・ちがえる）<br>1. 違う：ちがう — berbeda<br>2. 間違い：まちがい — kesalahan<br>3. 違反：いはん — pelanggaran"
+    ]
+  },
+  {
+    kanji: "規",
+    contohDepan: ["1. 規則"],
+    contohBelakang: [
+      "規（キ）<br>1. 規則：きそく — aturan"
+    ]
+  },
+  {
+    kanji: "術",
+    contohDepan: ["1. 美術", "2. 手術", "3. 技術", "4. 芸術"],
+    contohBelakang: [
+      "術（ジュツ）<br>1. 美術：びじゅつ — seni rupa<br>2. 手術：しゅじゅつ — operasi<br>3. 技術：ぎじゅつ — teknologi, teknik<br>4. 芸術：げいじゅつ — seni"
+    ]
+  },
+  {
+    kanji: "備",
+    contohDepan: ["1. 備える", "2. 準備", "3. 設備"],
+    contohBelakang: [
+      "備（ビ・そなえる・そなわる）<br>1. 備える：そなえる — mempersiapkan<br>2. 準備：じゅんび — persiapan<br>3. 設備：せつび — fasilitas"
+    ]
+  },
+  {
+    kanji: "宅",
+    contohDepan: ["1. 自宅", "2. 帰宅", "3. 宅配", "4. 住宅"],
+    contohBelakang: [
+      "宅（タク）<br>1. 自宅：じたく — rumah sendiri<br>2. 帰宅：きたく — pulang ke rumah<br>3. 宅配：たくはい — pengiriman ke rumah<br>4. 住宅：じゅうたく — perumahan"
+    ]
+  },
+     {
+    kanji: "警",
+    contohDepan: ["1. 警察", "2. 警告"],
+    contohBelakang: [
+      "警（ケイ）<br>1. 警察：けいさつ — polisi<br>2. 警告：けいこく — peringatan"
+    ]
+  },
+  {
+    kanji: "訪",
+    contohDepan: ["1. 訪ねる", "2. 訪問"],
+    contohBelakang: [
+      "訪（ホウ・たずねる・おとずれる）<br>1. 訪ねる：たずねる — mengunjungi<br>2. 訪問：ほうもん — kunjungan"
+    ]
+  },
+  {
+    kanji: "限",
+    contohDepan: ["1. 制限", "2. 限界", "3. 限る"],
+    contohBelakang: [
+      "限（ゲン・かぎる）<br>1. 制限：せいげん — pembatasan<br>2. 限界：げんかい — batas<br>3. 限る：かぎる — membatasi"
+    ]
+  },
+  {
+  kanji: "退",
+  contohDepan: ["1. 退院", "2. 引退", "3. 退屈"],
+  contohBelakang: [
+    "退（タイ・しりぞく・しりぞける）<br>1. 退院：たいいん — keluar dari rumah sakit<br>2. 引退：いんたい — pensiun<br>3. 退屈：たいくつ — bosan"
+  ]
+},
+  {
+    kanji: "渡",
+    contohDepan: ["1. 渡る", "2. 渡す"],
+    contohBelakang: [
+      "渡（ト・わたる・わたす）<br>1. 渡る：わたる — menyeberang<br>2. 渡す：わたす — menyerahkan"
+    ]
+  },
+  {
+    kanji: "若",
+    contohDepan: ["1. 若い", "2. 若者"],
+    contohBelakang: [
+      "若（ジャク・ニャク・わかい・もしくは）<br>1. 若い：わかい — muda<br>2. 若者：わかもの — anak muda"
+    ]
+  },
+  {
+    kanji: "非",
+    contohDepan: ["1. 非常", "2. 非常口"],
+    contohBelakang: [
+      "非（ヒ）<br>1. 非常：ひじょう — darurat, ekstrem<br>2. 非常口：ひじょうぐち — pintu darurat"
+    ]
+  },
+  {
+  kanji: "段",
+  contohDepan: ["1. 階段", "2. 値段", "3. 手段"],
+  contohBelakang: [
+    "段（ダン）<br>1. 階段：かいだん — tangga<br>2. 値段：ねだん — harga<br>3. 手段：しゅだん — cara, metode"
+  ]
+},
+  {
+  kanji: "財",
+  contohDepan: ["1. 財布", "2. 財産"],
+  contohBelakang: [
+    "財（ザイ・サイ）<br>1. 財布：さいふ — dompet<br>2. 財産：ざいさん — aset"
+  ]
+},
+  {
+    kanji: "識",
+    contohDepan: ["1. 知識", "2. 常識", "3. 意識"],
+    contohBelakang: [
+      "識（シキ）<br>1. 知識：ちしき — pengetahuan<br>2. 常識：じょうしき — pengetahuan umum<br>3. 意識：いしき — kesadaran, perhatian"
+    ]
+  },
+  {
+    kanji: "呼",
+    contohDepan: ["1. 呼ぶ", "2. 呼び出す", "3. 呼吸"],
+    contohBelakang: [
+      "呼（コ・よぶ）<br>1. 呼ぶ：よぶ — memanggil<br>2. 呼び出す：よびだす — memanggil, menelepon<br>3. 呼吸：こきゅう — napas"
+    ]
+  },
+  {
+    kanji: "程",
+    contohDepan: ["1. 程度", "2. 日程"],
+    contohBelakang: [
+      "程（テイ・ほど）<br>1. 程度：ていど — tingkat, derajat<br>2. 日程：にってい — jadwal"
+    ]
+  },
+  {
+    kanji: "値",
+    contohDepan: ["1. 値段", "2. 価値"],
+    contohBelakang: [
+      "値（チ・ね・あたい）<br>1. 値段：ねだん — harga<br>2. 価値：かち — nilai"
+    ]
+  },
+  {
+    kanji: "突",
+    contohDepan: ["1. 突く", "2. 突然", "3. 衝突"],
+    contohBelakang: [
+      "突（トツ・つく）<br>1. 突く：つく — menusuk<br>2. 突然：とつぜん — tiba-tiba<br>3. 衝突：しょうとつ — tabrakan"
+    ]
+  },
+  {
+    kanji: "処",
+    contohDepan: ["1. 処理"],
+    contohBelakang: [
+      "処（ショ）<br>1. 処理：しょり — pemrosesan"
+    ]
+  },
+  {
+    kanji: "否",
+    contohDepan: ["1. 否定", "2. 賛否"],
+    contohBelakang: [
+      "否（ヒ・いな）<br>1. 否定：ひてい — penyangkalan<br>2. 賛否：さんぴ — pro dan kontra"
+    ]
+  },
+  {
+  kanji: "師",
+  contohDepan: ["1. 医師", "2. 教師", "3. 看護師", "4. 技師"],
+  contohBelakang: [
+    "師（シ）<br>1. 医師：いし — dokter<br>2. 教師：きょうし — guru<br>3. 看護師：かんごし — perawat<br>4. 技師：ぎし — teknisi, insinyur"
+  ]
+},
+  {
+    kanji: "易",
+    contohDepan: ["1. 易しい", "2. 貿易", "3. 容易"],
+    contohBelakang: [
+      "易（エキ・イ・やさしい）<br>1. 易しい：やさしい — mudah<br>2. 貿易：ぼうえき — perdagangan luar negeri<br>3. 容易：ようい — sederhana"
+    ]
+  },
+  {
+    kanji: "存",
+    contohDepan: ["1. 存在", "2. 保存", "3. 存じる"],
+    contohBelakang: [
+      "存（ソン・ゾン）<br>1. 存在：そんざい — keberadaan<br>2. 保存：ほぞん — penyimpanan, konservasi<br>3. 存じる：ぞんじる — tahu (sonkeigo)"
+    ]
+  },
+  {
+    kanji: "座",
+    contohDepan: ["1. 座る", "2. 座席"],
+    contohBelakang: [
+      "座（ザ・すわる）<br>1. 座る：すわる — duduk<br>2. 座席：ざせき — kursi"
+    ]
+  },
+     
+    {
+  kanji: "破",
+  contohDepan: ["1. 破る", "2. 破れる", "3. 破産"],
+  contohBelakang: [
+    "破（ハ・やぶる・やぶれる）<br>1. 破る：やぶる — merobek, menghancurkan<br>2. 破れる：やぶれる — robek, hancur<br>3. 破産：はさん — bangkrut"
+  ]
+},
+{
+  kanji: "除",
+  contohDepan: ["1. 除く", "2. 削除", "3. 掃除"],
+  contohBelakang: [
+    "除（ジョ・ジ・のぞく）<br>1. 除く：のぞく — menghapus, mengecualikan<br>2. 削除：さくじょ — penghapusan<br>3. 掃除：そうじ — bersih-bersih"
+  ]
+},
+{
+  kanji: "降",
+  contohDepan: ["1. 降りる", "2. 降ろす", "3. 降る"],
+  contohBelakang: [
+    "降（コウ・おりる・おろす・ふる）<br>1. 降りる：おりる — turun<br>2. 降ろす：おろす — menurunkan<br>3. 降る：ふる — turun (hujan, salju)"
+  ]
+},
+{
+  kanji: "責",
+  contohDepan: ["1. 責める", "2. 責任"],
+  contohBelakang: [
+    "責（セキ・せめる）<br>1. 責める：せめる — menyalahkan<br>2. 責任：せきにん — tanggung jawab"
+  ]
+},
+{
+  kanji: "捕",
+  contohDepan: ["1. 捕まえる", "2. 逮捕"],
+  contohBelakang: [
+    "捕（ホ・とらえる・とらわれる・つかまえる・つかまる）<br>1. 捕まえる：つかまえる — menangkap<br>2. 逮捕：たいほ — penangkapan (oleh polisi)"
+  ]
+},
+{
+  kanji: "危",
+  contohDepan: ["1. 危ない", "2. 危険"],
+  contohBelakang: [
+    "危（キ・あぶない）<br>1. 危ない：あぶない — berbahaya<br>2. 危険：きけん — bahaya"
+  ]
+},
+{
+  kanji: "迎",
+  contohDepan: ["1. 迎える", "2. 歓迎"],
+  contohBelakang: [
+    "迎（ゲイ・むかえる）<br>1. 迎える：むかえる — menyambut<br>2. 歓迎：かんげい — sambutan hangat, penerimaan"
+  ]
+},
+{
+  kanji: "因",
+  contohDepan: ["1. 原因"],
+  contohBelakang: [
+    "因（イン・よる）<br>1. 原因：げんいん — penyebab"
+  ]
+},
+{
+  kanji: "富",
+  contohDepan: ["1. 豊富"],
+  contohBelakang: [
+    "富（フ・フウ・とむ・とみ）<br>1. 豊富：ほうふ — melimpah, kekayaan"
+  ]
+},
+{
+  kanji: "彼",
+  contohDepan: ["1. 彼", "2. 彼女", "3. 彼ら"],
+  contohBelakang: [
+    "彼（ヒ・かれ・かの）<br>1. 彼：かれ — dia (laki-laki)<br>2. 彼女：かのじょ — dia (perempuan)<br>3. 彼ら：かれら — mereka"
+  ]
+},
+{
+  kanji: "舞",
+  contohDepan: ["1. 舞台", "2. 見舞い"],
+  contohBelakang: [
+    "舞（ブ・まう・まい）<br>1. 舞台：ぶたい — panggung<br>2. 見舞い：みまい — menjenguk (orang sakit)"
+  ]
+},
+{
+  kanji: "亡",
+  contohDepan: ["1. 亡くなる", "2. 死亡"],
+  contohBelakang: [
+    "亡（ボウ・モウ・ない）<br>1. 亡くなる：なくなる — meninggal<br>2. 死亡：しぼう — kematian"
+  ]
+},
+{
+  kanji: "適",
+  contohDepan: ["1. 適当", "2. 快適"],
+  contohBelakang: [
+    "適（テキ）<br>1. 適当：てきとう — sesuai, pas<br>2. 快適：かいてき — nyaman"
+  ]
+},
+{
+  kanji: "婦",
+  contohDepan: ["1. 主婦", "2. 婦人", "3. 夫婦"],
+  contohBelakang: [
+    "婦（フ）<br>1. 主婦：しゅふ — ibu rumah tangga<br>2. 婦人：ふじん — wanita<br>3. 夫婦：ふうふ — suami istri, pasangan"
+  ]
+},
+{
+  kanji: "寄",
+  contohDepan: ["1. 寄る", "2. 年寄り", "3. 寄付"],
+  contohBelakang: [
+    "寄（キ・よる・よせる）<br>1. 寄る：よる — mampir, mendekat<br>2. 年寄り：としより — tetua, lansia, orang tua<br>3. 寄付：きふ — donasi"
+  ]
+},
+{
+  kanji: "込",
+  contohDepan: ["1. 込む", "2. 申し込む"],
+  contohBelakang: [
+    "込（こむ・こめる）<br>1. 込む：こむ — padat, ramai<br>2. 申し込む：もうしこむ — mendaftar, mengajukan"
+  ]
+},
+{
+  kanji: "余",
+  contohDepan: ["1. 余裕", "2. 余分"],
+  contohBelakang: [
+    "余（ヨ・あまる・あます）<br>1. 余裕：よゆう — kelonggaran, waktu luang<br>2. 余分：よぶん — kelebihan, surplus"
+  ]
+},
+{
+  kanji: "妻",
+  contohDepan: ["1. 妻"],
+  contohBelakang: [
+    "妻（サイ・つま）<br>1. 妻：つま — istri"
+  ]
+},
+{
+  kanji: "背",
+  contohDepan: ["1. 背"],
+  contohBelakang: [
+    "背（ハイ・せ・そむく・そむける）<br>1. 背：せ — punggung"
+  ]
+},
+{
+  kanji: "険",
+  contohDepan: ["1. 危険", "2. 保険"],
+  contohBelakang: [
+    "険（ケン・けわしい）<br>1. 危険：きけん — bahaya<br>2. 保険：ほけん — asuransi"
+  ]
+}, 
+     {
+  kanji: "頼",
+  contohDepan: ["1. 頼む", "2. 信頼", "3. 依頼"],
+  contohBelakang: [
+    "頼（ライ・たのむ・たのもしい・たよる）<br>1. 頼む：たのむ — meminta, memohon<br>2. 信頼：しんらい — kepercayaan<br>3. 依頼：いらい — permintaan, permohonan"
+  ]
+},
+{
+  kanji: "途",
+  contohDepan: ["1. 途中", "2. 途端"],
+  contohBelakang: [
+    "途（ト）<br>1. 途中：とちゅう — di tengah jalan<br>2. 途端：とたん — sesaat setelah, begitu (sesuatu terjadi)"
+  ]
+},
+{
+  kanji: "許",
+  contohDepan: ["1. 許す", "2. 許可", "3. 免許"],
+  contohBelakang: [
+    "許（キョ・ゆるす）<br>1. 許す：ゆるす — mengizinkan, memaafkan<br>2. 許可：きょか — izin<br>3. 免許：めんきょ — lisensi, surat izin"
+  ]
+},
+{
+  kanji: "抜",
+  contohDepan: ["1. 抜く", "2. 抜ける"],
+  contohBelakang: ["抜（バツ・ぬく・ぬける・ぬかす・ぬかる）<br>1. 抜く：ぬく — mencabut, menarik keluar<br>2. 抜ける：ぬける — terlepas"]
+},
+{
+  kanji: "留",
+  contohDepan: ["1. 留学", "2. 留守"],
+  contohBelakang: [
+    "留（リュウ・ル・とめる・とまる）<br>1. 留学：りゅうがく — studi di luar negeri<br>2. 留守：るす — tidak di rumah, meninggalkan rumah"
+  ]
+},
+{
+  kanji: "罪",
+  contohDepan: ["1. 犯罪"],
+  contohBelakang: ["罪（ザイ・つみ）<br>1. 犯罪：はんざい — tindak kriminal, kejahatan"]
+},
+{
+  kanji: "精",
+  contohDepan: ["1. 精神"],
+  contohBelakang: ["精（セイ・ショウ）<br>1. 精神：せいしん — semangat, jiwa"]
+},
+{
+  kanji: "婚",
+  contohDepan: ["1. 結婚", "2. 婚約", "3. 離婚"],
+  contohBelakang: [
+    "婚（コン）<br>1. 結婚：けっこん — pernikahan<br>2. 婚約：こんやく — pertunangan<br>3. 離婚：りこん — perceraian"
+  ]
+},
+{
+  kanji: "浮",
+  contohDepan: ["1. 浮く", "2. 浮かぶ"],
+  contohBelakang: ["浮（フ・うく・うかれる・うかぶ・うかべる）<br>1. 浮く：うく — mengapung<br>2. 浮かぶ：うかぶ — muncul ke permukaan"]
+},
+{
+  kanji: "絶",
+  contohDepan: ["1. 絶対"],
+  contohBelakang: ["絶（ゼツ・たえる・たやす・たつ）<br>1. 絶対：ぜったい — mutlak"]
+},
+{
+  kanji: "押",
+  contohDepan: ["1. 押す", "2. 押さえる"],
+  contohBelakang: ["押（オウ・おす・おさえる）<br>1. 押す：おす — mendorong<br>2. 押さえる：おさえる — menahan"]
+},
+{
+  kanji: "倒",
+  contohDepan: ["1. 倒れる", "2. 倒す"],
+  contohBelakang: ["倒（トウ・たおれる・たおす）<br>1. 倒れる：たおれる — roboh, pingsan<br>2. 倒す：たおす — menjatuhkan"]
+},
+{
+  kanji: "払",
+  contohDepan: ["1. 払う", "2. 支払う"],
+  contohBelakang: ["払（フツ・はらう）<br>1. 払う：はらう — membayar<br>2. 支払う：しはらう — membayar (secara formal)"]
+},
+{
+  kanji: "勤",
+  contohDepan: ["1. 勤める", "2. 通勤"],
+  contohBelakang: ["勤（キン・ゴン・つとめる・つとまる）<br>1. 勤める：つとめる — bekerja<br>2. 通勤：つうきん — pergi kerja"]
+},
+{
+  kanji: "遅",
+  contohDepan: ["1. 遅れる", "2. 遅い", "3. 遅刻"],
+  contohBelakang: ["遅（チ・おくれる・おくらす・おそい）<br>1. 遅れる：おくれる — terlambat<br>2. 遅い：おそい — lambat<br>3. 遅刻：ちこく — keterlambatan"]
+},
+{
+  kanji: "居",
+  contohDepan: ["1. 居る", "2. 居間", "3. 芝居"],
+  contohBelakang: [
+    "居（キョ・いる）<br>1. 居る：いる — ada (untuk makhluk hidup)<br>2. 居間：いま — ruang tamu<br>3. 芝居：しばい — sandiwara, pertunjukan teater"
+  ]
+},
+{
+  kanji: "雑",
+  contohDepan: ["1. 雑誌", "2. 複雑", "3. 混雑"],
+  contohBelakang: [
+    "雑（ザツ・ゾウ）<br>1. 雑誌：ざっし — majalah<br>2. 複雑：ふくざつ — rumit<br>3. 混雑：こんざつ — keramaian, kepadatan"
+  ]
+},
+{
+  kanji: "招",
+  contohDepan: ["1. 招く", "2. 招待"],
+  contohBelakang: ["招（ショウ・まねく）<br>1. 招く：まねく — mengundang<br>2. 招待：しょうたい — undangan"]
+},
+{
+  kanji: "困",
+  contohDepan: ["1. 困る", "2. 困難"],
+  contohBelakang: ["困（コン・こまる）<br>1. 困る：こまる — kesulitan, bingung<br>2. 困難：こんなん — kesulitan"]
+},
+{
+  kanji: "更",
+  contohDepan: ["1. 変更", "2. 更に"],
+  contohBelakang: [
+    "更（コウ・さら・ふける・ふかす）<br>1. 変更：へんこう — perubahan<br>2. 更に：さらに — lalu, lebih jauh, semakin"
+  ]
+},
+     
+    {
+  kanji: "刻",
+  contohDepan: ["1. 刻む", "2. 時刻", "3. 深刻", "4. 遅刻"],
+  contohBelakang: [
+    "刻（コク・きざむ）<br>1. 刻む：きざむ — mengukir<br>2. 時刻：じこく — waktu<br>3. 深刻：しんこく — serius, kritis<br>4. 遅刻：ちこく — terlambat"
+  ]
+},
+{
+  kanji: "賛",
+  contohDepan: ["1. 賛成"],
+  contohBelakang: ["賛（サン）<br>1. 賛成：さんせい — setuju"]
+},
+{
+  kanji: "抱",
+  contohDepan: ["1. 抱く", "2. 抱える"],
+  contohBelakang: ["抱（ホウ・だく・いだく・かかえる）<br>1. 抱く：だく／いだく — memeluk, menggendong<br>2. 抱える：かかえる — memegang, menanggung"]
+},
+{
+  kanji: "犯",
+  contohDepan: ["1. 犯罪", "2. 犯人"],
+  contohBelakang: [
+    "犯（ハン・おかす）<br>1. 犯罪：はんざい — kejahatan<br>2. 犯人：はんにん — pelaku kejahatan"
+  ]
+},
+{
+  kanji: "恐",
+  contohDepan: ["1. 恐れる", "2. 恐ろしい", "3. 恐怖"],
+  contohBelakang: ["恐（キョウ・おそれる・おそろしい）<br>1. 恐れる：おそれる — takut<br>2. 恐ろしい：おそろしい — mengerikan<br>3. 恐怖：きょうふ — ketakutan"]
+},
+{
+  kanji: "戻",
+  contohDepan: ["1. 戻す", "2. 戻る"],
+  contohBelakang: ["戻（レイ・もどす・もどる）<br>1. 戻す：もどす — mengembalikan<br>2. 戻る：もどる — kembali"]
+},
+{
+  kanji: "越",
+  contohDepan: ["1. 越す", "2. 引っ越す"],
+  contohBelakang: ["越（エツ・こえる・こす）<br>1. 越す：こす — melampaui<br>2. 引っ越す：ひっこす — pindah rumah"]
+},
+{
+  kanji: "欲",
+  contohDepan: ["1. 欲しい", "2. 食欲"],
+  contohBelakang: ["欲（ヨク・ほっする・ほしい）<br>1. 欲しい：ほしい — ingin<br>2. 食欲：しょくよく — nafsu makan"]
+},
+     
+   {
+  kanji: "痛",
+  contohDepan: ["1. 痛い", "2. 痛み", "3. 苦痛", "4. 頭痛"],
+  contohBelakang: ["痛（ツウ・いたい・いたむ・いためる）<br>1. 痛い：いたい — sakit<br>2. 痛み：いたみ — rasa sakit<br>3. 苦痛：くつう — penderitaan, rasa sakit<br>4. 頭痛：ずつう — sakit kepala"]
+},
+{
+  kanji: "互",
+  contohDepan: ["1. 互い"],
+  contohBelakang: ["互（ゴ・たがい）<br>1. 互い：たがい — saling"]
+},
+{
+  kanji: "似",
+  contohDepan: ["1. 似る", "2. 似合う", "3. 真似"],
+  contohBelakang: ["似（ジ・にる）<br>1. 似る：にる — mirip<br>2. 似合う：にあう — cocok (dengan pakaian, dll.)<br>3. 真似：まね — meniru"]
+},
+{
+  kanji: "探",
+  contohDepan: ["1. 探す"],
+  contohBelakang: ["探（タン・さがす・さぐる）<br>1. 探す：さがす — mencari"]
+},
+{
+  kanji: "逃",
+  contohDepan: ["1. 逃げる"],
+  contohBelakang: ["逃（トウ・にげる・にがす・のがす・のがれる）<br>1. 逃げる：にげる — melarikan diri/kabur"]
+},
+{
+  kanji: "迷",
+  contohDepan: ["1. 迷う", "2. 迷子"],
+  contohBelakang: ["迷（メイ・まよう）<br>1. 迷う：まよう — bingung, tersesat<br>2. 迷子：まいご — anak yang tersesat"]
+},
+{
+  kanji: "夢",
+  contohDepan: ["1. 夢", "2. 夢中"],
+  contohBelakang: ["夢（ム・ゆめ）<br>1. 夢：ゆめ — mimpi<br>2. 夢中：むちゅう — tenggelam dalam, sangat fokus"]
+},
+{
+  kanji: "閉",
+  contohDepan: ["1. 閉じる", "2. 閉める", "3. 閉まる"],
+  contohBelakang: ["閉（ヘイ・とじる・とざす・しめる・しまる）<br>1. 閉じる：とじる — menutup (mata, rapat, dkk)<br>2. 閉める：しめる — menutup<br>3. 閉まる：しまる — tertutup"]
+},
+{
+  kanji: "緒",
+  contohDepan: ["1. 一緒"],
+  contohBelakang: ["緒（ショ・チョ・お）<br>1. 一緒：いっしょ — bersama-sama"]
+},
+{
+  kanji: "暮",
+  contohDepan: ["1. 暮れる", "2. 暮らす"],
+  contohBelakang: ["暮（ボ・くれる・くらす）<br>1. 暮れる：くれる — menjadi malam<br>2. 暮らす：くらす — menjalani hidup"]
+},
+{
+  kanji: "到",
+  contohDepan: ["1. 到着"],
+  contohBelakang: ["到（トウ）<br>1. 到着：とうちゃく — kedatangan"]
+},
+{
+  kanji: "寝",
+  contohDepan: ["1. 寝る", "2. 寝坊"],
+  contohBelakang: ["寝（シン・ねる・ねかす）<br>1. 寝る：ねる — tidur<br>2. 寝坊：ねぼう — bangun kesiangan, ketiduran"]
+},   
+     {
+  kanji: "盗",
+  contohDepan: ["1. 盗む", "2. 強盗"],
+  contohBelakang: [
+    "盗（トウ・ぬすむ）<br>1. 盗む：ぬすむ — mencuri<br>2. 強盗：ごうとう — perampok"
+  ]
+},
+{
+  kanji: "吸",
+  contohDepan: ["1. 吸う", "2. 呼吸", "3. 吸収"],
+  contohBelakang: [
+    "吸（キュウ・すう）<br>1. 吸う：すう — menghirup, mengisap<br>2. 呼吸：こきゅう — pernapasan<br>3. 吸収：きゅうしゅう — penyerapan"
+  ]
+},
+{
+  kanji: "忘",
+  contohDepan: ["1. 忘れる", "2. 忘年会", "3. 忘れ物"],
+  contohBelakang: [
+    "忘（ボウ・わすれる）<br>1. 忘れる：わすれる — lupa<br>2. 忘年会：ぼうねんかい — pesta akhir tahun<br>3. 忘れ物：わすれもの — barang yang tertinggal"
+  ]
+},
+{
+  kanji: "吹",
+  contohDepan: ["1. 吹く", "2. 吹雪"],
+  contohBelakang: [
+    "吹（スイ・ふく）<br>1. 吹く：ふく — meniup<br>2. 吹雪：ふぶき — badai salju"
+  ]
+},
+{
+  kanji: "娘",
+  contohDepan: ["1. 娘","2. 一人娘"],
+  contohBelakang: [
+    "娘（むすめ）<br>1. 娘：むすめ — anak perempuan<br>2. 一人娘：ひとりむすめ — anak perempuan satu-satunya"
+  ]
+},
+{
+  kanji: "誤",
+  contohDepan: ["1. 誤解", "2. 誤り"],
+  contohBelakang: [
+    "誤（ゴ・あやまる）<br>1. 誤解：ごかい — kesalahpahaman<br>2. 誤り：あやまり — kesalahan"
+  ]
+},
+{
+  kanji: "慣",
+  contohDepan: ["1. 慣れる", "2. 習慣"],
+  contohBelakang: [
+    "慣（カン・なれる・ならす）<br>1. 慣れる：なれる — terbiasa<br>2. 習慣：しゅうかん — kebiasaan"
+  ]
+},
+{
+  kanji: "窓",
+  contohDepan: ["1. 窓", "2. 窓口"],
+  contohBelakang: [
+    "窓（ソウ・まど）<br>1. 窓：まど — jendela<br>2. 窓口：まどぐち — loket"
+  ]
+},
+{
+  kanji: "貧",
+  contohDepan: ["1. 貧しい", "2. 貧乏", "3. 貧血"],
+  contohBelakang: [
+    "貧（ヒン・ビン・まずしい）<br>1. 貧しい：まずしい — miskin<br>2. 貧乏：びんぼう — kemiskinan (umum, informal)<br>3. 貧血：ひんけつ — anemia"
+  ]
+},
+     {
+  kanji: "怒",
+  contohDepan: ["1. 怒る", "2. 怒り"],
+  contohBelakang: [
+    "怒（ド・いかる・おこる）<br>1. 怒る：おこる — marah<br>2. 怒り：いかり — kemarahan"
+  ]
+},
+{
+  kanji: "祖",
+  contohDepan: ["1. 祖父", "2. 祖母", "3. 先祖"],
+  contohBelakang: [
+    "祖（ソ）<br>1. 祖父：そふ — kakek<br>2. 祖母：そぼ — nenek<br>3. 先祖：せんぞ — leluhur"
+  ]
+},
+{
+  kanji: "杯",
+  contohDepan: ["1. 一杯", "2. 乾杯"],
+  contohBelakang: [
+    "杯（ハイ・さかずき）<br>1. 一杯：いっぱい — satu gelas, penuh, kenyang<br>2. 乾杯：かんぱい — bersulang"
+  ]
+},
+{
+  kanji: "疲",
+  contohDepan: ["1. 疲れる", "2. 疲れ"],
+  contohBelakang: [
+    "疲（ヒ・つかれる）<br>1. 疲れる：つかれる — lelah<br>2. 疲れ：つかれ — kelelahan"
+  ]
+},
+{
+  kanji: "皆",
+  contohDepan: ["1. 皆さん", "2. 皆"],
+  contohBelakang: [
+    "皆（カイ・みな）<br>1. 皆さん：みなさん — semuanya (sopan)<br>2. 皆：みな — semua orang"
+  ]
+},
+{
+  kanji: "腹",
+  contohDepan: ["1. 腹", "2. 腹痛"],
+  contohBelakang: [
+    "腹（フク・はら）<br>1. 腹：はら — perut<br>2. 腹痛：ふくつう — sakit perut"
+  ]
+},
+{
+  kanji: "煙",
+  contohDepan: ["1. 喫煙", "2. 禁煙"],
+  contohBelakang: [
+    "煙（エン・けむる・けむり・けむい）<br>1. 喫煙：きつえん — merokok<br>2. 禁煙：きんえん — larangan merokok"
+  ]
+},
+{
+  kanji: "眠",
+  contohDepan: ["1. 眠い", "2. 眠る", "3. 睡眠"],
+  contohBelakang: [
+    "眠（ミン・ねむる・ねむい）<br>1. 眠い：ねむい — mengantuk<br>2. 眠る：ねむる — tidur<br>3. 睡眠：すいみん — tidur"
+  ]
+},
+{
+  kanji: "怖",
+  contohDepan: ["1. 怖い", "2. 恐怖"],
+  contohBelakang: [
+    "怖（フ・こわい）<br>1. 怖い：こわい — menakutkan<br>2. 恐怖：きょうふ — ketakutan"
+  ]
+},
+{
+  kanji: "頂",
+  contohDepan: ["1. 頂く", "2. 頂上"],
+  contohBelakang: [
+    "頂（チョウ・いただく・いただき）<br>1. 頂く：いただく — menerima (kenjougo)<br>2. 頂上：ちょうじょう — puncak gunung"
+  ]
+},{
+  kanji: "晩",
+  contohDepan: ["1. 今晩", "2. 晩ご飯"],
+  contohBelakang: [
+    "晩（バン）<br>1. 今晩：こんばん — malam ini<br>2. 晩ご飯：ばんごはん — makan malam"
+  ]
+},
+{
+  kanji: "髪",
+  contohDepan: ["1. 髪", "2. 髪の毛"],
+  contohBelakang: [
+    "髪（ハツ・かみ）<br>1. 髪：かみ — rambut<br>2. 髪の毛：かみのけ — rambut, helai rambut"
+  ]
+},
+{
+  kanji: "忙",
+  contohDepan: ["1. 忙しい"],
+  contohBelakang: [
+    "忙（ボウ・いそがしい）<br>1. 忙しい：いそがしい — sibuk"
+  ]
+},
+{
+  kanji: "靴",
+  contohDepan: ["1. 靴", "2. 靴下", "3. 運動靴"],
+  contohBelakang: [
+    "靴（カ・くつ）<br>1. 靴：くつ — sepatu<br>2. 靴下：くつした — kaus kaki<br>3. 運動靴：うんどうぐつ — sepatu olahraga"
+  ]
+},
+{
+  kanji: "恥",
+  contohDepan: ["1. 恥ずかしい", "2. 恥"],
+  contohBelakang: [
+    "恥（チ・はじ・はじる・はじらう・はずかしい）<br>1. 恥ずかしい：はずかしい — malu<br>2. 恥：はじ — rasa malu"
+  ]
+},
+{
+  kanji: "偶",
+  contohDepan: ["1. 偶然"],
+  contohBelakang: [
+    "偶（グウ）<br>1. 偶然：ぐうぜん — kebetulan"
+  ]
+},
+{
+  kanji: "偉",
+  contohDepan: ["1. 偉い", "2. 偉大"],
+  contohBelakang: [
+    "偉（イ・えらい）<br>1. 偉い：えらい — hebat, luar biasa<br>2. 偉大：いだい — kehebatan"
+  ]
+},
+{
+  kanji: "猫",
+  contohDepan: ["1. 猫", "2. 黒猫"],
+  contohBelakang: [
+    "猫（ビョウ・ねこ）<br>1. 猫：ねこ — kucing<br>2. 黒猫：くろねこ — kucing hitam"
+  ]
+}    
+];
 
     let flashcards = [];
     let current = 0;
@@ -2540,7 +5072,13 @@
 
     function loadLevel(level) {
       currentLevel = level;
-      flashcards = level === 'N5' ? dataN5 : dataN4;
+      if (level === 'N5') {
+  flashcards = dataN5;
+} else if (level === 'N4') {
+  flashcards = dataN4;
+} else if (level === 'N3') {
+  flashcards = dataN3;
+}
       document.getElementById("judul-level").textContent = `Flashcard Kanji JLPT ${level}`;
       document.getElementById("level-select").classList.add("hidden");
       document.getElementById("main-app").classList.remove("hidden");
@@ -2602,9 +5140,39 @@
       if (index > endIndex) index = endIndex;
       const card = flashcards[index];
       document.getElementById("kanji").textContent = card.kanji;
-      document.getElementById("contoh").innerHTML = card.contohDepan.join("<br>");
-      document.getElementById("back-merged").innerHTML = card.contohBelakang.join("<br>");
-      document.getElementById("card-inner").classList.remove("is-flipped");
+    // Bagi dua data secara vertikal
+const vocabList = card.contohDepan;
+
+if (vocabList.length < 4) {
+  // Satu kolom saja
+  document.getElementById("contoh").innerHTML = `
+    <div style="text-align: left;">
+      ${vocabList.join("<br>")}
+    </div>
+  `;
+} else {
+  // Bagi dua kolom vertikal
+  const half = Math.ceil(vocabList.length / 2);
+  const kiri = vocabList.slice(0, half);
+  const kanan = vocabList.slice(half);
+
+  document.getElementById("contoh").innerHTML = `
+    <div style="display: flex; gap: 24px;">
+      <div style="text-align: left;">
+        ${kiri.join("<br>")}
+      </div>
+      <div style="text-align: left;">
+        ${kanan.join("<br>")}
+      </div>
+    </div>
+  `;
+}
+document.getElementById("contoh").style.textAlign = "left";
+document.getElementById("back-merged").innerHTML =
+  '<div style="text-align: left; padding-left: 1em; padding-right: 1em; line-height: 1.6;">' +
+  card.contohBelakang.join("<br>") +
+  '</div>';
+document.getElementById("card-inner").classList.remove("is-flipped");
     }
 
     function flipCard() {
@@ -2624,29 +5192,50 @@
     }
 
     function showDaftarKanji() {
-      document.getElementById("main-app").classList.add("hidden");
-      document.getElementById("kanji-page").classList.remove("hidden");
-      document.getElementById("judul-daftar").textContent = `Daftar Kanji JLPT ${currentLevel}`;
+  document.getElementById("main-app").classList.add("hidden");
+  document.getElementById("kanji-page").classList.remove("hidden");
+  document.getElementById("judul-daftar").textContent = `Daftar Kanji JLPT ${currentLevel}`;
 
-      let html = `<div style="overflow-x: auto;"><table><thead><tr><th>No</th><th>Kanji</th><th>Contoh Kata</th><th>Hiragana & Arti</th></tr></thead><tbody>`;
-      flashcards.forEach((card, i) => {
-        let contohKata = [];
-        let artiGabung = [];
-        for (let idx = 0; idx < card.contohDepan.length; idx++) {
-          const nomor = idx + 1;
-          const contohKataClean = card.contohDepan[idx].replace(/^\d+\.\s*/, "");
-          const back = card.contohBelakang[idx];
-          const backClean = back.replace(/^\d+\.\s*/, "");
-          const [kanjiHira, arti] = backClean.split(" — ");
-          const [, hiragana] = kanjiHira.split("：");
-          contohKata.push(`${nomor}. ${contohKataClean}`);
-          artiGabung.push(`${nomor}. ${hiragana}: ${arti}`);
-        }
-        html += `<tr><td>${i + 1}</td><td>${card.kanji}</td><td>${contohKata.join("<br>")}</td><td>${artiGabung.join("<br>")}</td></tr>`;
-      });
-      html += "</tbody></table></div>";
-      document.getElementById("kanji-table").innerHTML = html;
+  let html = `<div style="overflow-x: auto;"><table><thead><tr><th>No</th><th>Kanji</th><th>Contoh Kata</th><th>Hiragana & Arti</th></tr></thead><tbody>`;
+  
+  flashcards.forEach((card, i) => {
+    let contohKata = [];
+    let artiGabung = [];
+
+    let belakang = card.contohBelakang;
+
+    // Jika hanya satu string panjang dan mengandung <br>, kita pecah jadi baris
+    if (belakang.length === 1 && belakang[0].includes("<br>")) {
+      belakang = belakang[0].split("<br>").slice(1); // abaikan baris pertama (judul bacaan)
     }
+
+    for (let idx = 0; idx < belakang.length; idx++) {
+      const nomor = idx + 1;
+      const contohKataClean = card.contohDepan[idx]?.replace(/^\d+\.\s*/, "") || "";
+      const back = belakang[idx];
+      const backClean = back.replace(/^\d+\.\s*/, "");
+      const [kanjiHira, arti] = backClean.split(" — ");
+      const [, hiragana] = kanjiHira?.split("：") || [];
+      contohKata.push(`${nomor}. ${contohKataClean}`);
+      artiGabung.push(`${nomor}. ${hiragana}: ${arti}`);
+    }
+
+    let kanjiDisplay = card.kanji;
+
+// cek apakah contohBelakang[0] mengandung bacaan dalam kurung
+if (card.contohBelakang?.[0]?.includes("（") && card.contohBelakang[0].includes("）")) {
+  const match = card.contohBelakang[0].match(/^(.+?)（(.+?)）/);
+  if (match) {
+    kanjiDisplay = `${match[1]}（${match[2]}）`;
+  }
+}
+
+html += `<tr><td>${i + 1}</td><td>${kanjiDisplay}</td><td>${contohKata.join("<br>")}</td><td>${artiGabung.join("<br>")}</td></tr>`;
+  });
+
+  html += "</tbody></table></div>";
+  document.getElementById("kanji-table").innerHTML = html;
+}
   </script>
 </body>
 </html>
