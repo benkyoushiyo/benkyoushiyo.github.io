@@ -123,24 +123,41 @@
       cursor: pointer;
     }
 
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 800px;
-      margin: 20px auto;
-      background: #fcfcfc;
-    }
+    /* Atur font dasar tabel */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fcfcfc;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 16px; /* ukuran font normal */
+  line-height: 1.4;
+}
 
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
-      white-space: nowrap;
-    }
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: top;
+}
 
-    th {
-      background: #f2f2f2;
-    }
+th {
+  background: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    white-space: normal; /* izinkan turun baris di HP */
+  }
+}
   </style>
 </head>
 <body>
@@ -3020,9 +3037,9 @@
 },
 {
   kanji: "活",
-  contohDepan: ["1. 活動", "2. 生活", "3. 活気", "4. 活用"],
+  contohDepan: ["1. 活動", "2. 生活", "3. 活気"],
   contohBelakang: [
-    "活（カツ）<br>1. 活動：かつどう — aktivitas<br>2. 生活：せいかつ — kehidupan sehari-hari<br>3. 活気：かっき — semangat, energi<br>4. 活用：かつよう — penggunaan secara efektif, pengaplikasian, konjugasi (kata kerja)"
+    "活（カツ）<br>1. 活動：かつどう — aktivitas<br>2. 生活：せいかつ — kehidupan sehari-hari<br>3. 活気：かっき — semangat, energi"
   ]
 },
 {
@@ -3106,7 +3123,7 @@
   kanji: "利",
   contohDepan: ["1. 利用", "2. 便利", "3. 権利", "4. 利益", "5. 利口"],
   contohBelakang: [
-    "利（リ・きく）<br>1. 利用：りよう — penggunaan<br>2. 便利：べんり — praktis<br>3. 権利：けんり — hak<br>4. 利益：りえき — keuntungan<br>5. 利口：りこう — pintar, cerdas (biasanya untuk anak-anak atau hewan)"
+    "利（リ・きく）<br>1. 利用：りよう — penggunaan<br>2. 便利：べんり — praktis<br>3. 権利：けんり — hak<br>4. 利益：りえき — keuntungan<br>5. 利口：りこう — pintar, cerdas (anak-anak atau hewan)"
   ]
 },
   {
@@ -3517,7 +3534,7 @@
   kanji: "美",
   contohDepan: ["1. 美しい", "2. 美術", "3. 美人", "4. 美味しい"],
   contohBelakang: [
-    "美（ビ・うつくしい）<br>1. 美しい：うつくしい — indah, cantik<br>2. 美術：びじゅつ — seni rupa<br>3. 美人：びじん — wanita cantik<br>4. 美味しい：おいしい — enak (※ditulis 美味 meskipun umum: おいしい)"
+    "美（ビ・うつくしい）<br>1. 美しい：うつくしい — indah, cantik<br>2. 美術：びじゅつ — seni rupa<br>3. 美人：びじん — wanita cantik<br>4. 美味しい：おいしい — enak"
   ]
 },
 {
@@ -4291,7 +4308,7 @@
     kanji: "供",
     contohDepan: ["1. 供える", "2. 供給", "3. 子供"],
     contohBelakang: [
-      "供（キョウ・ク・そなえる・とも）<br>1. 供える：そなえる — mempersembahkan, mendedikasikan br>2. 供給：きょうきゅう — suplai<br>3. 子供：こども — anak"
+      "供（キョウ・ク・そなえる・とも）<br>1. 供える：そなえる — mempersembahkan, mendedikasikan <br>2. 供給：きょうきゅう — suplai<br>3. 子供：こども — anak"
     ]
   },
   {
